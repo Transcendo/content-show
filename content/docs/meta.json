@@ -1,0 +1,20 @@
+{
+  "title": "guide",
+  "root": true,
+  "pages": [
+    "introduction",
+    "ai-resources",
+    "installation",
+    "basic-usage",
+    "comparison",
+    "concepts",
+    "authentication",
+    "adapters",
+    "integrations",
+    "infrastructure",
+    "plugins",
+    "guides",
+    "reference",
+    "examples"
+  ]
+}
