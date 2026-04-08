@@ -60,7 +60,7 @@ export default async function Page({
 		>
 			<div className="flex items-center justify-between gap-4">
 				<DocsTitle className="mb-0">{page.data.title}</DocsTitle>
-				<ExportPosterButton title={page.data.title} />
+				<div className="flex items-center gap-2">{page.url === "/docs/ai-card/asi" ? <Link className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm hover:bg-fd-accent/70" href="/docs/ai-card/asi/export">ASI Story Cards</Link> : null}<ExportPosterButton title={page.data.title} /></div>
 			</div>
 			{page.data.description && (
 				<DocsDescription>{page.data.description}</DocsDescription>
