@@ -2,12 +2,12 @@
   "title": "guide",
   "root": true,
   "pages": [
+    "ai-card",
     "introduction",
     "ai-resources",
     "installation",
     "basic-usage",
     "comparison",
-    "ai-knowledge",
     "concepts",
     "authentication",
     "adapters",
