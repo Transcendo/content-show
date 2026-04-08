@@ -68,3 +68,39 @@ pnpm build        # Production build
 pnpm start        # Serve the static out/ build
 pnpm typecheck    # Type-check the app
 ```
+
+
+## GitHub Pages Deployment
+
+This project is already configured for **static export** with Next.js:
+
+- `next.config.js` uses `output: "export"`
+- production output is generated into `out/`
+
+### Local production check
+
+```bash
+pnpm install
+pnpm build
+pnpm start
+```
+
+Then open the locally served static site.
+
+### Deploy with GitHub Actions
+
+This repository includes a GitHub Actions workflow:
+
+- `.github/workflows/deploy-github-pages.yml`
+
+To enable deployment:
+
+1. Go to **GitHub → Settings → Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Push to `main`
+4. GitHub Actions will build the site and deploy the `out/` directory to Pages
+
+### Notes
+
+- If you later publish under a repository subpath (for example `https://<user>.github.io/content-show/`), you may also need to configure `basePath` and `assetPrefix` in `next.config.js`.
+- If you deploy to a custom domain or root domain via GitHub Pages, the current setup is the simplest path.

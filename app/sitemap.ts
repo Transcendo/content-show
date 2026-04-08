@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { source } from "@/lib/source";
 
-const BASE_URL = "https://better-auth.com";
+export const dynamic = "force-static";
+
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://transcendo.github.io/content-show";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const basePages: MetadataRoute.Sitemap = [
