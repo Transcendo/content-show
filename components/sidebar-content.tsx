@@ -117,6 +117,24 @@ function contentToPageTree(content: Content): Folder {
 
 export const contents: Content[] = [
 	{
+		title: "AI Card",
+		href: "/docs/ai-card",
+		expandSectionForPathPrefix: "/docs/ai-card",
+		Icon: () => <FileBoxIcon className="w-4 h-4 text-current" />,
+		list: [
+			{
+				title: "AI Card",
+				href: "/docs/ai-card",
+				icon: () => <FileBoxIcon className="w-4 h-4 text-current" />,
+			},
+			{
+				title: "ASI",
+				href: "/docs/ai-card/asi",
+				icon: () => <Book className="w-4 h-4 text-current" />,
+			},
+		],
+	},
+	{
 		title: "Get Started",
 		Icon: () => (
 			<svg
