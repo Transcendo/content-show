@@ -23,6 +23,7 @@ import {
 	GenerateAppleJwt,
 	GenerateSecret,
 } from "@/components/docs/mdx-components";
+import { ExportPosterButton } from "@/components/docs/export-poster-button";
 import { Callout } from "@/components/ui/callout";
 import { createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
@@ -59,6 +60,7 @@ export default async function Page({
 		>
 			<div className="flex items-center justify-between gap-4">
 				<DocsTitle className="mb-0">{page.data.title}</DocsTitle>
+				<ExportPosterButton title={page.data.title} />
 			</div>
 			{page.data.description && (
 				<DocsDescription>{page.data.description}</DocsDescription>
