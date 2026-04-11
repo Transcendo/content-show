@@ -137,6 +137,11 @@ export const contents: Content[] = [
 				href: "/docs/nesthub/bytedance-beijing-renting-guide",
 				icon: () => <Book className="w-4 h-4 text-current" />,
 			},
+			{
+				title: "字节跳动（北京）租房地图",
+				href: "/docs/nesthub/bytedance-beijing-area-map",
+				icon: () => <Navigation className="w-4 h-4 text-current" />,
+			},
 		],
 	},
 	{
