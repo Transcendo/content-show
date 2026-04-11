@@ -11,6 +11,7 @@ import {
 	FileBoxIcon,
 	FlaskConical,
 	Gauge,
+	Home,
 	Key,
 	KeyRound,
 	Logs,
@@ -123,6 +124,17 @@ export const contents: Content[] = [
 			{
 				title: "ASI",
 				href: "/docs/ai-card/asi",
+				icon: () => <Book className="w-4 h-4 text-current" />,
+			},
+		],
+	},
+	{
+		title: "NestHub",
+		Icon: () => <Home className="w-4 h-4 text-current" />,
+		list: [
+			{
+				title: "字节跳动（北京）租房避坑指南",
+				href: "/docs/nesthub/bytedance-beijing-renting-guide",
 				icon: () => <Book className="w-4 h-4 text-current" />,
 			},
 		],
