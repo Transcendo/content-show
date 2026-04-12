@@ -4,6 +4,7 @@ import {
 	Activity,
 	AppWindow,
 	Binoculars,
+	Briefcase,
 	Book,
 	BotIcon,
 	CircleHelp,
@@ -126,6 +127,11 @@ export const contents: Content[] = [
 				href: "/docs/ai-card/asi",
 				icon: () => <Book className="w-4 h-4 text-current" />,
 			},
+			{
+				title: "AIGC",
+				href: "/docs/ai-card/aigc",
+				icon: () => <Book className="w-4 h-4 text-current" />,
+			},
 		],
 	},
 	{
@@ -141,6 +147,17 @@ export const contents: Content[] = [
 				title: "字节跳动（北京）租房地图",
 				href: "/docs/nesthub/bytedance-beijing-area-map",
 				icon: () => <Navigation className="w-4 h-4 text-current" />,
+			},
+		],
+	},
+	{
+		title: "Career",
+		Icon: () => <Briefcase className="w-4 h-4 text-current" />,
+		list: [
+			{
+				title: "金三银四大厂投递入口汇总",
+				href: "/docs/career/spring-referral-and-apply-hub-2026",
+				icon: () => <Book className="w-4 h-4 text-current" />,
 			},
 		],
 	},
