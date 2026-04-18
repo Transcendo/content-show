@@ -52,10 +52,10 @@ export default async function Page({
 			}}
 			breadcrumb={{ enabled: false }}
 			editOnGithub={{
-				owner: "better-auth",
-				repo: "better-auth",
+				owner: "Transcendo",
+				repo: "content-show",
 				sha: "main",
-				path: `docs/content/docs/${page.path}`,
+				path: `content/docs/${page.path}`,
 			}}
 		>
 			<div className="flex items-center justify-between gap-4">

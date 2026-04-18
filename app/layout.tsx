@@ -17,15 +17,15 @@ const fontMono = localFont({
 
 export const metadata: Metadata = createMetadata({
 	title: {
-		template: "%s | Better Auth",
-		default: "Better Auth",
+		template: "%s | Content Show",
+		default: "Content Show",
 	},
-	description: "The Most Comprehensive Authentication Framework",
+	description: "普通人也能读懂的 AI 知识学习与资料整理站。",
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+		<html lang="zh-CN" suppressHydrationWarning data-scroll-behavior="smooth">
 			<body
 				className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
 				suppressHydrationWarning

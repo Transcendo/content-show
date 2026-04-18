@@ -78,7 +78,7 @@ export function DocsSidebar() {
 		>
 			<button
 				type="button"
-				className="flex w-full items-center gap-2 px-4 py-[9px] border-y border-foreground/5 text-sm text-foreground/55 hover:text-foreground/80 hover:bg-foreground/3 transition-colors"
+				className="hidden w-full items-center gap-2 px-4 py-[9px] border-y border-foreground/5 text-sm text-foreground/55 hover:text-foreground/80 hover:bg-foreground/3 transition-colors"
 				onClick={() => setOpenSearch(true)}
 			>
 				<Search className="size-4 shrink-0" />
@@ -148,7 +148,7 @@ export function DocsSidebar() {
 			{/* Footer: GitHub + Theme Toggle */}
 			<div className="flex items-center gap-1 p-2 border-t border-foreground/5 text-foreground/40">
 				<a
-					href="https://github.com/better-auth/better-auth"
+					href="https://github.com/Transcendo/content-show"
 					target="_blank"
 					rel="noreferrer noopener"
 					className="inline-flex items-center justify-center size-8 hover:text-foreground/70 hover:bg-foreground/5 transition-colors"

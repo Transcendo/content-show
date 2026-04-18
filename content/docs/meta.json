@@ -1,21 +1,14 @@
 {
-  "title": "guide",
+  "title": "Content Show",
   "root": true,
   "pages": [
+    "learn",
+    "fundamentals",
+    "models-and-agents",
+    "creative-ai",
+    "resources",
+    "frontier",
     "ai-card",
-    "introduction",
-    "ai-resources",
-    "installation",
-    "basic-usage",
-    "comparison",
-    "concepts",
-    "authentication",
-    "adapters",
-    "integrations",
-    "infrastructure",
-    "plugins",
-    "guides",
-    "reference",
-    "examples"
+    "ai-resources"
   ]
 }
