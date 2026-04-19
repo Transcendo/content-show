@@ -65,7 +65,7 @@ build:
 .deploy_template:
   stage: deploy
   tags:
-    - deploy
+    - ec-pro
   before_script:
     - . cicd/script/common-variables.sh
     - . cicd/script/deploy-docker-prepare.sh
