@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
 const productionSiteUrl =
-	process.env.NEXT_PUBLIC_SITE_URL ?? "https://transcendo.github.io/content-show";
+	process.env.NEXT_PUBLIC_SITE_URL ??
+	(process.env.GITHUB_ACTIONS === "true"
+		? "https://transcendo.github.io/content-show"
+		: "https://ai.eggcampus.com");
 
 export function createMetadata(override: Metadata): Metadata {
 	return {
