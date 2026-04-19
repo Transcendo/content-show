@@ -37,6 +37,7 @@ export const topNavLinks: LinkItemType[] = [
 ];
 
 export const docsLayoutProps = {
+	githubUrl: "https://github.com/Transcendo/content-show",
 	links: topNavLinks,
 	nav: {
 		title: (
