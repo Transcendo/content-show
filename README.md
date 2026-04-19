@@ -1,106 +1,129 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/branding/better-auth-logo-wordmark-dark.svg" />
+# Content Show
 
-  <source media="(prefers-color-scheme: light)" srcset="public/branding/better-auth-logo-wordmark-light.svg" />
+Content Show is an AI knowledge and glossary site for general readers. It is built with **Next.js 16** and **Fumadocs**, and is currently organized around three public experiences:
 
-  <img alt="Better Auth" src="public/branding/better-auth-logo-wordmark-dark.svg" width="280" />
-</picture>
+- **AI glossary**: short explanations for high-frequency AI terms, with selected core terms expanded into source-backed MDX pages.
+- **Learning path**: a guided route for non-technical readers to understand AI concepts, model basics, tools, risks, and infrastructure.
+- **Knowledge graph**: concept and page relationship views that help readers see how AI terms connect.
 
-### Fumadocs Frontend
+The site is deployed as a static export for GitHub Pages.
 
-Standalone Better Auth documentation frontend built with Next.js and Fumadocs.
+## Current Routes
 
-[![Website](https://img.shields.io/badge/better--auth.com-000?style=flat\&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCA2MCA0NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgMEgxNVYxNUgzMFYzMEgxNVY0NUgwVjMwVjE1VjBaTTQ1IDMwVjE1SDMwVjBINDVINjBWMTVWMzBWNDVINDVIMzBWMzBINDVaIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==\&logoColor=white)](https://better-auth.com)
-[![GitHub Stars](https://img.shields.io/github/stars/better-auth/better-auth?style=flat\&logo=github\&label=stars\&color=24292e)](https://github.com/better-auth/better-auth)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
+Public URLs intentionally do **not** use `/docs/...`.
 
-***
+| Area | Route |
+| --- | --- |
+| Home | `/` |
+| Learning entry | `/learn` |
+| Learning path | `/learn/learning-path` |
+| AI glossary | `/glossary` |
+| Core glossary pages | `/glossary/ai`, `/glossary/agi`, `/glossary/asi`, `/glossary/llm`, `/glossary/rag`, `/glossary/agent` |
+| Topic pages | `/fundamentals`, `/machine-learning`, `/model-mechanisms`, `/llm-prompting`, `/generative-multimodal`, `/agents-products`, `/frontier`, `/infrastructure` |
+| Knowledge graph | `/graph` |
+| Sources | `/resources`, `/resources/source-list` |
+
+`content/docs/` is still the internal Fumadocs content directory. The public route prefix is controlled by `lib/source.ts`.
+
+## Content Principles
+
+Content Show is a public-facing science communication site, so accuracy matters more than speed.
+
+- Use credible sources, preferably primary or near-primary sources.
+- Separate facts, mainstream explanations, disputes, and speculation.
+- Do not treat screenshots or second-hand summaries as the only source of truth.
+- Add `lastReviewed` for fast-changing or contested topics.
+- Use diagrams, callouts, cards, tabs, steps, accordions, and image credits where they improve understanding.
+- Keep glossary depth layered: not every term needs a full article, but core terms should be professional, readable, and source-backed.
+
+Research notes and source preparation can live in `AI Knowledge/` before being adapted into public MDX pages.
+
+## Features
+
+- **Next.js App Router** with static export.
+- **Fumadocs MDX** for structured content pages.
+- **Global search** using Fumadocs + Orama, configured with Mandarin tokenization for Chinese content.
+- **Graph View** using Fumadocs-generated link references and `react-force-graph-2d`.
+- **Homepage concept graph** driven by glossary relationships.
+- **Original SVG diagrams** under `public/diagrams/`.
+- **GitHub Pages deployment** through GitHub Actions.
 
 ## Quick Start
 
 ```bash
-# install
 pnpm install
-
-# develop
 pnpm dev
 ```
 
-Open **[localhost:3000](http://localhost:3000)** to preview. The public content routes use top-level paths such as `/glossary`, `/learn`, and `/fundamentals`.
-
-## Stack
-
-- **Framework**: Next.js 16 (App Router, Turbopack)
-- **Styling**: Tailwind CSS 4
-- **Docs**: Fumadocs
-- **Search**: Fumadocs static search
-- **Icons**: Lucide React
-- **Fonts**: Geist Sans & Geist Mono
-
-## Structure
-
-```
-├─ app/
-│  ├─ page.tsx              # Redirects to the docs
-│  ├─ api/search/           # Static Fumadocs search index
-│  └─ (knowledge)/[...slug]/ # Knowledge content pages
-│
-├─ components/
-│  ├─ docs/                 # Documentation components
-│  ├─ ui/                   # Shared primitives
-│  └─ icons/                # Brand icons & logo
-│
-├─ content/docs/            # MDX documentation files
-│
-├─ lib/
-│  ├─ source.ts             # Fumadocs content source
-│  └─ utils.ts              # Utilities
-│
-└─ public/
-   └─ branding/             # Logo assets (SVG + PNG)
-```
+Open [localhost:3000](http://localhost:3000) to preview the site.
 
 ## Scripts
 
 ```bash
-pnpm dev          # Start dev server (Turbopack)
-pnpm build        # Production build
-pnpm start        # Serve the static out/ build
+pnpm dev          # Start local dev server on port 3000
+pnpm build        # Build static production output into out/
+pnpm start        # Serve the exported out/ directory
 pnpm typecheck    # Type-check the app
 ```
 
+## Project Structure
 
-## GitHub Pages Deployment
-
-This project is already configured for **static export** with Next.js:
-
-- `next.config.js` uses `output: "export"`
-- production output is generated into `out/`
-
-### Local production check
-
-```bash
-pnpm install
-pnpm build
-pnpm start
+```text
+├─ app/
+│  ├─ page.tsx                 # Home page
+│  ├─ api/search/              # Static Fumadocs search endpoint
+│  └─ (knowledge)/[...slug]/   # Root-level knowledge routes
+│
+├─ components/
+│  ├─ concept-graph.tsx        # Homepage concept graph
+│  ├─ graph-view.tsx           # Fumadocs page graph view
+│  ├─ glossary-browser.tsx     # Glossary category/card browser
+│  ├─ docs/                    # Docs layout/sidebar pieces
+│  └─ ui/                      # Shared UI primitives
+│
+├─ content/docs/
+│  ├─ glossary/                # AI glossary index and core term pages
+│  ├─ learn/                   # Learning entry and learning path
+│  ├─ resources/               # Sources and citation rules
+│  └─ *.mdx                    # Topic landing pages
+│
+├─ AI Knowledge/               # Research notes before public MDX adaptation
+├─ lib/
+│  ├─ ai-glossary.ts           # Glossary data model and relationships
+│  ├─ build-graph.ts           # Page graph data builder
+│  ├─ site-config.tsx          # Top navigation and homepage content config
+│  └─ source.ts                # Fumadocs source loader
+│
+└─ public/
+   ├─ branding/                # Site branding assets
+   └─ diagrams/                # Original diagrams used by glossary pages
 ```
 
-Then open the locally served static site.
+## Adding A Core Glossary Page
 
-### Deploy with GitHub Actions
+1. Add or update the term metadata in `lib/ai-glossary.ts`.
+2. Create a page under `content/docs/glossary/<slug>.mdx`.
+3. Add the page slug to `content/docs/glossary/meta.json`.
+4. Include at least two credible sources and a `lastReviewed` date.
+5. Add an original or properly licensed visual asset, with credit.
+6. Run:
 
-This repository includes a GitHub Actions workflow:
+```bash
+pnpm typecheck
+pnpm build
+```
 
-- `.github/workflows/deploy-github-pages.yml`
+## Deployment
 
-To enable deployment:
+The project is configured for GitHub Pages static export:
 
-1. Go to **GitHub → Settings → Pages**
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Push to `main`
-4. GitHub Actions will build the site and deploy the `out/` directory to Pages
+- `next.config.js` uses `output: "export"`.
+- `trailingSlash: true` generates route folders such as `out/glossary/index.html`.
+- GitHub Actions builds and deploys `out/`.
+- In GitHub Actions, `basePath` and `assetPrefix` are set to `/content-show` for repository Pages deployment.
 
-### Notes
+To deploy:
 
-- If you later publish under a repository subpath (for example `https://<user>.github.io/content-show/`), you may also need to configure `basePath` and `assetPrefix` in `next.config.js`.
-- If you deploy to a custom domain or root domain via GitHub Pages, the current setup is the simplest path.
+1. Push to `main`.
+2. GitHub Actions runs `.github/workflows/deploy-github-pages.yml`.
+3. The static site is published from `out/`.
