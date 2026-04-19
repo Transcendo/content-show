@@ -26,7 +26,7 @@ pnpm install
 pnpm dev
 ```
 
-Open **[localhost:3000/docs/introduction](http://localhost:3000/docs/introduction)** to preview.
+Open **[localhost:3000](http://localhost:3000)** to preview. The public content routes use top-level paths such as `/glossary`, `/learn`, and `/fundamentals`.
 
 ## Stack
 
@@ -43,7 +43,7 @@ Open **[localhost:3000/docs/introduction](http://localhost:3000/docs/introductio
 ├─ app/
 │  ├─ page.tsx              # Redirects to the docs
 │  ├─ api/search/           # Static Fumadocs search index
-│  └─ docs/[[...slug]]/     # Documentation pages
+│  └─ (knowledge)/[...slug]/ # Knowledge content pages
 │
 ├─ components/
 │  ├─ docs/                 # Documentation components

@@ -2,68 +2,177 @@ export const glossaryCategories = [
 	{
 		id: "fundamentals",
 		title: "AI 基础概念",
-		href: "/docs/fundamentals",
+		href: "/fundamentals",
 		description: "先分清 AI 的基本边界、历史路线和未来设想。",
 	},
 	{
 		id: "machine-learning",
 		title: "机器学习基础",
-		href: "/docs/machine-learning",
+		href: "/machine-learning",
 		description: "理解模型如何从数据中学习，以及常见训练问题。",
 	},
 	{
 		id: "model-mechanisms",
 		title: "模型与训练机制",
-		href: "/docs/model-mechanisms",
+		href: "/model-mechanisms",
 		description: "把神经网络、参数、损失、优化和推理放在一张图里看。",
 	},
 	{
 		id: "llm-prompting",
 		title: "大模型与提示工程",
-		href: "/docs/llm-prompting",
+		href: "/llm-prompting",
 		description: "理解 LLM、Token、提示、检索增强和偏好优化。",
 	},
 	{
 		id: "generative-multimodal",
 		title: "生成式与多模态",
-		href: "/docs/generative-multimodal",
+		href: "/generative-multimodal",
 		description: "把图像、视频、视觉理解和跨模态能力放到生成式 AI 里理解。",
 	},
 	{
 		id: "agents-products",
 		title: "智能体、产品与公司",
-		href: "/docs/agents-products",
+		href: "/agents-products",
 		description: "从智能体、聊天机器人、产品和公司理解 AI 的真实入口。",
 	},
 	{
 		id: "frontier",
 		title: "前沿、安全与治理",
-		href: "/docs/frontier",
+		href: "/frontier",
 		description: "关注对齐、偏差、幻觉、可解释性和能力涌现。",
 	},
 	{
 		id: "infrastructure",
 		title: "算力与基础设施",
-		href: "/docs/infrastructure",
+		href: "/infrastructure",
 		description: "理解算力、芯片、基础模型和高效模型架构。",
 	},
 ] as const;
 
 export type GlossaryCategoryId = (typeof glossaryCategories)[number]["id"];
 export type GlossaryTag = "通识" | "技术" | "产品" | "公司" | "商业";
+export type GlossaryDepth = "card" | "core";
+export type GlossaryStability = "stable" | "evolving" | "speculative";
+export type GlossarySourceLevel = "primary" | "secondary" | "user-material";
 
 export interface GlossaryTerm {
 	term: string;
 	zh: string;
+	slug?: string;
+	href?: string;
+	aliases?: string[];
 	summary: string;
 	tag: GlossaryTag;
 	category: GlossaryCategoryId;
+	depth?: GlossaryDepth;
+	hasDetailPage?: boolean;
+	stability?: GlossaryStability;
+	sourceLevel?: GlossarySourceLevel;
 	beginnerExplanation: string;
 	commonMisunderstanding: string;
 	relatedTerms: string[];
 }
 
-// TODO(missing-row-26): 用户截图没有覆盖第 26 行，先不放到公开页面。
+export type GlossaryTermEntry = Omit<
+	GlossaryTerm,
+	"aliases" | "depth" | "hasDetailPage" | "href" | "slug" | "sourceLevel" | "stability"
+> &
+	Required<
+		Pick<
+			GlossaryTerm,
+			"aliases" | "depth" | "hasDetailPage" | "href" | "slug" | "sourceLevel" | "stability"
+		>
+	>;
+
+const glossarySlugOverrides: Record<string, string> = {
+	Agents: "agent",
+	"Diffusion Models": "diffusion-models",
+	"Fine-Tuning": "fine-tuning",
+	"Generative AI / Gen AI": "generative-ai",
+	"Foundation Model": "foundation-model",
+	"Machine Learning": "machine-learning",
+	"Deep Learning": "deep-learning",
+	"Prompt Engineering": "prompt-engineering",
+};
+
+const coreTermConfig: Record<
+	string,
+	{
+		aliases?: string[];
+		hasDetailPage?: boolean;
+		stability?: GlossaryStability;
+		sourceLevel?: GlossarySourceLevel;
+	}
+> = {
+	AI: {
+		aliases: ["Artificial Intelligence", "人工智能"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	AGI: {
+		aliases: ["Artificial General Intelligence", "通用人工智能"],
+		hasDetailPage: true,
+		stability: "speculative",
+		sourceLevel: "primary",
+	},
+	ASI: {
+		aliases: ["Artificial Superintelligence", "人工超级智能"],
+		hasDetailPage: true,
+		stability: "speculative",
+		sourceLevel: "primary",
+	},
+	"Machine Learning": { aliases: ["ML", "机器学习"], stability: "stable" },
+	"Deep Learning": { aliases: ["DL", "深度学习"], stability: "stable" },
+	LLM: {
+		aliases: ["Large Language Model", "大语言模型"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
+	Transformer: { aliases: ["Transformer 架构"], stability: "stable" },
+	Token: { aliases: ["词元"], stability: "stable" },
+	"Prompt Engineering": {
+		aliases: ["提示工程"],
+		stability: "evolving",
+	},
+	RAG: {
+		aliases: ["Retrieval-Augmented Generation", "检索增强生成"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
+	Embedding: { aliases: ["嵌入", "向量表示"], stability: "stable" },
+	"Fine-Tuning": { aliases: ["微调"], stability: "evolving" },
+	Agents: {
+		aliases: ["AI Agent", "智能体"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
+	"Generative AI / Gen AI": {
+		aliases: ["生成式 AI", "Generative AI"],
+		stability: "evolving",
+	},
+	"Diffusion Models": { aliases: ["扩散模型"], stability: "stable" },
+	Alignment: { aliases: ["AI 对齐"], stability: "evolving" },
+	Hallucination: { aliases: ["幻觉"], stability: "evolving" },
+	"Foundation Model": { aliases: ["基础模型"], stability: "evolving" },
+	GPU: { aliases: ["图形处理器"], stability: "stable" },
+	MoE: { aliases: ["Mixture of Experts", "专家混合"], stability: "evolving" },
+};
+
+function slugifyGlossaryTerm(term: string) {
+	return (
+		glossarySlugOverrides[term] ??
+		term
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, "-")
+			.replace(/^-|-$/g, "")
+	);
+}
+
+// Source note: the initial screenshot did not cover one row, so it is not included.
 export const glossaryTerms = [
 	{
 		term: "AGI",
@@ -1255,9 +1364,33 @@ export const glossaryTerms = [
 	},
 ] satisfies GlossaryTerm[];
 
+export function enrichGlossaryTerm(term: GlossaryTerm): GlossaryTermEntry {
+	const config = coreTermConfig[term.term];
+	const slug = term.slug ?? slugifyGlossaryTerm(term.term);
+	const depth = term.depth ?? (config ? "core" : "card");
+	const hasDetailPage = term.hasDetailPage ?? config?.hasDetailPage ?? false;
+
+	return {
+		...term,
+		aliases: term.aliases ?? config?.aliases ?? [],
+		depth,
+		hasDetailPage,
+		href: term.href ?? `/glossary/${slug}`,
+		slug,
+		sourceLevel: term.sourceLevel ?? config?.sourceLevel ?? "user-material",
+		stability: term.stability ?? config?.stability ?? "stable",
+	};
+}
+
+export const glossaryTermEntries = glossaryTerms.map(enrichGlossaryTerm);
+
+export const glossaryCoreTerms = glossaryTermEntries.filter(
+	(term) => term.depth === "core",
+);
+
 export const glossaryTermsByCategory = glossaryCategories.map((category) => ({
 	...category,
-	terms: glossaryTerms.filter((term) => term.category === category.id),
+	terms: glossaryTermEntries.filter((term) => term.category === category.id),
 }));
 
 export const glossaryTagOrder: GlossaryTag[] = [
@@ -1268,4 +1401,4 @@ export const glossaryTagOrder: GlossaryTag[] = [
 	"商业",
 ];
 
-export const glossaryTermCount = glossaryTerms.length;
+export const glossaryTermCount = glossaryTermEntries.length;

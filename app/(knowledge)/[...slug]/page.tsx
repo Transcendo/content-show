@@ -1,4 +1,10 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Card, Cards } from "fumadocs-ui/components/card";
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import {
 	DocsBody,
 	DocsDescription,
@@ -7,11 +13,14 @@ import {
 } from "fumadocs-ui/page";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GraphView } from "@/components/graph-view";
 import {
 	GlossaryBrowser,
 	GlossaryCategoryTerms,
+	GlossaryCoreLinks,
 } from "@/components/glossary-browser";
 import { Callout } from "@/components/ui/callout";
+import { buildGraph } from "@/lib/build-graph";
 import { createMetadata } from "@/lib/metadata";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
@@ -19,7 +28,7 @@ import { cn } from "@/lib/utils";
 export default async function Page({
 	params,
 }: {
-	params: Promise<{ slug?: string[] }>;
+	params: Promise<{ slug: string[] }>;
 }) {
 	const { slug } = await params;
 	const page = source.getPage(slug);
@@ -29,11 +38,12 @@ export default async function Page({
 	}
 
 	const { body: MDX, toc } = await page.data.load();
+	const graph = slug.length === 1 && slug[0] === "graph" ? buildGraph() : null;
 
 	return (
 		<DocsPage
 			toc={toc}
-			full={false}
+			full={page.data.full ?? false}
 			tableOfContent={{
 				style: "clerk",
 			}}
@@ -42,7 +52,7 @@ export default async function Page({
 				owner: "Transcendo",
 				repo: "content-show",
 				sha: "main",
-				path: `content/docs/${page.path}`,
+				path: `content/${page.path}`,
 			}}
 		>
 			<DocsTitle>{page.data.title}</DocsTitle>
@@ -53,8 +63,8 @@ export default async function Page({
 				<MDX
 					components={{
 						...defaultMdxComponents,
-						GlossaryBrowser,
-						GlossaryCategoryTerms,
+						Accordion,
+						Accordions,
 						Callout: ({
 							children,
 							type,
@@ -68,12 +78,27 @@ export default async function Page({
 								{children}
 							</Callout>
 						),
+						Card,
+						Cards,
+						GlossaryBrowser,
+						GlossaryCategoryTerms,
+						GlossaryCoreLinks,
+						GraphView: () => (graph ? <GraphView graph={graph} /> : null),
+						ImageZoom,
+						InlineTOC: () => <InlineTOC items={toc} />,
+						Step,
+						Steps,
+						Tab,
+						Tabs,
 						iframe: (props: React.ComponentProps<"iframe">) => (
 							<iframe
 								title="Embedded content"
 								{...props}
-								className="w-full h-[500px]"
+								className="h-[500px] w-full"
 							/>
+						),
+						img: (props: React.ComponentProps<"img">) => (
+							<ImageZoom {...(props as React.ComponentProps<typeof ImageZoom>)} />
 						),
 						Link: ({
 							className,
@@ -95,13 +120,13 @@ export default async function Page({
 }
 
 export async function generateStaticParams() {
-	return source.generateParams();
+	return source.generateParams().filter((item) => item.slug?.length);
 }
 
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ slug?: string[] }>;
+	params: Promise<{ slug: string[] }>;
 }) {
 	const { slug } = await params;
 	const page = source.getPage(slug);

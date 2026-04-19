@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Providers } from "@/components/providers";
 import { createMetadata } from "@/lib/metadata";
+import { source } from "@/lib/source";
 
 const fontSans = localFont({
 	src: "../assets/Geist.ttf",
@@ -24,13 +25,18 @@ export const metadata: Metadata = createMetadata({
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+	const allPages = source.getPages().map((page) => ({
+		name: page.data.title,
+		url: page.url,
+	}));
+
 	return (
 		<html lang="zh-CN" suppressHydrationWarning data-scroll-behavior="smooth">
 			<body
 				className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
 				suppressHydrationWarning
 			>
-				<Providers>
+				<Providers pages={allPages}>
 					<div className="relative min-h-dvh">{children}</div>
 				</Providers>
 			</body>

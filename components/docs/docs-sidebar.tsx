@@ -97,11 +97,11 @@ export function DocsSidebar() {
 			</Link>
 			<button
 				type="button"
-				className="hidden w-full items-center gap-2 px-4 py-[9px] border-y border-foreground/5 text-sm text-foreground/55 hover:text-foreground/80 hover:bg-foreground/3 transition-colors"
+				className="flex w-full items-center gap-2 px-4 py-[9px] border-y border-foreground/5 text-sm text-foreground/55 hover:text-foreground/80 hover:bg-foreground/3 transition-colors"
 				onClick={() => setOpenSearch(true)}
 			>
 				<Search className="size-4 shrink-0" />
-				<span className="truncate">Search</span>
+				<span className="truncate">搜索 AI 术语和文章</span>
 				<kbd className="ml-auto inline-flex items-center gap-0.5 shrink-0 text-[10px] font-mono text-foreground/40 border border-foreground/10 rounded-md px-1.5 py-0.5">
 					<span className="text-[11px]">&#8984;</span>K
 				</kbd>

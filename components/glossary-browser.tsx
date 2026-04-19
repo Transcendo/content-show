@@ -1,12 +1,13 @@
 import Link from "next/link";
 import {
 	glossaryCategories,
+	glossaryCoreTerms,
 	glossaryTagOrder,
+	glossaryTermEntries,
 	glossaryTermCount,
-	glossaryTerms,
 	glossaryTermsByCategory,
 	type GlossaryCategoryId,
-	type GlossaryTerm,
+	type GlossaryTermEntry,
 } from "@/lib/ai-glossary";
 
 const tagClassName: Record<string, string> = {
@@ -25,7 +26,7 @@ const tagClassName: Record<string, string> = {
 export function GlossaryBrowser() {
 	const tagCounts = glossaryTagOrder.map((tag) => ({
 		tag,
-		count: glossaryTerms.filter((term) => term.tag === tag).length,
+		count: glossaryTermEntries.filter((term) => term.tag === tag).length,
 	}));
 
 	return (
@@ -34,14 +35,13 @@ export function GlossaryBrowser() {
 				<div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
 					<div>
 						<p className="text-sm font-medium text-fd-muted-foreground">
-							截图术语库
+							AI 术语百科
 						</p>
 						<p className="mt-2 text-3xl font-semibold text-fd-foreground">
 							{glossaryTermCount} 个公开术语
 						</p>
 						<p className="mt-3 max-w-2xl text-sm leading-6 text-fd-muted-foreground">
-							按普通人的学习顺序重排，不逐字搬运原表解释。第 26
-							行截图缺失，已在数据源保留 TODO，暂不放入公开页面。
+							所有词先提供短解释，核心词再升级成来源清晰、图文并茂的独立页面。
 						</p>
 					</div>
 					<div className="flex flex-wrap gap-2 md:max-w-sm md:justify-end">
@@ -111,7 +111,7 @@ export function GlossaryCategoryTerms({
 	category: GlossaryCategoryId;
 }) {
 	const categoryInfo = glossaryCategories.find((item) => item.id === category);
-	const terms = glossaryTerms.filter((term) => term.category === category);
+	const terms = glossaryTermEntries.filter((term) => term.category === category);
 
 	if (!categoryInfo) return null;
 
@@ -130,11 +130,42 @@ export function GlossaryCategoryTerms({
 	);
 }
 
+export function GlossaryCoreLinks() {
+	return (
+		<div className="not-prose my-6 grid gap-3 sm:grid-cols-2">
+			{glossaryCoreTerms.map((term) => (
+				<Link
+					className="group border border-fd-border bg-fd-card p-4 transition hover:border-fd-foreground/35 hover:bg-fd-accent/40"
+					href={term.hasDetailPage ? term.href : "/glossary"}
+					key={term.term}
+				>
+					<div className="flex items-start gap-3">
+						<div>
+							<p className="text-base font-semibold text-fd-foreground">
+								{term.term}
+								<span className="ml-2 font-normal text-fd-muted-foreground">
+									{term.zh}
+								</span>
+							</p>
+							<p className="mt-2 text-sm leading-6 text-fd-muted-foreground">
+								{term.summary}
+							</p>
+						</div>
+						<span className="ml-auto shrink-0 rounded-md border border-fd-border px-2 py-0.5 text-xs text-fd-muted-foreground">
+							{term.hasDetailPage ? "深讲" : "待扩写"}
+						</span>
+					</div>
+				</Link>
+			))}
+		</div>
+	);
+}
+
 function TermGrid({
 	terms,
 	compact = false,
 }: {
-	terms: GlossaryTerm[];
+	terms: GlossaryTermEntry[];
 	compact?: boolean;
 }) {
 	return (
@@ -170,6 +201,11 @@ function TermGrid({
 						</div>
 					)}
 					<div className="mt-3 flex flex-wrap gap-1.5">
+						{term.depth === "core" && (
+							<span className="rounded-md border border-fd-primary/30 bg-fd-primary/10 px-2 py-0.5 text-xs font-medium text-fd-primary">
+								核心词
+							</span>
+						)}
 						{term.relatedTerms.map((related) => (
 							<span
 								className="rounded-md border border-fd-border bg-fd-muted/40 px-2 py-0.5 text-xs text-fd-muted-foreground"
@@ -179,6 +215,14 @@ function TermGrid({
 							</span>
 						))}
 					</div>
+					{term.hasDetailPage && (
+						<Link
+							className="mt-4 inline-flex text-sm font-medium text-fd-foreground underline underline-offset-4"
+							href={term.href}
+						>
+							阅读全文
+						</Link>
+					)}
 				</article>
 			))}
 		</div>

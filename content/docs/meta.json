@@ -3,6 +3,8 @@
   "root": true,
   "pages": [
     "learn",
+    "glossary",
+    "graph",
     "fundamentals",
     "machine-learning",
     "model-mechanisms",

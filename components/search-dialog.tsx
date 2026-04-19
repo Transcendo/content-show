@@ -18,15 +18,18 @@ import {
 } from "fumadocs-ui/components/dialog/search";
 import { useDocsSearch } from "fumadocs-core/search/client";
 import { create } from "@orama/orama";
+import { createTokenizer } from "@orama/tokenizers/mandarin";
 import { ArrowRight, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
-import { usePages } from "@/app/docs/provider";
+import { usePages } from "@/components/search-pages";
 
 function initOrama() {
 	return create({
 		schema: { _: "string" },
-		language: "english",
+		components: {
+			tokenizer: createTokenizer(),
+		},
 	});
 }
 
@@ -52,7 +55,7 @@ export default function CustomSearchDialog(props: SharedProps) {
 					<div className="inline-flex items-center gap-2 text-fd-muted-foreground">
 						<ArrowRight className="size-4" />
 						<p>
-							Jump to{" "}
+							跳转到{" "}
 							<span className="font-medium text-fd-foreground">
 								{page.name}
 							</span>
@@ -101,7 +104,7 @@ export default function CustomSearchDialog(props: SharedProps) {
 				/>
 				<SearchDialogFooter>
 					<span className="text-xs text-fd-muted-foreground">
-						Search powered by the local Fumadocs index
+						搜索由本地 Fumadocs + Orama 索引提供
 					</span>
 				</SearchDialogFooter>
 			</SearchDialogContent>

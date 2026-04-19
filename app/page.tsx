@@ -1,6 +1,8 @@
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { ArrowRight, BookOpen, ShieldCheck, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { ConceptGraph } from "@/components/concept-graph";
+import { GlobalSearchButton } from "@/components/global-search-button";
 import {
 	docsLayoutProps,
 	featuredTerms,
@@ -33,17 +35,18 @@ export default function HomePage() {
 						<div className="mt-8 flex flex-wrap gap-3">
 							<Link
 								className="inline-flex items-center gap-2 bg-[#11140f] px-5 py-3 text-sm font-medium text-white transition hover:bg-[#2c3329]"
-								href="/docs/learn/learning-path"
+								href="/learn/learning-path"
 							>
 								从学习路线开始
 								<ArrowRight className="size-4" />
 							</Link>
 							<Link
 								className="inline-flex items-center gap-2 border border-[#11140f]/20 bg-white px-5 py-3 text-sm font-medium transition hover:border-[#11140f]/45 dark:border-white/20 dark:bg-white/8"
-								href="/docs/learn/glossary"
+								href="/glossary"
 							>
-								查看名词速查
+								查看术语百科
 							</Link>
+							<GlobalSearchButton>全站搜索</GlobalSearchButton>
 							<a
 								className="inline-flex items-center gap-2 border border-transparent px-5 py-3 text-sm font-medium text-[#485147] transition hover:text-[#11140f] dark:text-[#c9d0c4] dark:hover:text-white"
 								href="https://github.com/Transcendo/content-show"
@@ -108,9 +111,9 @@ export default function HomePage() {
 						</div>
 						<Link
 							className="inline-flex items-center gap-2 text-sm font-medium text-[#315f4a] hover:text-[#11140f] dark:text-[#8bd8ae] dark:hover:text-white"
-							href="/docs/learn/glossary"
+							href="/glossary"
 						>
-							进入名词速查
+							进入术语百科
 							<ArrowRight className="size-4" />
 						</Link>
 					</div>
@@ -125,6 +128,8 @@ export default function HomePage() {
 						))}
 					</div>
 				</section>
+
+				<ConceptGraph />
 
 				<section className="grid gap-4 py-10 md:grid-cols-3">
 					{learningTracks.map((track) => (
