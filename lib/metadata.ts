@@ -24,6 +24,7 @@ export function createMetadata(override: Metadata): Metadata {
 		},
 		icons: {
 			icon: [
+				{ url: "/favicon/favicon.svg", type: "image/svg+xml" },
 				{ url: "/favicon/favicon.ico", sizes: "any" },
 				{
 					url: "/favicon/favicon-32x32.png",
@@ -38,6 +39,7 @@ export function createMetadata(override: Metadata): Metadata {
 			],
 			apple: "/favicon/apple-touch-icon.png",
 		},
+		manifest: "/favicon/site.webmanifest",
 	};
 }
 

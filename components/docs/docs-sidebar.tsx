@@ -11,6 +11,7 @@ import type { ListItem } from "@/components/sidebar-content";
 import { contents } from "@/components/sidebar-content";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui/badge";
+import { ContentShowLogo } from "@/components/icons/logo";
 import { cn } from "@/lib/utils";
 
 type Section = (typeof contents)[number];
@@ -74,8 +75,26 @@ export function DocsSidebar() {
 			initial={{ x: -24, opacity: 0 }}
 			animate={{ x: 0, opacity: 1 }}
 			transition={{ duration: 0.28, ease: "easeOut" }}
-			className="fixed left-0 top-(--docs-topbar-height) bottom-0 w-[22vw] max-w-[300px] hidden lg:flex flex-col z-30 bg-background border-r border-foreground/5 transition-[width] duration-300 ease-out"
+			className="fixed left-0 top-0 bottom-0 w-[22vw] max-w-[300px] hidden lg:flex flex-col z-40 bg-background border-r border-foreground/5 transition-[width] duration-300 ease-out"
 		>
+			<Link
+				href="/"
+				aria-label="返回 Content Show 首页"
+				className="group flex h-(--docs-topbar-height) shrink-0 items-center gap-2.5 border-b border-foreground/5 px-4 text-left transition-colors hover:bg-foreground/3"
+			>
+				<ContentShowLogo
+					aria-hidden="true"
+					className="size-7 shrink-0 transition-transform duration-200 group-hover:scale-105"
+				/>
+				<span className="min-w-0">
+					<span className="block truncate text-sm font-semibold leading-4 text-foreground">
+						Content Show
+					</span>
+					<span className="block truncate text-[11px] leading-3 text-foreground/50">
+						AI 知识学习站
+					</span>
+				</span>
+			</Link>
 			<button
 				type="button"
 				className="hidden w-full items-center gap-2 px-4 py-[9px] border-y border-foreground/5 text-sm text-foreground/55 hover:text-foreground/80 hover:bg-foreground/3 transition-colors"

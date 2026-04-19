@@ -1,4 +1,5 @@
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
+import { ContentShowLogo } from "@/components/icons/logo";
 
 export const siteName = "Content Show";
 
@@ -38,7 +39,12 @@ export const topNavLinks: LinkItemType[] = [
 export const docsLayoutProps = {
 	links: topNavLinks,
 	nav: {
-		title: siteName,
+		title: (
+			<>
+				<ContentShowLogo aria-hidden="true" className="size-7 shrink-0" />
+				<span>{siteName}</span>
+			</>
+		),
 		url: "/",
 	},
 	searchToggle: {
