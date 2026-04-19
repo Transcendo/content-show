@@ -1,6 +1,7 @@
 workflow:
   rules:
     - if: $CI_COMMIT_BRANCH =~ /^(.*-main|main)$/
+    - if: $CI_COMMIT_BRANCH =~ /^(.*-test|test)$/
 
 stages:
   - test
@@ -19,6 +20,7 @@ variables:
   APPLICATION_PORT: "8461"
   CONTAINER_PORT: "80"
   DEPLOYER_PRO_IP: "ec-r-pro-project-1"
+  DEPLOYER_TEST_IP: "ec-l-test-project-1"
   WORK_PROJECT_NAME: ""
   WORK_PROJECT_NAME_DIR: "${CI_PROJECT_DIR}"
   DOCKER_IMAGE_NAME: "${CI_REGISTRY_IMAGE}"
@@ -64,8 +66,6 @@ build:
 
 .deploy_template:
   stage: deploy
-  tags:
-    - ec-pro
   before_script:
     - . cicd/script/common-variables.sh
     - . cicd/script/deploy-docker-prepare.sh
@@ -74,8 +74,19 @@ build:
 
 deploy_pro:
   extends: .deploy_template
+  tags:
+    - ec-pro
   environment:
     name: production
     url: https://ai.eggcampus.com
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^(.*-main|main)$/'
+
+deploy_test:
+  extends: .deploy_template
+  tags:
+    - ec-test
+  environment:
+    name: test
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^(.*-test|test)$/'
