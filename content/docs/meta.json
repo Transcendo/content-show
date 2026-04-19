@@ -4,11 +4,13 @@
   "pages": [
     "learn",
     "fundamentals",
-    "models-and-agents",
-    "creative-ai",
-    "resources",
+    "machine-learning",
+    "model-mechanisms",
+    "llm-prompting",
+    "generative-multimodal",
+    "agents-products",
     "frontier",
-    "ai-card",
-    "ai-resources"
+    "infrastructure",
+    "resources"
   ]
 }

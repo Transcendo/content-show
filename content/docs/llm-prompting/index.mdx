@@ -1,0 +1,25 @@
+---
+title: 大模型与提示工程
+description: 理解 LLM、Token、提示词、RAG、向量数据库、微调和偏好优化。
+---
+
+# 大模型与提示工程
+
+大语言模型不是一个会查答案的网页，也不是一个只会聊天的机器人。它把文本拆成 Token，在上下文中预测和生成后续内容，并通过提示、资料、微调和偏好训练进入不同产品场景。
+
+## 使用大模型时先问四个问题
+
+1. 任务讲清楚了吗？这对应 Prompt Engineering、CoT、Few-Shot。
+2. 资料给够了吗？这对应 RAG、Embedding、Vector Database。
+3. 模型能力够吗？这对应 LLM、Transformer、Token、Fine-Tuning。
+4. 输出偏好对吗？这对应 SFT、RLHF、DPO、PPO、GPO、KTO。
+
+## RAG 和微调不是一回事
+
+RAG 更像给模型外接资料，让它回答前先检索。微调更像改变模型对某类任务或格式的适应方式。
+
+如果问题是“模型不知道最新资料”，优先考虑 RAG。如果问题是“模型总是不按某种稳定格式或风格工作”，才考虑微调或指令调优。
+
+## 这组词
+
+<GlossaryCategoryTerms category="llm-prompting" />

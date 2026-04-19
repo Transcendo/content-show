@@ -1,0 +1,29 @@
+---
+title: 模型与训练机制
+description: 把神经网络、参数、损失、优化和推理放在同一条工作链里理解。
+---
+
+# 模型与训练机制
+
+普通人不必从公式开始学模型，但应该知道一条基本链路：
+
+输入进入神经网络，经过前向传播得到输出；损失函数衡量输出和目标之间的差距；反向传播和梯度下降根据差距更新参数；训练完成后，模型在新输入上运行，这个过程通常叫推理。
+
+## 一条最短链路
+
+| 环节 | 关键词 | 作用 |
+| --- | --- | --- |
+| 表示 | Neural Network、Hidden Layer、Latent Space、Vector | 把输入转成模型能计算的内部表示。 |
+| 目标 | Loss Function、Objective Function | 告诉模型应该优化什么。 |
+| 更新 | Gradient Descent、Backpropagation、Weight、Parameters | 根据错误调整模型内部参数。 |
+| 使用 | Forward Propagation、Inference | 用训练好的模型产生预测或生成结果。 |
+
+## 为什么要理解机制
+
+理解这些词不是为了把 AI 神秘化，而是为了避免两个误区：一是把模型当成手写规则库，二是把模型当成永远正确的黑箱。
+
+模型既不是单纯记忆，也不是人类意识。它是数据、目标函数、架构和计算资源共同塑造出来的系统。
+
+## 这组词
+
+<GlossaryCategoryTerms category="model-mechanisms" />

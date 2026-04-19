@@ -24,7 +24,7 @@ export default function HomePage() {
 							<span className="size-1.5 bg-[#27ae60]" />
 							AI Knowledge for Everyone
 						</p>
-						<h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl">
+						<h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] sm:text-6xl">
 							把普通人也能学懂的 AI 知识，整理成一条清楚的学习路线。
 						</h1>
 						<p className="mt-6 max-w-2xl text-base leading-7 text-[#485147] sm:text-lg dark:text-[#c9d0c4]">
@@ -102,8 +102,8 @@ export default function HomePage() {
 					<div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
 						<div>
 							<p className="text-sm font-medium text-[#be3a34]">名词入口</p>
-							<h2 className="mt-2 text-3xl font-semibold tracking-tight">
-								先从 WaytoAGI 名词卡片里最常见的一批词开始。
+							<h2 className="mt-2 text-3xl font-semibold">
+								先从截图里的 99 个 AI 高频词开始。
 							</h2>
 						</div>
 						<Link

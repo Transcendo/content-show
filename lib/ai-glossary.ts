@@ -1,0 +1,1271 @@
+export const glossaryCategories = [
+	{
+		id: "fundamentals",
+		title: "AI 基础概念",
+		href: "/docs/fundamentals",
+		description: "先分清 AI 的基本边界、历史路线和未来设想。",
+	},
+	{
+		id: "machine-learning",
+		title: "机器学习基础",
+		href: "/docs/machine-learning",
+		description: "理解模型如何从数据中学习，以及常见训练问题。",
+	},
+	{
+		id: "model-mechanisms",
+		title: "模型与训练机制",
+		href: "/docs/model-mechanisms",
+		description: "把神经网络、参数、损失、优化和推理放在一张图里看。",
+	},
+	{
+		id: "llm-prompting",
+		title: "大模型与提示工程",
+		href: "/docs/llm-prompting",
+		description: "理解 LLM、Token、提示、检索增强和偏好优化。",
+	},
+	{
+		id: "generative-multimodal",
+		title: "生成式与多模态",
+		href: "/docs/generative-multimodal",
+		description: "把图像、视频、视觉理解和跨模态能力放到生成式 AI 里理解。",
+	},
+	{
+		id: "agents-products",
+		title: "智能体、产品与公司",
+		href: "/docs/agents-products",
+		description: "从智能体、聊天机器人、产品和公司理解 AI 的真实入口。",
+	},
+	{
+		id: "frontier",
+		title: "前沿、安全与治理",
+		href: "/docs/frontier",
+		description: "关注对齐、偏差、幻觉、可解释性和能力涌现。",
+	},
+	{
+		id: "infrastructure",
+		title: "算力与基础设施",
+		href: "/docs/infrastructure",
+		description: "理解算力、芯片、基础模型和高效模型架构。",
+	},
+] as const;
+
+export type GlossaryCategoryId = (typeof glossaryCategories)[number]["id"];
+export type GlossaryTag = "通识" | "技术" | "产品" | "公司" | "商业";
+
+export interface GlossaryTerm {
+	term: string;
+	zh: string;
+	summary: string;
+	tag: GlossaryTag;
+	category: GlossaryCategoryId;
+	beginnerExplanation: string;
+	commonMisunderstanding: string;
+	relatedTerms: string[];
+}
+
+// TODO(missing-row-26): 用户截图没有覆盖第 26 行，先不放到公开页面。
+export const glossaryTerms = [
+	{
+		term: "AGI",
+		zh: "通用人工智能",
+		summary: "能在很多不同任务中学习、迁移和解决问题的人工智能目标。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"AGI 不是某个单一产品名，而是对更通用智能能力的追求。它强调跨领域处理问题，而不只是完成某个固定任务。",
+		commonMisunderstanding:
+			"不要把会聊天的大模型直接等同于 AGI，行业里对 AGI 的标准仍有争议。",
+		relatedTerms: ["AI", "ANI", "ASI", "LLM"],
+	},
+	{
+		term: "AI",
+		zh: "人工智能",
+		summary: "让机器表现出识别、预测、生成、决策等智能行为的一大类技术。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"AI 是最大的总称，推荐算法、图像识别、大语言模型和自动驾驶都可以放在这个范围里。不同 AI 的能力边界差异很大。",
+		commonMisunderstanding:
+			"AI 不是一个统一能力等级，不能因为一个系统会写文章，就推断它也能可靠做所有事情。",
+		relatedTerms: ["ANI", "AGI", "Machine Learning", "Generative AI"],
+	},
+	{
+		term: "AIGC",
+		zh: "人工智能生成内容",
+		summary: "用 AI 生成文本、图片、音频、视频、代码等内容的应用形态。",
+		tag: "商业",
+		category: "fundamentals",
+		beginnerExplanation:
+			"AIGC 更偏应用和产业语境，关注 AI 能产出什么内容，以及这些内容如何进入创作、营销、教育和办公流程。",
+		commonMisunderstanding:
+			"AIGC 不等于所有 AI，它只是 AI 在内容生成方向上的一个重要分支。",
+		relatedTerms: ["Generative AI", "Diffusion Models", "ChatGPT", "GAN"],
+	},
+	{
+		term: "ANI",
+		zh: "狭义人工智能",
+		summary: "擅长特定任务、但不具备通用智能的 AI。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"今天大多数 AI 系统都更接近 ANI：它们可以在棋类、推荐、识别、生成等任务上很强，但能力通常受训练目标和使用场景限制。",
+		commonMisunderstanding:
+			"专门任务上的高水平表现，不代表系统拥有人的常识、目标和长期理解能力。",
+		relatedTerms: ["AI", "AGI", "ASI"],
+	},
+	{
+		term: "ASI",
+		zh: "人工超级智能",
+		summary: "在大量关键脑力任务上显著超过人类的未来 AI 设想。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"ASI 主要出现在未来能力和风险治理讨论里。它不是当前已经公开公认实现的系统，而是帮助人们提前讨论极强 AI 的影响。",
+		commonMisunderstanding:
+			"不要把 ASI 当成已经上市的产品，也不要把所有风险讨论都当成确定预言。",
+		relatedTerms: ["AGI", "Alignment", "Singularity", "Scaling Law"],
+	},
+	{
+		term: "Accelerator",
+		zh: "加速器",
+		summary: "用于加快 AI 训练或推理的硬件或专用计算单元。",
+		tag: "产品",
+		category: "infrastructure",
+		beginnerExplanation:
+			"加速器可以理解成让模型算得更快、更省成本的设备或芯片。GPU、TPU 和一些专用 AI 芯片都常被放进这个讨论。",
+		commonMisunderstanding:
+			"加速器不是模型本身，它只影响模型训练和运行的速度、成本和规模。",
+		relatedTerms: ["Compute", "GPU", "TPU"],
+	},
+	{
+		term: "Agents",
+		zh: "智能体",
+		summary: "围绕目标拆任务、调用工具并持续推进流程的 AI 系统。",
+		tag: "技术",
+		category: "agents-products",
+		beginnerExplanation:
+			"普通聊天机器人偏向问一句答一句，Agent 更像带工具箱的助手。它会把目标拆成步骤，必要时调用搜索、代码、文档或外部系统。",
+		commonMisunderstanding:
+			"Agent 不是自动等于可靠，越能执行动作越需要权限、日志和人工确认。",
+		relatedTerms: ["Chatbot", "LLM", "Prompt Engineering", "RAG"],
+	},
+	{
+		term: "Alignment",
+		zh: "对齐",
+		summary: "让 AI 行为尽量符合人的目标、规则和安全边界。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"对齐关注的是模型是否按人真正想要的方式行动。它既包括技术训练，也包括产品边界、权限管理和社会规则。",
+		commonMisunderstanding:
+			"对齐不只是让模型更礼貌，也不只是过滤敏感词，它处理的是目标、行为和风险的一致性。",
+		relatedTerms: ["RLHF", "DPO", "Bias", "XAI"],
+	},
+	{
+		term: "Attention",
+		zh: "注意力",
+		summary: "模型在上下文中分配关注重点的一类机制。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"注意力机制可以帮助模型判断哪些输入信息更相关。Transformer 能处理语言和视觉任务，和注意力机制关系很深。",
+		commonMisunderstanding:
+			"注意力不是人的意识或注意力，它是模型内部计算相关性的一种方法。",
+		relatedTerms: ["Transformer", "MHA", "Token"],
+	},
+	{
+		term: "Backpropagation",
+		zh: "反向传播",
+		summary: "训练神经网络时把误差信号向后传递，用来更新参数的方法。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"模型先给出输出，再用损失函数衡量错在哪里。反向传播把这个错误分配回网络各层，让参数朝更好的方向调整。",
+		commonMisunderstanding:
+			"反向传播不是模型在解释原因，而是训练阶段的数学更新过程。",
+		relatedTerms: ["Forward Propagation", "Gradient Descent", "Loss Function"],
+	},
+	{
+		term: "Bias",
+		zh: "偏差",
+		summary: "数据、模型或系统设计中导致输出倾向某些结果的偏向。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"偏差可能来自训练数据，也可能来自标注、目标函数或产品策略。在招聘、金融、医疗等场景里，偏差会影响真实的人。",
+		commonMisunderstanding:
+			"偏差不只是不公平，也可能是统计假设和数据分布带来的系统性误差。",
+		relatedTerms: ["Alignment", "Training Data", "XAI"],
+	},
+	{
+		term: "CLIP",
+		zh: "对比语言图像预训练",
+		summary: "把文字和图像放到可比较空间里的视觉语言模型思路。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"CLIP 让模型能把一句描述和一张图片联系起来。它影响了图像检索、图像生成和多模态理解等应用。",
+		commonMisunderstanding:
+			"CLIP 本身不等于图片生成器，它更像连接文字和图像理解的桥。",
+		relatedTerms: ["CV", "Multimodal", "Embedding"],
+	},
+	{
+		term: "CNN",
+		zh: "卷积神经网络",
+		summary: "常用于图像识别的一类神经网络结构。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"CNN 会用卷积核在图像上提取局部特征，例如边缘、纹理和形状。它曾长期是计算机视觉任务的主力结构。",
+		commonMisunderstanding:
+			"CNN 不是所有视觉 AI 的代名词，后来的 Transformer 也大量进入视觉任务。",
+		relatedTerms: ["CV", "Neural Network", "Deep Learning"],
+	},
+	{
+		term: "CV",
+		zh: "计算机视觉",
+		summary: "让机器识别、理解和处理图像或视频的 AI 方向。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"计算机视觉包括分类、检测、分割、追踪、图像生成等任务。它解决的是机器如何看懂视觉世界。",
+		commonMisunderstanding:
+			"CV 不只等于拍照识别，它也包含视频理解、三维重建和生成式视觉。",
+		relatedTerms: ["CNN", "CLIP", "NeRF"],
+	},
+	{
+		term: "ChatGPT",
+		zh: "ChatGPT",
+		summary: "OpenAI 推出的对话式 AI 产品。",
+		tag: "产品",
+		category: "agents-products",
+		beginnerExplanation:
+			"ChatGPT 是很多普通人接触大语言模型的入口。它把模型能力包装成聊天、写作、总结、编程和工具调用等体验。",
+		commonMisunderstanding:
+			"ChatGPT 是产品，不等于整个 AI，也不等于所有大语言模型。",
+		relatedTerms: ["LLM", "Chatbot", "GPT-4", "OpenAI"],
+	},
+	{
+		term: "Chatbot",
+		zh: "聊天机器人",
+		summary: "通过文本或语音和用户对话的程序或 AI 系统。",
+		tag: "通识",
+		category: "agents-products",
+		beginnerExplanation:
+			"聊天机器人可以是规则驱动，也可以由大语言模型驱动。判断它能力时，要看它是否能理解上下文、调用工具和处理复杂任务。",
+		commonMisunderstanding:
+			"聊天机器人不一定是大模型，老式客服机器人也属于 chatbot。",
+		relatedTerms: ["ChatGPT", "Agents", "LLM"],
+	},
+	{
+		term: "CoT",
+		zh: "思维链提示",
+		summary: "用中间步骤提示模型进行更复杂推理的方法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"CoT 的核心是让模型把问题拆开，逐步处理。它常被用于数学、逻辑、规划等需要多步推理的任务。",
+		commonMisunderstanding:
+			"模型写出的推理步骤不一定等于真实内部过程，仍需要校验答案。",
+		relatedTerms: ["Prompt Engineering", "LLM", "Inference"],
+	},
+	{
+		term: "Compute",
+		zh: "计算",
+		summary: "训练或运行 AI 模型所需的计算资源。",
+		tag: "技术",
+		category: "infrastructure",
+		beginnerExplanation:
+			"计算资源包括芯片、服务器、时间、电力和调度能力。模型越大、用户越多，算力成本越关键。",
+		commonMisunderstanding:
+			"算力多不自动意味着产品更好，还要看数据、算法、工程和使用场景。",
+		relatedTerms: ["GPU", "TPU", "Accelerator", "Scaling Law"],
+	},
+	{
+		term: "Connectionism",
+		zh: "联结主义",
+		summary: "用大量连接和权重模拟学习能力的 AI 思路。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"联结主义可以理解成让系统从数据中调整连接强度，而不是手写每条规则。今天的深度学习属于这个路线的重要代表。",
+		commonMisunderstanding:
+			"联结主义不是唯一 AI 路线，符号主义和混合方法也很重要。",
+		relatedTerms: ["Neural Network", "Deep Learning", "Symbolic AI"],
+	},
+	{
+		term: "Cross-modal generalization",
+		zh: "跨模态泛化",
+		summary: "模型把一种模态学到的能力迁移到另一种模态上的能力。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"例如模型从文字和图片之间学到关联后，能更好处理看图问答或用文字找图。它是多模态 AI 的关键能力之一。",
+		commonMisunderstanding:
+			"跨模态泛化不是简单把不同数据拼在一起，而是要学到可迁移的表示。",
+		relatedTerms: ["Multimodal", "CLIP", "Embedding"],
+	},
+	{
+		term: "DPO",
+		zh: "直接偏好优化",
+		summary: "直接用偏好数据优化模型输出倾向的训练方法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"DPO 常用于让模型更偏向人类喜欢的回答风格或质量。它绕开了部分传统强化学习流程，工程上更直接。",
+		commonMisunderstanding:
+			"DPO 不是安全的全部，它只能影响模型偏好，不能替代系统级治理。",
+		relatedTerms: ["RLHF", "PPO", "Alignment"],
+	},
+	{
+		term: "Data Augmentation",
+		zh: "数据增强",
+		summary: "通过改造现有样本增加训练数据多样性的方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"数据增强像是给模型多看同一类问题的不同变体。图像里可以翻转、裁剪、加噪声，文本里可以改写或扩展样本。",
+		commonMisunderstanding:
+			"数据增强不是凭空制造真实数据，低质量增强也可能把模型带偏。",
+		relatedTerms: ["Training Data", "Overfitting", "Regularization"],
+	},
+	{
+		term: "Deep Learning",
+		zh: "深度学习",
+		summary: "使用多层神经网络从数据中学习表示的机器学习分支。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"深度学习的“深”指网络层数和表示层级。它让模型能从原始数据中逐层提取更抽象的特征。",
+		commonMisunderstanding:
+			"深度学习不是所有机器学习，也不是层数越多就一定越好。",
+		relatedTerms: ["Machine Learning", "Neural Network", "CNN"],
+	},
+	{
+		term: "DeepMind",
+		zh: "DeepMind 公司",
+		summary: "以 AI 研究和应用闻名的人工智能公司。",
+		tag: "公司",
+		category: "agents-products",
+		beginnerExplanation:
+			"DeepMind 因 AlphaGo 等成果被大众熟知，也长期参与强化学习、蛋白质结构预测和基础模型研究。",
+		commonMisunderstanding:
+			"公司名不是技术名，讨论具体能力时仍要回到模型、论文或产品。",
+		relatedTerms: ["Reinforcement Learning", "OpenAI", "AlphaGo"],
+	},
+	{
+		term: "Diffusion Models",
+		zh: "扩散模型",
+		summary: "通过学习去噪过程生成图像等内容的一类模型。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"扩散模型可以粗略理解为先从噪声开始，再一步步还原出清晰内容。许多图像生成系统都和这类方法有关。",
+		commonMisunderstanding:
+			"扩散模型不只会生成好看的图，它也涉及采样、条件控制、训练数据和版权问题。",
+		relatedTerms: ["AIGC", "GAN", "CLIP"],
+	},
+	{
+		term: "Double Descent",
+		zh: "双降",
+		summary: "模型规模或复杂度增加时，误差可能先降后升再下降的现象。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"传统直觉认为模型太复杂会过拟合，但双降现象提醒我们，大模型行为可能更复杂。它常出现在现代机器学习泛化讨论中。",
+		commonMisunderstanding:
+			"双降不是说模型越大永远越好，它描述的是特定条件下的误差变化现象。",
+		relatedTerms: ["Overfitting", "Generalization ability", "Scaling Law"],
+	},
+	{
+		term: "Embedding",
+		zh: "嵌入",
+		summary: "把文本、图像等对象转换成向量表示的方法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"Embedding 像是给内容生成一个可计算的位置。意思相近的内容会在向量空间里更接近，所以它常用于搜索、推荐和 RAG。",
+		commonMisunderstanding:
+			"Embedding 不是把内容原文保存下来，而是保存便于比较的数学表示。",
+		relatedTerms: ["Vector", "Vector Database", "RAG"],
+	},
+	{
+		term: "Emergence",
+		zh: "涌现",
+		summary: "系统规模或复杂度增加后出现原本不明显的新能力或行为。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"在 AI 里，涌现常用来描述模型变大或训练变化后突然表现出某些能力。它是能力评估和风险讨论里的重要概念。",
+		commonMisunderstanding:
+			"涌现不等于神秘魔法，也不代表所有新能力都无法解释。",
+		relatedTerms: ["Scaling Law", "Generalization ability", "LLM"],
+	},
+	{
+		term: "End-to-End Learning",
+		zh: "端到端学习",
+		summary: "直接从原始输入学习到目标输出的机器学习方式。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"端到端学习减少了手工设计中间步骤，让模型自己从输入到输出学映射。语音识别、自动驾驶和翻译里都常讨论它。",
+		commonMisunderstanding:
+			"端到端不等于没有工程设计，数据、目标、评估和系统边界仍然很重要。",
+		relatedTerms: ["Machine Learning", "Training Data", "Deep Learning"],
+	},
+	{
+		term: "Expert Systems",
+		zh: "专家系统",
+		summary: "用规则和知识库解决特定领域问题的早期 AI 系统。",
+		tag: "技术",
+		category: "agents-products",
+		beginnerExplanation:
+			"专家系统更像把专家经验写成规则，再让计算机推理。它代表了符号主义 AI 的一类经典应用。",
+		commonMisunderstanding:
+			"专家系统不是大语言模型，它通常依赖显式规则而不是从海量数据中学习。",
+		relatedTerms: ["Symbolic AI", "AI", "Chatbot"],
+	},
+	{
+		term: "Few-Shot",
+		zh: "小样本学习",
+		summary: "用少量示例帮助模型完成新任务的学习或提示方式。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"Few-Shot 可以出现在训练里，也可以出现在提示词里。给模型几个例子，通常能让它更清楚输出格式和判断标准。",
+		commonMisunderstanding:
+			"少量样本不代表一定可靠，任务复杂时仍需要更多数据或验证。",
+		relatedTerms: ["Zero-Shot", "Prompt Engineering", "Transfer Learning"],
+	},
+	{
+		term: "Fine-Tuning",
+		zh: "微调",
+		summary: "在已有模型基础上用特定数据继续训练，让它适配任务或风格。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"微调像是在通用模型上继续训练一段，让它更熟悉某个领域、格式或任务。它常用于垂直场景和企业内部模型。",
+		commonMisunderstanding:
+			"不是所有问题都需要微调，很多知识更新和问答场景用 RAG 更合适。",
+		relatedTerms: ["Pre-training", "Instruction Tuning", "SFT"],
+	},
+	{
+		term: "Fitting",
+		zh: "拟合",
+		summary: "模型学习数据规律并尽量匹配真实输出的过程。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"拟合就是让模型的预测越来越接近训练数据里的答案。好的拟合要抓住规律，而不是记住偶然噪声。",
+		commonMisunderstanding:
+			"拟合越好不一定越能泛化，过拟合会让模型在新数据上表现变差。",
+		relatedTerms: ["Overfitting", "Underfitting", "Loss Function"],
+	},
+	{
+		term: "Forward Propagation",
+		zh: "前向传播",
+		summary: "输入数据经过神经网络各层得到输出的计算过程。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"前向传播就是模型从输入算到输出的过程。训练时先前向得到预测，再用反向传播更新参数。",
+		commonMisunderstanding:
+			"前向传播不是训练的全部，它只负责产生输出，参数更新还需要反向传播和优化器。",
+		relatedTerms: ["Backpropagation", "Neural Network", "Inference"],
+	},
+	{
+		term: "Foundation Model",
+		zh: "基础模型",
+		summary: "在广泛数据上训练、可适配多种任务的大型模型。",
+		tag: "技术",
+		category: "infrastructure",
+		beginnerExplanation:
+			"基础模型像通用底座，可以通过提示、检索、微调或工具调用进入不同应用。大语言模型和多模态模型都可能是基础模型。",
+		commonMisunderstanding:
+			"基础模型不是直接等于最终产品，产品还需要数据、工程、安全和交互设计。",
+		relatedTerms: ["LLM", "Pre-training", "Fine-Tuning"],
+	},
+	{
+		term: "GAN",
+		zh: "生成对抗网络",
+		summary: "让生成器和判别器相互竞争来生成新数据的模型方法。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"GAN 可以理解成一个模型负责造，一个模型负责挑错。两者互相提升，最终生成更像真实数据的内容。",
+		commonMisunderstanding:
+			"GAN 不是所有生成式 AI 的基础，扩散模型和 Transformer 也非常重要。",
+		relatedTerms: ["Diffusion Models", "AIGC", "Neural Network"],
+	},
+	{
+		term: "GPT-4",
+		zh: "GPT-4",
+		summary: "OpenAI 发布的一代大语言模型名称。",
+		tag: "产品",
+		category: "agents-products",
+		beginnerExplanation:
+			"GPT-4 是一个具体模型代际名，常被用于讨论更强的文本和多模态能力。使用时要区分模型、产品和 API。",
+		commonMisunderstanding:
+			"GPT-4 不是所有 ChatGPT，也不是所有大语言模型的统称。",
+		relatedTerms: ["ChatGPT", "OpenAI", "LLM"],
+	},
+	{
+		term: "GPU",
+		zh: "图形处理单元",
+		summary: "适合并行计算的芯片，广泛用于 AI 训练和推理。",
+		tag: "产品",
+		category: "infrastructure",
+		beginnerExplanation:
+			"GPU 原本常用于图形渲染，但它的大规模并行计算能力很适合神经网络。AI 热潮让 GPU 成为关键基础设施。",
+		commonMisunderstanding:
+			"GPU 不只服务游戏显卡语境，在数据中心里它是 AI 算力核心之一。",
+		relatedTerms: ["Compute", "Accelerator", "TPU"],
+	},
+	{
+		term: "GQA",
+		zh: "图问答",
+		summary: "基于图结构或图数据进行问题回答的技术方向。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"GQA 关注的是当知识以图结构连接时，模型如何理解节点、关系和路径，并据此回答问题。",
+		commonMisunderstanding:
+			"GQA 不是普通的文本问答，它依赖图结构中的关系信息。",
+		relatedTerms: ["RAG", "Vector Database", "NLP"],
+	},
+	{
+		term: "GPO",
+		zh: "广义策略优化",
+		summary: "用于改进策略学习效率的一类优化思路。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"GPO 可以放在策略优化和偏好训练的大框架里理解。普通读者只需要知道它和让模型选择更好行为有关。",
+		commonMisunderstanding:
+			"GPO 不是通用提速按钮，具体效果依赖训练目标、数据和实现方式。",
+		relatedTerms: ["PPO", "RLHF", "Reinforcement Learning"],
+	},
+	{
+		term: "Generalization ability",
+		zh: "泛化能力",
+		summary: "模型在没见过的新数据或新场景上表现良好的能力。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"泛化能力决定模型是不是只记住训练样本，还是学到了可迁移的规律。它是判断模型可靠性的核心指标之一。",
+		commonMisunderstanding:
+			"训练集表现好不等于泛化好，必须看验证集、测试集和真实场景。",
+		relatedTerms: ["Overfitting", "Validation Data", "Scaling Law"],
+	},
+	{
+		term: "Generalize",
+		zh: "广义化",
+		summary: "把具体概念扩展到更大范围或更一般形式的过程。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"广义化可以理解成从具体例子抽出更通用的说法。在 AI 语境里，它和模型能不能迁移规律有关。",
+		commonMisunderstanding:
+			"广义化不是随意扩大概念范围，必须保留关键边界。",
+		relatedTerms: ["Generalization ability", "Machine Learning"],
+	},
+	{
+		term: "Generative AI / Gen AI",
+		zh: "生成式 AI",
+		summary: "专注于生成新文本、图像、音频、视频或代码的 AI 分支。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"生成式 AI 关心的是模型如何产出新内容，而不只是判断、分类或推荐。ChatGPT 和 AI 绘画都属于常见入口。",
+		commonMisunderstanding:
+			"生成式 AI 不等于内容一定真实，生成结果需要验证来源和用途。",
+		relatedTerms: ["AIGC", "Diffusion Models", "LLM"],
+	},
+	{
+		term: "Gradient Descent",
+		zh: "梯度下降",
+		summary: "沿着损失下降方向调整参数的常见优化方法。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"梯度下降像在山坡上找更低的位置。模型用它根据错误方向一点点改参数，让预测更接近目标。",
+		commonMisunderstanding:
+			"梯度下降不保证一步到最优，也可能受学习率、数据和目标函数影响。",
+		relatedTerms: ["Loss Function", "Backpropagation", "Parameters"],
+	},
+	{
+		term: "Hallucination",
+		zh: "幻觉",
+		summary: "模型生成看似可信但不符合事实或输入依据的内容。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"幻觉是使用生成式 AI 时最常见的风险之一。模型可能把不存在的引用、错误数据或编造细节说得很像真的。",
+		commonMisunderstanding:
+			"幻觉不是模型在故意撒谎，而是生成机制和知识边界导致的错误输出。",
+		relatedTerms: ["RAG", "Alignment", "XAI"],
+	},
+	{
+		term: "Hidden Layer",
+		zh: "隐藏层",
+		summary: "神经网络中位于输入层和输出层之间的计算层。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"隐藏层负责把输入逐步转换成更有用的内部表示。深度学习中的“深”通常和隐藏层数量有关。",
+		commonMisunderstanding:
+			"隐藏层不是不可研究的神秘空间，只是用户不直接输入或读取的中间计算层。",
+		relatedTerms: ["Neural Network", "Forward Propagation", "Latent Space"],
+	},
+	{
+		term: "Hyperparameter Tuning",
+		zh: "超参数调优",
+		summary: "选择学习率、层数等训练前配置值的过程。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"超参数不是模型从数据里自动学出的权重，而是训练前或训练中由人和系统配置的选项。调优会影响速度、稳定性和效果。",
+		commonMisunderstanding:
+			"调超参数不是玄学试运气，应该结合验证集、实验记录和目标指标。",
+		relatedTerms: ["Validation Data", "Parameters", "Gradient Descent"],
+	},
+	{
+		term: "Inference",
+		zh: "推理",
+		summary: "使用训练好的模型对新输入生成预测或回答的过程。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"训练是学能力，推理是用能力。当你向模型提问、让它生成图片或分类图片时，就是在做推理。",
+		commonMisunderstanding:
+			"推理不是一定指逻辑推理，在工程里它常指模型运行和产出结果。",
+		relatedTerms: ["Pre-training", "Forward Propagation", "LLM"],
+	},
+	{
+		term: "Instruction Tuning",
+		zh: "指令调优",
+		summary: "用指令和答案数据训练模型，让它更会按要求完成任务。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"指令调优让模型更懂“请总结”“请翻译”“按这个格式输出”等用户意图。它是把基础模型变成可用助手的重要步骤。",
+		commonMisunderstanding:
+			"指令调优不是给模型临时写提示词，而是训练阶段的适配。",
+		relatedTerms: ["Fine-Tuning", "SFT", "Prompt Engineering"],
+	},
+	{
+		term: "KTO",
+		zh: "知识迁移优化",
+		summary: "用偏好或迁移信号提升模型在新任务上表现的优化思路。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"KTO 可放在模型对齐和偏好优化家族里理解。普通读者只需知道它试图让模型更好利用反馈，改善输出选择。",
+		commonMisunderstanding:
+			"KTO 不是知识库，也不是直接把资料塞给模型。",
+		relatedTerms: ["DPO", "RLHF", "Transfer Learning"],
+	},
+	{
+		term: "Knowledge Distillation",
+		zh: "知识蒸馏",
+		summary: "让小模型学习大模型行为，以降低部署成本的方法。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"知识蒸馏像让学生模型模仿老师模型。它常用于模型压缩、边缘部署和降低推理成本。",
+		commonMisunderstanding:
+			"蒸馏不等于完整复制大模型能力，小模型仍会受容量和训练数据限制。",
+		relatedTerms: ["Pruning", "Foundation Model", "Inference"],
+	},
+	{
+		term: "LLM",
+		zh: "大语言模型",
+		summary: "用大量文本和参数训练、擅长语言处理与生成的模型。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"LLM 是 ChatGPT 等产品背后的关键模型类型。它通过预测和生成文本来完成写作、问答、总结、翻译和代码等任务。",
+		commonMisunderstanding:
+			"LLM 不是知识库本身，回答可能受训练数据、上下文和生成机制影响。",
+		relatedTerms: ["Transformer", "Token", "ChatGPT"],
+	},
+	{
+		term: "LSTM",
+		zh: "长短期记忆",
+		summary: "一种适合处理序列数据的循环神经网络结构。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"LSTM 通过门控机制缓解普通 RNN 难以记住长距离信息的问题。它曾广泛用于语音、文本和时间序列任务。",
+		commonMisunderstanding:
+			"LSTM 不是大语言模型的主流底座，现代 LLM 主要依赖 Transformer。",
+		relatedTerms: ["RNN", "Transformer", "NLP"],
+	},
+	{
+		term: "Latent Space",
+		zh: "潜在空间",
+		summary: "模型内部用于表示数据特征的压缩空间。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"潜在空间可以理解成模型整理出来的抽象坐标系。相似对象在这个空间里通常更接近，生成模型也常在这里进行变化和控制。",
+		commonMisunderstanding:
+			"潜在空间不是现实中的物理空间，而是模型内部表示。",
+		relatedTerms: ["Embedding", "Vector", "Diffusion Models"],
+	},
+	{
+		term: "Loss Function",
+		zh: "损失函数",
+		summary: "衡量模型预测与目标答案差距的函数。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"损失函数告诉模型错得有多远。训练的目标通常是让损失变小，从而让输出更接近预期。",
+		commonMisunderstanding:
+			"损失变小不一定代表真实世界效果更好，指标设计也会影响模型行为。",
+		relatedTerms: ["Objective Function", "Gradient Descent", "Fitting"],
+	},
+	{
+		term: "MHA",
+		zh: "多头注意力",
+		summary: "让模型从多个角度同时关注输入信息的注意力机制。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"多头注意力可以让模型并行捕捉不同关系，比如语法、指代、局部和全局信息。它是 Transformer 的核心组成之一。",
+		commonMisunderstanding:
+			"多个头不等于多个独立模型，而是同一结构里的多组注意力计算。",
+		relatedTerms: ["Attention", "Transformer", "Token"],
+	},
+	{
+		term: "MLA",
+		zh: "元学习算法",
+		summary: "关注如何让模型更快学会新任务的学习算法方向。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"元学习常被概括为“学会如何学习”。它希望模型在遇到新任务时，用更少数据和更少步骤适配。",
+		commonMisunderstanding:
+			"元学习不是让模型拥有人的自我学习意识，而是训练策略上的设计。",
+		relatedTerms: ["Few-Shot", "Transfer Learning", "Machine Learning"],
+	},
+	{
+		term: "Machine Learning",
+		zh: "机器学习",
+		summary: "让模型从数据中学习规律并用于预测或决策的 AI 分支。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"机器学习不是手写所有规则，而是给系统数据和目标，让它学习可用的模式。深度学习是机器学习的一个重要分支。",
+		commonMisunderstanding:
+			"机器学习不是所有 AI 的同义词，也不是数据越多越自然正确。",
+		relatedTerms: ["AI", "Deep Learning", "Training Data"],
+	},
+	{
+		term: "Mixture of Experts",
+		zh: "专家组合",
+		summary: "用多个专家子模型协作完成预测的模型方法。",
+		tag: "技术",
+		category: "infrastructure",
+		beginnerExplanation:
+			"专家组合会让不同子模型处理不同类型的信息或任务。这样可以在模型规模和计算成本之间寻找平衡。",
+		commonMisunderstanding:
+			"专家不是人类专家，而是模型内部的子网络或模块。",
+		relatedTerms: ["MoE", "Foundation Model", "Compute"],
+	},
+	{
+		term: "MoE",
+		zh: "专家混合模型",
+		summary: "通过路由选择部分专家参与计算的高效模型架构。",
+		tag: "技术",
+		category: "infrastructure",
+		beginnerExplanation:
+			"MoE 让模型拥有很多专家，但每次只激活其中一部分。它可以扩大参数规模，同时控制单次计算成本。",
+		commonMisunderstanding:
+			"参数总量大不等于每次推理都用到全部参数，MoE 的关键是稀疏激活。",
+		relatedTerms: ["Mixture of Experts", "Parameters", "Compute"],
+	},
+	{
+		term: "Multimodal",
+		zh: "多模态",
+		summary: "能处理文本、图像、音频、视频等多种数据类型的 AI 能力。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"多模态模型能把不同类型的信息放在一起理解，例如看图回答、根据语音生成文字、用文本控制图像生成。",
+		commonMisunderstanding:
+			"多模态不是简单把功能拼在一起，关键是不同模态之间能相互理解和转换。",
+		relatedTerms: ["CLIP", "CV", "Cross-modal generalization"],
+	},
+	{
+		term: "NLP",
+		zh: "自然语言处理",
+		summary: "研究机器如何处理、理解和生成自然语言的领域。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"NLP 包括分词、分类、翻译、问答、摘要和对话等任务。大语言模型是 NLP 发展中的重要阶段。",
+		commonMisunderstanding:
+			"NLP 不只等于聊天，也包括搜索、信息抽取、文本分类等大量基础任务。",
+		relatedTerms: ["LLM", "Transformer", "Token"],
+	},
+	{
+		term: "NeRF",
+		zh: "神经辐射场",
+		summary: "用神经网络从二维图像重建或渲染三维场景的方法。",
+		tag: "技术",
+		category: "generative-multimodal",
+		beginnerExplanation:
+			"NeRF 可以从多个视角图像学习一个场景的三维表示，再生成新的视角。它常出现在 3D 重建和视觉合成讨论中。",
+		commonMisunderstanding:
+			"NeRF 不是普通滤镜，它处理的是场景表示和视角渲染。",
+		relatedTerms: ["CV", "Multimodal", "Diffusion Models"],
+	},
+	{
+		term: "Neural Network",
+		zh: "神经网络",
+		summary: "由多层计算单元和连接权重组成的机器学习模型。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"神经网络通过层与层之间的权重把输入转换成输出。训练过程会不断调整权重，让模型更好完成任务。",
+		commonMisunderstanding:
+			"神经网络只是受大脑启发，不等于真实复刻人脑。",
+		relatedTerms: ["Deep Learning", "Hidden Layer", "Weight"],
+	},
+	{
+		term: "Objective Function",
+		zh: "目标函数",
+		summary: "模型训练或优化时希望最大化或最小化的目标。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"目标函数告诉系统到底在优化什么。损失函数通常是目标函数的一种具体形式，用来衡量错得多不多。",
+		commonMisunderstanding:
+			"目标函数设计不当会让模型学会错误行为，所以目标本身也需要审查。",
+		relatedTerms: ["Loss Function", "Gradient Descent", "Alignment"],
+	},
+	{
+		term: "OpenAI",
+		zh: "OpenAI 公司",
+		summary: "以大语言模型和 AI 产品闻名的人工智能研究与产品公司。",
+		tag: "公司",
+		category: "agents-products",
+		beginnerExplanation:
+			"OpenAI 是 ChatGPT、GPT 系列模型和相关 API 的重要提供方之一。讨论它时要区分公司、模型、产品和接口。",
+		commonMisunderstanding:
+			"OpenAI 不是 AI 的同义词，AI 生态里还有许多研究机构、公司和开源社区。",
+		relatedTerms: ["ChatGPT", "GPT-4", "LLM"],
+	},
+	{
+		term: "Overfitting",
+		zh: "过拟合",
+		summary: "模型过度记住训练数据，导致新数据表现变差的问题。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"过拟合像考试只背原题，换个题就不会。模型在训练集上很好，但到了真实场景可能出错。",
+		commonMisunderstanding:
+			"训练准确率高不一定是好消息，要看验证集和真实数据表现。",
+		relatedTerms: ["Fitting", "Regularization", "Validation Data"],
+	},
+	{
+		term: "PPO",
+		zh: "近端策略优化",
+		summary: "强化学习中常用的一类策略优化算法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"PPO 常出现在 RLHF 训练流程讨论中，用来让模型在优化奖励的同时避免策略变化过猛。",
+		commonMisunderstanding:
+			"PPO 不是大模型唯一训练方法，也不是普通用户写提示词会直接接触的东西。",
+		relatedTerms: ["RLHF", "Reinforcement Learning", "DPO"],
+	},
+	{
+		term: "Paradigm",
+		zh: "范式",
+		summary: "某个领域里被广泛采用的基本思路、框架或工作方式。",
+		tag: "商业",
+		category: "frontier",
+		beginnerExplanation:
+			"谈 AI 范式时，通常是在说行业从规则系统、机器学习、深度学习到大模型的工作方式变化。",
+		commonMisunderstanding:
+			"范式不是流行词包装，它应该指一套真正改变问题处理方式的框架。",
+		relatedTerms: ["AI", "Machine Learning", "Foundation Model"],
+	},
+	{
+		term: "Parameters",
+		zh: "参数",
+		summary: "模型在训练中学习到的内部变量。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"参数决定模型如何把输入映射成输出。神经网络里的权重和偏置通常都属于参数。",
+		commonMisunderstanding:
+			"参数多不自动等于更聪明，还要看数据、训练、架构和评估。",
+		relatedTerms: ["Weight", "MoE", "Gradient Descent"],
+	},
+	{
+		term: "Pre-training",
+		zh: "预训练",
+		summary: "在大规模数据上先训练模型，让它获得通用能力的阶段。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"预训练像先打基础。模型先从大量数据中学语言、图像或世界模式，再通过微调、指令调优或检索进入具体应用。",
+		commonMisunderstanding:
+			"预训练不是最终产品，后续还需要对齐、评估和部署。",
+		relatedTerms: ["Foundation Model", "Fine-Tuning", "LLM"],
+	},
+	{
+		term: "Prompt Engineering",
+		zh: "提示工程",
+		summary: "设计输入指令和上下文，让模型更稳定完成任务的方法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"提示工程不是写神秘咒语，而是把任务、背景、格式、约束和示例交代清楚，让模型更容易按要求输出。",
+		commonMisunderstanding:
+			"提示词不能解决所有问题，知识缺口、权限、数据质量和模型能力仍然会限制结果。",
+		relatedTerms: ["CoT", "Few-Shot", "Instruction Tuning"],
+	},
+	{
+		term: "Pruning",
+		zh: "裁剪",
+		summary: "删除模型中不重要的参数或结构，以降低计算成本的方法。",
+		tag: "技术",
+		category: "infrastructure",
+		beginnerExplanation:
+			"裁剪像给模型瘦身。它试图减少冗余参数，让模型更快、更小、更容易部署。",
+		commonMisunderstanding:
+			"裁剪不是随便删除，过度裁剪会明显损害模型质量。",
+		relatedTerms: ["Knowledge Distillation", "Parameters", "Inference"],
+	},
+	{
+		term: "RAG",
+		zh: "检索增强生成",
+		summary: "先检索资料，再让生成模型基于资料回答的方法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"RAG 常用于企业知识库、文档问答和客服。它让模型在回答前先拿到相关资料，从而降低乱编和知识过期问题。",
+		commonMisunderstanding:
+			"RAG 不能自动保证答案正确，检索质量、资料质量和引用方式都很关键。",
+		relatedTerms: ["Embedding", "Vector Database", "Hallucination"],
+	},
+	{
+		term: "RLHF",
+		zh: "基于人类反馈的强化学习",
+		summary: "用人类偏好反馈训练奖励模型或调整模型行为的方法。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"RLHF 让模型更贴近人类偏好的回答方式。它常用于把基础模型调成更有帮助、更可控的助手。",
+		commonMisunderstanding:
+			"RLHF 不等于让模型拥有价值观，它只是把特定反馈转成训练信号。",
+		relatedTerms: ["PPO", "DPO", "Alignment"],
+	},
+	{
+		term: "RNN",
+		zh: "循环神经网络",
+		summary: "适合处理序列数据的一类神经网络。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"RNN 会把前一步的信息带到下一步，适合文本、语音和时间序列。后来 LSTM 改进了它处理长距离依赖的能力。",
+		commonMisunderstanding:
+			"RNN 不是今天大语言模型的主流结构，Transformer 已成为更常见的基础。",
+		relatedTerms: ["LSTM", "Transformer", "NLP"],
+	},
+	{
+		term: "Regularization",
+		zh: "正则化",
+		summary: "通过约束模型复杂度来降低过拟合风险的方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"正则化像给模型加规矩，让它不要过度依赖训练数据中的细枝末节。它常用于提升泛化能力。",
+		commonMisunderstanding:
+			"正则化不是越强越好，过强会导致模型学不到足够规律。",
+		relatedTerms: ["Overfitting", "Generalization ability", "Data Augmentation"],
+	},
+	{
+		term: "Reinforcement Learning",
+		zh: "强化学习",
+		summary: "让智能体通过行动和奖励学习策略的机器学习方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"强化学习关注在环境中做什么动作能获得更高长期回报。游戏、机器人控制和偏好优化里都会用到它。",
+		commonMisunderstanding:
+			"强化学习不是奖励越多越简单，奖励设计错误会诱导奇怪行为。",
+		relatedTerms: ["PPO", "RLHF", "Agents"],
+	},
+	{
+		term: "SFT",
+		zh: "监督微调",
+		summary: "用人工整理的指令和答案对模型进行监督训练的阶段。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"SFT 常用于让基础模型先学会按指令回答。它通常发生在预训练之后、偏好优化之前或旁边。",
+		commonMisunderstanding:
+			"SFT 不是所有微调的同义词，它特指监督数据驱动的指令适配。",
+		relatedTerms: ["Fine-Tuning", "Instruction Tuning", "RLHF"],
+	},
+	{
+		term: "Scaling Law",
+		zh: "规模定律",
+		summary: "描述模型性能与参数量、数据量、计算量之间关系的规律。",
+		tag: "技术",
+		category: "frontier",
+		beginnerExplanation:
+			"规模定律帮助研究者估计继续扩大模型、数据和算力可能带来的收益。它影响了大模型时代的投入决策。",
+		commonMisunderstanding:
+			"规模定律不是无限保证，数据质量、架构和成本都会改变收益。",
+		relatedTerms: ["Compute", "Parameters", "Emergence"],
+	},
+	{
+		term: "Singularity",
+		zh: "奇点",
+		summary: "一种关于技术增长失控或不可预测转折点的未来设想。",
+		tag: "技术",
+		category: "fundamentals",
+		beginnerExplanation:
+			"AI 奇点常用于讨论当智能系统自我改进或能力增长超过人类理解时，社会可能进入难以预测的新阶段。",
+		commonMisunderstanding:
+			"奇点不是已发生事实，也不是有确定日期的事件。",
+		relatedTerms: ["ASI", "AGI", "Alignment"],
+	},
+	{
+		term: "Supervised Learning",
+		zh: "监督学习",
+		summary: "用带标签的数据训练模型预测正确输出的机器学习方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"监督学习就像给模型看题目和标准答案。分类、回归、识别等任务都常用这种方式训练。",
+		commonMisunderstanding:
+			"监督学习依赖标注质量，标签错了或偏了，模型也会跟着学偏。",
+		relatedTerms: ["Training Data", "Validation Data", "SFT"],
+	},
+	{
+		term: "Symbolic AI",
+		zh: "符号主义",
+		summary: "用显式符号、规则和逻辑推理构建智能系统的 AI 路线。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"符号主义强调知识和推理可以用规则表达。专家系统就是典型例子，它和从数据中学习的联结主义形成对照。",
+		commonMisunderstanding:
+			"符号主义不是过时无用，现代 AI 仍会在工具、知识图谱和推理系统中使用符号方法。",
+		relatedTerms: ["Connectionism", "Expert Systems", "AI"],
+	},
+	{
+		term: "System1/System2",
+		zh: "系统 1 / 系统 2",
+		summary: "把快速直觉与慢速理性区分开的思考框架。",
+		tag: "通识",
+		category: "fundamentals",
+		beginnerExplanation:
+			"系统 1 常指快速、自动、直觉式判断，系统 2 常指慢速、费力、理性分析。AI 讨论里常借它解释快速生成和深度推理的差异。",
+		commonMisunderstanding:
+			"这不是严格的脑区划分，也不能简单套成模型真的拥有两套人类思维系统。",
+		relatedTerms: ["CoT", "Inference", "Reasoning"],
+	},
+	{
+		term: "TPU",
+		zh: "张量处理单元",
+		summary: "为机器学习计算设计的专用加速芯片。",
+		tag: "技术",
+		category: "infrastructure",
+		beginnerExplanation:
+			"TPU 面向张量计算优化，常用于训练和运行机器学习模型。它体现了 AI 发展对专用硬件的需求。",
+		commonMisunderstanding:
+			"TPU 和 GPU 都能服务 AI，但它们的设计目标和生态并不完全相同。",
+		relatedTerms: ["GPU", "Accelerator", "Compute"],
+	},
+	{
+		term: "TensorFlow",
+		zh: "TensorFlow",
+		summary: "用于构建和训练机器学习模型的开源框架。",
+		tag: "技术",
+		category: "agents-products",
+		beginnerExplanation:
+			"TensorFlow 是工程工具，不是模型本身。开发者可以用它搭建、训练和部署机器学习模型。",
+		commonMisunderstanding:
+			"框架不决定模型一定先进，关键还在数据、架构、训练和工程实践。",
+		relatedTerms: ["Machine Learning", "Neural Network", "Training Data"],
+	},
+	{
+		term: "Token",
+		zh: "词元",
+		summary: "语言模型处理文本时使用的基本计算单位。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"Token 可能是一个字、一个词或词的一部分。模型按 Token 计算输入输出，所以上下文长度和费用常和 Token 数有关。",
+		commonMisunderstanding:
+			"Token 不完全等于汉字或英文单词，不同分词器的切分方式也不同。",
+		relatedTerms: ["LLM", "Transformer", "Prompt Engineering"],
+	},
+	{
+		term: "Training Data",
+		zh: "训练数据",
+		summary: "用于训练模型、让模型学习规律的数据集合。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"训练数据决定模型能看到什么世界。数据的质量、覆盖范围和偏差，会直接影响模型输出。",
+		commonMisunderstanding:
+			"数据多不等于数据好，重复、污染和偏差都会影响模型。",
+		relatedTerms: ["Validation Data", "Bias", "Supervised Learning"],
+	},
+	{
+		term: "Transfer Learning",
+		zh: "迁移学习",
+		summary: "把已有任务学到的能力迁移到新任务上的方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"迁移学习像先学通用基础，再去适配新场景。预训练模型和微调就是很常见的迁移思路。",
+		commonMisunderstanding:
+			"迁移不是直接复制答案，新任务差异太大时仍需要数据和验证。",
+		relatedTerms: ["Pre-training", "Fine-Tuning", "Few-Shot"],
+	},
+	{
+		term: "Transformer",
+		zh: "Transformer 模型",
+		summary: "基于注意力机制的深度学习架构，是现代大语言模型核心基础之一。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"Transformer 能高效处理序列中的关系，推动了语言、视觉和多模态模型的发展。它让模型能更好利用上下文。",
+		commonMisunderstanding:
+			"Transformer 不是某一家公司的产品，而是一类模型架构。",
+		relatedTerms: ["Attention", "MHA", "LLM"],
+	},
+	{
+		term: "Turing test",
+		zh: "图灵测试",
+		summary: "通过对话判断机器是否表现出类似人类智能的思想实验。",
+		tag: "技术",
+		category: "fundamentals",
+		beginnerExplanation:
+			"图灵测试关注的是机器在交流中能否让人难以区分它和人。它是 AI 历史上很重要的讨论起点。",
+		commonMisunderstanding:
+			"通过图灵测试不等于机器真正理解，也不等于达到 AGI。",
+		relatedTerms: ["AI", "Chatbot", "AGI"],
+	},
+	{
+		term: "Underfitting",
+		zh: "欠拟合",
+		summary: "模型太简单或训练不足，无法学到数据中的基本规律。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"欠拟合像连基础题型都没学会。模型在训练集和新数据上都表现不好，说明它没有捕捉到必要模式。",
+		commonMisunderstanding:
+			"欠拟合不是只在小模型里发生，错误特征、数据不足或训练不当也会导致它。",
+		relatedTerms: ["Fitting", "Overfitting", "Loss Function"],
+	},
+	{
+		term: "Unsupervised Learning",
+		zh: "无监督学习",
+		summary: "在没有人工标签的情况下从数据中发现结构或模式的方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"无监督学习常用于聚类、降维和表示学习。模型没有标准答案，而是自己寻找数据中的相似性和结构。",
+		commonMisunderstanding:
+			"无监督不是没人设计目标，算法仍然有假设、目标和评估方式。",
+		relatedTerms: ["Machine Learning", "Embedding", "Training Data"],
+	},
+	{
+		term: "Validation Data",
+		zh: "验证集",
+		summary: "用于调参和评估模型泛化表现的独立数据子集。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"验证集像练习后的模拟考试。它不参与直接训练，用来判断模型是否过拟合和调参是否有效。",
+		commonMisunderstanding:
+			"验证集不是测试集，也不应该被反复调到失去独立性。",
+		relatedTerms: ["Training Data", "Overfitting", "Hyperparameter Tuning"],
+	},
+	{
+		term: "Vector",
+		zh: "向量",
+		summary: "由一组数字组成、可表示方向和大小的数学对象。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"在 AI 里，文本、图片和用户行为都可以被表示成向量。向量让机器能计算相似度、距离和关系。",
+		commonMisunderstanding:
+			"向量不是内容原文，而是便于计算的数字表示。",
+		relatedTerms: ["Embedding", "Vector Database", "Latent Space"],
+	},
+	{
+		term: "Vector Database",
+		zh: "向量数据库",
+		summary: "用于存储和检索向量表示的数据库系统。",
+		tag: "技术",
+		category: "llm-prompting",
+		beginnerExplanation:
+			"向量数据库常和 RAG 一起使用。它根据语义相似度找资料，而不只依赖关键词完全匹配。",
+		commonMisunderstanding:
+			"向量数据库不是万能知识库，资料切分、嵌入质量和检索策略都会影响结果。",
+		relatedTerms: ["Embedding", "RAG", "Vector"],
+	},
+	{
+		term: "Weight",
+		zh: "模型权重",
+		summary: "神经网络连接中的可学习参数，决定信号如何传递。",
+		tag: "技术",
+		category: "model-mechanisms",
+		beginnerExplanation:
+			"权重像模型内部的调节旋钮。训练会改变这些值，让模型更好地把输入映射成输出。",
+		commonMisunderstanding:
+			"权重不是人工手写知识点，而是训练过程学出的数字参数。",
+		relatedTerms: ["Parameters", "Neural Network", "Gradient Descent"],
+	},
+	{
+		term: "XAI",
+		zh: "可解释的人工智能",
+		summary: "让 AI 决策过程更容易被理解、检查和追责的研究方向。",
+		tag: "通识",
+		category: "frontier",
+		beginnerExplanation:
+			"XAI 关注模型为什么给出某个结果，尤其适用于医疗、金融、法律等高风险场景。它帮助人类判断系统是否可信。",
+		commonMisunderstanding:
+			"可解释不等于完全透明，也不保证模型一定正确。",
+		relatedTerms: ["Bias", "Alignment", "Hallucination"],
+	},
+	{
+		term: "Zero-Shot",
+		zh: "零样本学习",
+		summary: "没有看到特定任务样本时，仍尝试完成新任务的能力或方法。",
+		tag: "技术",
+		category: "machine-learning",
+		beginnerExplanation:
+			"零样本学习依赖模型已有知识和泛化能力。大模型常能在没有示例的情况下，根据指令完成新格式任务。",
+		commonMisunderstanding:
+			"零样本不等于零成本可靠，复杂任务仍需要示例、验证或微调。",
+		relatedTerms: ["Few-Shot", "Generalization ability", "Prompt Engineering"],
+	},
+] satisfies GlossaryTerm[];
+
+export const glossaryTermsByCategory = glossaryCategories.map((category) => ({
+	...category,
+	terms: glossaryTerms.filter((term) => term.category === category.id),
+}));
+
+export const glossaryTagOrder: GlossaryTag[] = [
+	"通识",
+	"技术",
+	"产品",
+	"公司",
+	"商业",
+];
+
+export const glossaryTermCount = glossaryTerms.length;

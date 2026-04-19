@@ -107,7 +107,7 @@ export function DocsSidebar() {
 									type="button"
 									className={cn(
 										"border-b border-foreground/6 w-full text-left flex gap-2 items-center px-4 py-2.5 transition-colors",
-										"font-medium text-sm tracking-wider",
+										"font-medium text-sm",
 										currentOpen === index
 											? "text-foreground bg-foreground/3"
 											: "text-foreground/70 hover:text-foreground hover:bg-foreground/3",
@@ -117,7 +117,7 @@ export function DocsSidebar() {
 									}}
 								>
 									<section.Icon className="size-4.5" />
-									<span className="grow tracking-normal">{section.title}</span>
+									<span className="grow">{section.title}</span>
 									<ChevronDownIcon
 										className={cn(
 											"h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200",
@@ -194,7 +194,7 @@ function SidebarSection({
 							key={`sep-${item.title}-${i}`}
 							className="flex flex-row items-center gap-2 mx-4 lg:mx-7 my-2"
 						>
-							<p className="text-[10px] text-foreground/45 uppercase tracking-wider">
+							<p className="text-[10px] text-foreground/45 uppercase">
 								{item.title}
 							</p>
 							<div className="grow h-px bg-border" />
@@ -207,7 +207,7 @@ function SidebarSection({
 							key={`group-${item.title}-${i}`}
 							className="flex flex-row items-center gap-2 mx-4 my-1 lg:mx-7"
 						>
-							<p className="text-[10px] text-foreground/45 uppercase tracking-wider">
+							<p className="text-[10px] text-foreground/45 uppercase">
 								{item.title}
 							</p>
 							<div className="grow h-px bg-border" />
@@ -293,7 +293,7 @@ function SidebarItemWithSubpages({
 											key={`subgroup-${subpage.title}-${i}`}
 											className="flex flex-row items-center gap-2 pl-[calc(1.75rem+0.75rem+0.75rem)] pr-4 py-1.5 mt-1 first:mt-0"
 										>
-											<p className="text-[10px] text-foreground/45 uppercase tracking-wider">
+											<p className="text-[10px] text-foreground/45 uppercase">
 												{subpage.title}
 											</p>
 											<div className="grow h-px bg-border" />
@@ -437,7 +437,7 @@ function NewBadge({ isSelected }: { isSelected?: boolean }) {
 	return (
 		<Badge
 			className={cn(
-				"pointer-events-none no-underline! border-dashed decoration-transparent! rounded-none px-1.5 py-0 text-[9px] uppercase tracking-wider",
+				"pointer-events-none no-underline! border-dashed decoration-transparent! rounded-none px-1.5 py-0 text-[9px] uppercase",
 				isSelected
 					? "border-solid! bg-foreground/10 text-foreground"
 					: "text-foreground/55 border-foreground/25",
