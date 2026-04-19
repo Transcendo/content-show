@@ -1,8 +1,8 @@
 "use client";
 
 import { Download } from "lucide-react";
-import { toPng } from "html-to-image";
 import { useState } from "react";
+import { domToPng } from "@/lib/dom-to-png";
 
 function safeName(input: string) {
 	return input
@@ -42,8 +42,7 @@ export function ExportPosterButton({
 					(article as HTMLElement).style.margin = "0 auto";
 					(article as HTMLElement).style.padding = "24px";
 
-					const dataUrl = await toPng(article as HTMLElement, {
-						cacheBust: true,
+					const dataUrl = await domToPng(article as HTMLElement, {
 						pixelRatio: 2,
 						backgroundColor: "#ffffff",
 						canvasWidth: 600,

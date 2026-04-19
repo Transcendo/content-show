@@ -1,12 +1,11 @@
 "use client";
 
-import { toPng } from 'html-to-image';
 import { Download } from 'lucide-react';
 import { useState } from 'react';
+import { domToPng } from '@/lib/dom-to-png';
 
 async function downloadNode(node: HTMLElement, filename: string) {
-  const dataUrl = await toPng(node, {
-    cacheBust: true,
+  const dataUrl = await domToPng(node, {
     pixelRatio: 2,
     backgroundColor: '#ffffff',
     canvasWidth: 600,

@@ -17,10 +17,10 @@ export default function HomePage() {
 			{...docsLayoutProps}
 			className="min-h-dvh bg-[#f6f7f5] text-[#11140f] dark:bg-[#10130f] dark:text-[#f4f6ee]"
 		>
-			<main className="mx-auto flex w-full max-w-6xl flex-col px-5 py-12 sm:px-6 sm:py-16">
-				<section className="grid min-h-[calc(100dvh-9rem)] gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+			<main className="mx-auto flex w-full max-w-6xl flex-col px-5 pt-10 pb-14 sm:px-6 sm:pt-12 sm:pb-16">
+				<section className="grid gap-10 py-8 sm:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
 					<div className="max-w-3xl">
-						<p className="inline-flex items-center gap-2 border border-[#11140f]/15 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[#315f4a] shadow-sm dark:border-white/15 dark:bg-white/8 dark:text-[#8bd8ae]">
+						<p className="inline-flex items-center gap-2 border border-[#11140f]/15 bg-white px-3 py-1 text-xs font-medium uppercase text-[#315f4a] shadow-sm dark:border-white/15 dark:bg-white/8 dark:text-[#8bd8ae]">
 							<span className="size-1.5 bg-[#27ae60]" />
 							AI Knowledge for Everyone
 						</p>
@@ -87,7 +87,7 @@ export default function HomePage() {
 								src={heroImage}
 							/>
 							<div className="border-t border-white/15 pt-4 text-white">
-								<p className="text-xs uppercase tracking-[0.18em] text-[#8bd8ae]">
+								<p className="text-xs uppercase text-[#8bd8ae]">
 									Term Map
 								</p>
 								<p className="mt-2 text-2xl font-semibold">

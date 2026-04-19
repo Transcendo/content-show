@@ -1,5 +1,8 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { createMDX } from "fumadocs-mdx/next";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const isGithubPages = process.env.GITHUB_ACTIONS === "true";
 const repoName = "content-show";
 const basePath = isGithubPages ? `/${repoName}` : "";
@@ -9,6 +12,9 @@ const nextConfig = {
 	output: "export",
 	basePath,
 	assetPrefix: basePath || undefined,
+	turbopack: {
+		root: __dirname,
+	},
 	experimental: {
 		optimizePackageImports: [
 			"lucide-react",
