@@ -1,0 +1,54 @@
+# Memory.md - content-show Agent Memory
+
+This file is durable working memory for AI agents in this repository. Read it after
+`AGENTS.md` before making changes, and update it after meaningful work.
+
+## How to update this file
+
+- Keep entries factual, concise, and useful for the next agent.
+- Use the current date for operation log entries.
+- Append new work under `Agent Operation Log`.
+- Edit `Stable Project Memory` only when the underlying project fact changes.
+- Record decisions, changed files, validation results, and follow-up work.
+- Do not store secrets, credentials, private user data, or long raw command output.
+
+## Stable Project Memory
+
+- Project name: Content Show.
+- Purpose: public-facing AI knowledge, glossary, learning path, topic, source, and knowledge graph site for general readers.
+- Stack: Next.js 16 App Router, React 19, Fumadocs MDX, Tailwind CSS 4, pnpm.
+- Deployment model: static export to `out/` for GitHub Pages.
+- Public URLs are root-level routes such as `/glossary`, `/learn`, `/graph`, `/fundamentals`, and `/resources/source-list`; they intentionally do not use `/docs/...`.
+- Internal Fumadocs content directory is `content/docs/`.
+- Research drafts and source preparation belong in `AI Knowledge/`.
+- Published MDX pages belong in `content/docs/` and must be wired through the relevant `meta.json` when they should appear in navigation.
+- Glossary data and relationships are maintained in `lib/ai-glossary.ts`.
+- Main navigation and homepage content configuration are maintained in `lib/site-config.tsx`.
+- Generated/dependency folders such as `.next/`, `.source/`, `out/`, and `node_modules/` should not be edited directly.
+
+## Editorial Memory
+
+- Accuracy matters more than speed for public content.
+- Prefer credible primary or near-primary sources.
+- Distinguish fact, interpretation, dispute, and speculation.
+- Add `lastReviewed` for fast-changing or contested AI topics when the page format supports it.
+- Use clear explanations for general readers and avoid hype-heavy wording.
+- Source-backed drafts can start in `AI Knowledge/` before being adapted into public MDX pages.
+
+## Working Preferences
+
+- For code, config, or MDX structure changes, run `pnpm typecheck` and `pnpm build` when feasible.
+- For simple repository guidance or memory-only Markdown edits, reviewing `git diff` is usually sufficient.
+- Keep changes small and aligned with existing file organization.
+- Avoid unrelated app shell refactors during editorial/content tasks.
+
+## Open Follow-ups
+
+- `.codex/skills/content-show-editorial-standard/SKILL.md` currently appears to be a placeholder. If the user wants a reusable local Codex skill for this repo, fill it from `AGENTS.md`, `README.md`, and this memory file.
+
+## Agent Operation Log
+
+### 2026-04-19
+
+- Expanded `AGENTS.md` from a brief repo overview into a fuller AI-agent guide covering technical stack, content architecture, editorial rules, common commands, and memory workflow.
+- Created `Memory.md` to preserve stable project facts, editorial preferences, working conventions, open follow-ups, and future operation logs.
