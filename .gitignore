@@ -1,5 +1,6 @@
 .next
 node_modules
+.pnpm-store
 .source
 .env
 .DS_Store
@@ -7,3 +8,4 @@ next-env.d.ts
 tsconfig.tsbuildinfo
 
 out
+cicd/docker/out
