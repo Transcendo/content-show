@@ -445,10 +445,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"深度学习的“深”指网络层数和表示层级。它让模型能从原始数据中逐层提取更抽象的特征。",
+			"深度学习是机器学习里非常重要的一条路线。它通过多层神经网络，从原始数据中逐层学出更抽象、更适合任务的表示。",
 		commonMisunderstanding:
-			"深度学习不是所有机器学习，也不是层数越多就一定越好。",
-		relatedTerms: ["Machine Learning", "Neural Network", "CNN"],
+			"深度学习不是机器学习的全部，也不是层数越多就一定越好。今天的大模型属于深度学习，但深度学习不只等于大模型。",
+		relatedTerms: ["Machine Learning", "Neural Network", "CNN", "Transformer"],
 	},
 	{
 		term: "DeepMind",
@@ -865,10 +865,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"机器学习不是手写所有规则，而是给系统数据和目标，让它学习可用的模式。深度学习是机器学习的一个重要分支。",
+			"机器学习不是把规则一条条写死，而是给系统数据和目标，让它从样本里学出可用模式。深度学习是机器学习里最重要的一条路线之一。",
 		commonMisunderstanding:
-			"机器学习不是所有 AI 的同义词，也不是数据越多越自然正确。",
-		relatedTerms: ["AI", "Deep Learning", "Training Data"],
+			"机器学习不是所有 AI 的同义词，也不是数据越多越自然正确。真正关键的是数据质量、训练方式和模型能否泛化。",
+		relatedTerms: ["AI", "Deep Learning", "Training Data", "Validation Data", "Supervised Learning"],
 	},
 	{
 		term: "Mixture of Experts",
@@ -1105,10 +1105,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"强化学习关注在环境中做什么动作能获得更高长期回报。游戏、机器人控制和偏好优化里都会用到它。",
+			"强化学习不是直接看标准答案，而是在环境里不断行动，通过奖励信号慢慢学出更好的策略。游戏、机器人控制和偏好优化里都会用到它。",
 		commonMisunderstanding:
-			"强化学习不是奖励越多越简单，奖励设计错误会诱导奇怪行为。",
-		relatedTerms: ["PPO", "RLHF", "Agents"],
+			"强化学习不是奖励越多越简单，奖励设计错误会诱导模型学出看起来聪明但目标跑偏的行为。",
+		relatedTerms: ["PPO", "RLHF", "Agents", "Machine Learning"],
 	},
 	{
 		term: "SFT",
@@ -1153,10 +1153,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"监督学习就像给模型看题目和标准答案。分类、回归、识别等任务都常用这种方式训练。",
+			"监督学习就像给模型看题目和标准答案。分类、回归、识别等任务都常用这种方式训练，是很多入门机器学习任务最常见的方法。",
 		commonMisunderstanding:
-			"监督学习依赖标注质量，标签错了或偏了，模型也会跟着学偏。",
-		relatedTerms: ["Training Data", "Validation Data", "SFT"],
+			"监督学习依赖标注质量，标签错了或偏了，模型也会跟着学偏。它也不等于所有机器学习。",
+		relatedTerms: ["Training Data", "Validation Data", "SFT", "Machine Learning"],
 	},
 	{
 		term: "Symbolic AI",
@@ -1225,10 +1225,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"训练数据决定模型能看到什么世界。数据的质量、覆盖范围和偏差，会直接影响模型输出。",
+			"训练数据决定模型能看到什么世界。模型从这些数据里学模式，所以数据的质量、覆盖范围和偏差，会直接影响模型输出。",
 		commonMisunderstanding:
-			"数据多不等于数据好，重复、污染和偏差都会影响模型。",
-		relatedTerms: ["Validation Data", "Bias", "Supervised Learning"],
+			"数据多不等于数据好，重复、污染、偏差和标签质量问题都会直接影响模型。",
+		relatedTerms: ["Validation Data", "Bias", "Supervised Learning", "Machine Learning"],
 	},
 	{
 		term: "Transfer Learning",
@@ -1285,10 +1285,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"无监督学习常用于聚类、降维和表示学习。模型没有标准答案，而是自己寻找数据中的相似性和结构。",
+			"无监督学习常用于聚类、降维和表示学习。模型没有标准答案，而是自己寻找数据中的相似性、结构和潜在规律。",
 		commonMisunderstanding:
-			"无监督不是没人设计目标，算法仍然有假设、目标和评估方式。",
-		relatedTerms: ["Machine Learning", "Embedding", "Training Data"],
+			"无监督不是没人设计目标，算法仍然有假设、目标和评估方式。它只是没有像监督学习那样的显式标签。",
+		relatedTerms: ["Machine Learning", "Embedding", "Training Data", "Deep Learning"],
 	},
 	{
 		term: "Validation Data",
@@ -1297,10 +1297,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "machine-learning",
 		beginnerExplanation:
-			"验证集像练习后的模拟考试。它不参与直接训练，用来判断模型是否过拟合和调参是否有效。",
+			"验证集像练习后的模拟考试。它不参与直接训练，而是用来判断模型是否过拟合、调参是否有效，以及不同方案谁更靠谱。",
 		commonMisunderstanding:
-			"验证集不是测试集，也不应该被反复调到失去独立性。",
-		relatedTerms: ["Training Data", "Overfitting", "Hyperparameter Tuning"],
+			"验证集不是测试集，也不应该被反复调到失去独立性。验证集一旦被过度利用，结果就会越来越不可靠。",
+		relatedTerms: ["Training Data", "Overfitting", "Hyperparameter Tuning", "Machine Learning"],
 	},
 	{
 		term: "Vector",
