@@ -273,26 +273,26 @@ export const glossaryTerms = [
 	{
 		term: "Attention",
 		zh: "注意力",
-		summary: "模型在上下文中分配关注重点的一类机制。",
+		summary: "模型在处理输入时，为不同信息分配不同关注权重的机制。",
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"注意力机制可以帮助模型判断哪些输入信息更相关。Transformer 能处理语言和视觉任务，和注意力机制关系很深。",
+			"可以把 Attention 理解成模型在阅读一句话时，不会平均看待每个词，而是会根据当前任务判断现在最该看哪里。它帮助模型在长上下文里抓住重点，也是 Transformer 能高效处理语言和多种序列数据的关键机制之一。",
 		commonMisunderstanding:
-			"注意力不是人的意识或注意力，它是模型内部计算相关性的一种方法。",
-		relatedTerms: ["Transformer", "MHA", "Token"],
+			"Attention 不是人的意识，也不表示模型真的理解了重点。它本质上是一种计算相关性、分配信息权重的方法。",
+		relatedTerms: ["Transformer", "Token", "Inference", "Parameters"],
 	},
 	{
 		term: "Backpropagation",
 		zh: "反向传播",
-		summary: "训练神经网络时把误差信号向后传递，用来更新参数的方法。",
+		summary: "把输出误差从后往前传回网络各层，用来计算参数该如何调整的方法。",
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"模型先给出输出，再用损失函数衡量错在哪里。反向传播把这个错误分配回网络各层，让参数朝更好的方向调整。",
+			"训练时，模型先做一次前向计算，给出预测结果；再用损失函数衡量错了多少。反向传播会把这个错误信息沿着网络倒推回去，计算每一层参数分别该往哪个方向改、改多少。它本身不直接更新参数，而是为后续优化步骤提供依据。",
 		commonMisunderstanding:
-			"反向传播不是模型在解释原因，而是训练阶段的数学更新过程。",
-		relatedTerms: ["Forward Propagation", "Gradient Descent", "Loss Function"],
+			"反向传播不等于模型在反思自己的错误。它是一个数学求导和误差分配过程，主要发生在训练阶段，不是日常使用模型时的过程。",
+		relatedTerms: ["Loss Function", "Gradient Descent", "Forward Propagation", "Parameters"],
 	},
 	{
 		term: "Bias",
@@ -693,14 +693,14 @@ export const glossaryTerms = [
 	{
 		term: "Gradient Descent",
 		zh: "梯度下降",
-		summary: "沿着损失下降方向调整参数的常见优化方法。",
+		summary: "根据损失变化方向，一步步调整参数以减少错误的优化方法。",
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"梯度下降像在山坡上找更低的位置。模型用它根据错误方向一点点改参数，让预测更接近目标。",
+			"如果把损失函数想成一片高低起伏的地形，梯度下降就是模型沿着往下走的方向不断试探，让自己从更高的错误位置走向更低的错误位置。每一步走多大、往哪边走，都会影响训练速度和稳定性。",
 		commonMisunderstanding:
-			"梯度下降不保证一步到最优，也可能受学习率、数据和目标函数影响。",
-		relatedTerms: ["Loss Function", "Backpropagation", "Parameters"],
+			"梯度下降不是一下子找到最优答案的魔法方法。它通常只能不断改进，而且结果会受到学习率、初始化、数据分布和优化细节影响。",
+		relatedTerms: ["Loss Function", "Backpropagation", "Parameters", "Learning Rate"],
 	},
 	{
 		term: "Hallucination",
@@ -741,14 +741,14 @@ export const glossaryTerms = [
 	{
 		term: "Inference",
 		zh: "推理",
-		summary: "使用训练好的模型对新输入生成预测或回答的过程。",
+		summary: "把训练好的模型用于新输入，生成预测、判断或回答的过程。",
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"训练是学能力，推理是用能力。当你向模型提问、让它生成图片或分类图片时，就是在做推理。",
+			"推理可以理解成模型正式上岗。训练阶段是在调整参数、学会模式；推理阶段则是把已经学到的能力拿来处理新问题。你问聊天机器人一个问题、让图像模型识别照片内容，或者让推荐系统给出结果，本质上都属于推理。",
 		commonMisunderstanding:
-			"推理不是一定指逻辑推理，在工程里它常指模型运行和产出结果。",
-		relatedTerms: ["Pre-training", "Forward Propagation", "LLM"],
+			"推理在工程语境里不一定指复杂逻辑思考，它更多是指模型运行并产出结果。即使输出看起来像思考，底层仍是在调用已训练好的参数做计算。",
+		relatedTerms: ["Forward Propagation", "LLM", "Attention", "Parameters"],
 	},
 	{
 		term: "Instruction Tuning",
@@ -825,14 +825,14 @@ export const glossaryTerms = [
 	{
 		term: "Loss Function",
 		zh: "损失函数",
-		summary: "衡量模型预测与目标答案差距的函数。",
+		summary: "衡量模型当前输出离目标答案有多远的函数。",
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"损失函数告诉模型错得有多远。训练的目标通常是让损失变小，从而让输出更接近预期。",
+			"损失函数像训练时的扣分规则。模型先给出一个答案，再由损失函数计算这个答案和正确结果差多少。差得越多，损失越大；差得越少，损失越小。训练的一个核心目标，就是让损失逐步下降。",
 		commonMisunderstanding:
-			"损失变小不一定代表真实世界效果更好，指标设计也会影响模型行为。",
-		relatedTerms: ["Objective Function", "Gradient Descent", "Fitting"],
+			"损失函数不是对模型好坏的唯一最终评价。训练损失变小，说明模型更贴合训练目标，但不一定代表它在真实场景里一定更有用、更公平或更可靠。",
+		relatedTerms: ["Gradient Descent", "Backpropagation", "Objective Function", "Parameters"],
 	},
 	{
 		term: "MHA",
@@ -937,10 +937,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"神经网络通过层与层之间的权重把输入转换成输出。训练过程会不断调整权重，让模型更好完成任务。",
+			"神经网络通过层与层之间的权重把输入逐步转换成输出。训练时，模型会不断调整这些权重，让自己在样本上学出更有用的映射关系。",
 		commonMisunderstanding:
-			"神经网络只是受大脑启发，不等于真实复刻人脑。",
-		relatedTerms: ["Deep Learning", "Hidden Layer", "Weight"],
+			"神经网络只是受大脑启发，不等于真实复刻人脑。它本质上是可训练的数学模型，而不是电子大脑。",
+		relatedTerms: ["Deep Learning", "Hidden Layer", "Weight", "Machine Learning"],
 	},
 	{
 		term: "Objective Function",
@@ -1005,14 +1005,14 @@ export const glossaryTerms = [
 	{
 		term: "Parameters",
 		zh: "参数",
-		summary: "模型在训练中学习到的内部变量。",
+		summary: "模型在训练过程中学出来、决定其行为的内部数值。",
 		tag: "技术",
 		category: "model-mechanisms",
 		beginnerExplanation:
-			"参数决定模型如何把输入映射成输出。神经网络里的权重和偏置通常都属于参数。",
+			"参数可以理解成模型记住经验的方式。训练时，模型会不断调整这些内部数值，让输出更接近目标答案。神经网络里的权重和偏置都属于参数。参数不是模型看到的原文知识清单，而是模型把大量样本压缩后形成的一套内部表示。",
 		commonMisunderstanding:
-			"参数多不自动等于更聪明，还要看数据、训练、架构和评估。",
-		relatedTerms: ["Weight", "MoE", "Gradient Descent"],
+			"参数多不等于一定更聪明。参数规模只说明模型容量更大，效果还取决于数据质量、训练方法、架构设计和推理方式。",
+		relatedTerms: ["Weight", "Gradient Descent", "Backpropagation", "Inference"],
 	},
 	{
 		term: "Pre-training",
@@ -1249,10 +1249,10 @@ export const glossaryTerms = [
 		tag: "技术",
 		category: "llm-prompting",
 		beginnerExplanation:
-			"Transformer 能高效处理序列中的关系，推动了语言、视觉和多模态模型的发展。它让模型能更好利用上下文。",
+			"Transformer 能高效处理序列里的上下文关系，让模型更容易抓住长距离依赖，也是今天大多数大语言模型的重要结构基础。",
 		commonMisunderstanding:
-			"Transformer 不是某一家公司的产品，而是一类模型架构。",
-		relatedTerms: ["Attention", "MHA", "LLM"],
+			"Transformer 不是某一家公司的产品，也不等于所有大模型。它是一类模型架构，而 LLM 是建立在这种架构之上的更完整系统。",
+		relatedTerms: ["Attention", "MHA", "LLM", "Neural Network"],
 	},
 	{
 		term: "Turing test",

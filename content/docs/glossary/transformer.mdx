@@ -1,0 +1,193 @@
+---
+title: Transformer
+description: 理解 Transformer 为什么成为现代大语言模型的重要基础，以及它和神经网络、注意力、LLM 的关系。
+category: llm-prompting
+tags:
+  - Transformer
+  - Attention
+  - LLM
+lastReviewed: "2026-04-21"
+stability: stable
+sources:
+  - https://arxiv.org/abs/1706.03762
+  - https://web.stanford.edu/class/cs25/
+  - https://jalammar.github.io/illustrated-transformer/
+image: /diagrams/llm-token-flow.svg
+imageCredit: Content Show
+---
+
+# Transformer
+
+Transformer 是一种基于**注意力机制（attention）**的深度学习架构，特别擅长处理文本这类“序列数据”。今天大多数主流大语言模型，都是在 Transformer 路线之上发展出来的。
+
+![Transformer 与上下文处理示意图](/diagrams/llm-token-flow.svg)
+
+> [!info]
+> **一句话先记住**：Transformer 不是“大模型”的同义词，它更像是现代 LLM 背后的核心结构设计。
+
+## 先记住这 3 点
+
+- **Transformer 是一种模型架构，不是具体某个产品。**
+- **它的关键突破，是让模型更高效地处理上下文关系。**
+- **LLM 的流行，很大程度上建立在 Transformer 的成功之上。**
+
+## 给普通人的解释
+
+如果你在读一句话，比如：
+
+“因为天气突然变差，所以航班被迫延误。”
+
+人理解这句话时，会自然把“天气变差”和“航班延误”联系起来，而不是机械地只看相邻几个字。
+
+Transformer 做的事情，有点像让模型在处理一句话时，**同时看看哪些词和哪些词更相关**。
+它不是一步步只盯着前后一个位置，而是能更灵活地判断整段内容里的关系。
+
+这带来的好处很大：
+
+- 更容易理解长句和上下文
+- 更容易并行计算，训练效率更高
+- 更适合扩展到超大规模模型
+
+所以它后来成为语言模型、视觉模型、多模态模型里非常重要的一条主线。
+
+## 它到底解决了什么问题
+
+在 Transformer 广泛流行之前，处理文本序列常常会用到 RNN、LSTM 这类结构。
+
+这些结构不是没用，而是有两个很现实的问题：
+
+- **长距离关系不容易处理好**
+  句子前面和后面隔得很远的信息，模型不一定抓得稳。
+- **很难高效并行训练**
+  因为它往往要按顺序一步步处理。
+
+Transformer 的设计重点，就是把“序列里的关系建模”这件事，更多交给注意力机制来做。
+这样模型可以更直接地比较不同位置之间的相关性，也更适合现代硬件并行训练。
+
+## 它和神经网络是什么关系
+
+Transformer 本质上还是**神经网络**。
+
+所以更准确地说：
+
+- **神经网络** 是更大的模型家族概念
+- **深度学习** 是使用多层神经网络学习表示的方法路线
+- **Transformer** 是深度学习里一种非常重要的具体架构
+
+也就是说，Transformer 不是脱离神经网络单独存在的新世界，它是神经网络发展中的一条关键路线。
+
+## 它和注意力机制是什么关系
+
+如果只记一个关键词，那就是：**注意力（attention）**。
+
+Transformer 最核心的想法之一，就是让模型在处理当前内容时，动态判断：
+
+- 哪些位置更值得关注
+- 哪些词之间关系更强
+- 当前输出该参考哪些上下文信息
+
+这和“人类注意力”不是同一回事，但它确实是一种很有效的计算方法。
+
+你可以把它粗略理解成：
+
+- 输入一段内容
+- 模型不平均看待每个位置
+- 而是根据任务和上下文，给不同部分不同权重
+
+Transformer 之所以重要，很大程度上就是因为它把这种机制放到了整个架构的中心位置。
+
+## 它和 LLM 是什么关系
+
+今天大家接触到的大语言模型，通常会和 Transformer 一起被提到，但它们不是同一个概念。
+
+更准确的关系是：
+
+- **Transformer** 是一种架构
+- **LLM** 是一类大规模语言模型
+
+很多现代 LLM 之所以强，是因为它们使用了 Transformer 架构，并结合了：
+
+- 大规模文本数据
+- 大参数量
+- 更强的训练算力
+- 预训练和后续对齐方法
+
+所以你可以说：
+
+- **没有 Transformer，就很难理解今天 LLM 为什么能走到现在这一步**
+- 但也不能简单说 **Transformer = LLM**
+
+LLM 是更完整的系统结果，Transformer 是其中最关键的底层结构之一。
+
+## 为什么它影响这么大
+
+Transformer 的影响不只是在“学术上提出了一种新结构”，而是在工程和产品层面都非常关键。
+
+它的重要性主要来自这几件事：
+
+- **更擅长建模上下文关系**
+- **更适合大规模并行训练**
+- **更容易扩展到超大模型**
+- **不只可用于文本，也被推广到图像、语音和多模态任务**
+
+这也是为什么它后来不只是 NLP 里的术语，而是变成了现代 AI 基础设施中的一个高频词。
+
+## Transformer 最容易被误解的地方
+
+### 误解 1，Transformer 就等于 ChatGPT
+不对。ChatGPT 是产品和系统体验，Transformer 是背后的模型架构之一，不是同一个层级的概念。
+
+### 误解 2，有了注意力机制就等于“真正理解”
+不对。注意力机制帮助模型计算相关性，但这不自动等于人类意义上的理解、意识或常识。
+
+### 误解 3，Transformer 取代了所有其他模型
+也不对。它非常重要，但不同任务里仍然会有其他结构、混合方案或专门优化路线。
+
+## 为什么普通读者需要知道它
+
+因为如果你今天在看这些词：
+
+- 大语言模型
+- 上下文窗口
+- Token
+- 注意力
+- 多头注意力
+- 生成式 AI
+
+那背后很大一部分技术故事，都绕不开 Transformer。
+
+理解 Transformer，不是为了让每个人都去推公式，而是为了不把下面这些东西混成一团：
+
+- 架构
+- 模型
+- 产品
+- 能力
+- 幻觉
+- 搜索或数据库系统
+
+把这一层理清后，你会更容易明白：
+
+- 为什么 LLM 很依赖上下文
+- 为什么训练大模型需要巨大算力
+- 为什么“能生成流畅语言”不等于“已经真正理解世界”
+
+## 常见误解
+
+- **Transformer 不是某一家公司的专有技术名词。**
+- **Transformer 不是所有 AI 的总称。**
+- **Transformer 很重要，但它不等于整个 LLM 系统。**
+
+## 延伸阅读
+
+- [LLM](/glossary/llm)
+- [深度学习（Deep Learning）](/glossary/deep-learning)
+- [机器学习（Machine Learning）](/glossary/machine-learning)
+- [大模型与提示工程](/llm-prompting)
+
+## 参考来源
+
+- [Vaswani et al., Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+- [Stanford CS25: Transformers United](https://web.stanford.edu/class/cs25/)
+- [Jay Alammar, The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
+
+最后审核时间：2026-04-21
