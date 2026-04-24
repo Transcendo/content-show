@@ -152,9 +152,14 @@ const coreTermConfig: Record<
 	},
 	"Generative AI / Gen AI": {
 		aliases: ["生成式 AI", "Generative AI"],
+		hasDetailPage: true,
 		stability: "evolving",
 	},
-	"Diffusion Models": { aliases: ["扩散模型"], stability: "stable" },
+	"Diffusion Models": {
+		aliases: ["扩散模型"],
+		hasDetailPage: true,
+		stability: "stable",
+	},
 	Alignment: { aliases: ["AI 对齐"], stability: "evolving" },
 	Hallucination: { aliases: ["幻觉"], stability: "evolving" },
 	"Foundation Model": { aliases: ["基础模型"], stability: "evolving" },
@@ -309,38 +314,38 @@ export const glossaryTerms = [
 	{
 		term: "CLIP",
 		zh: "对比语言图像预训练",
-		summary: "把文字和图像放到可比较空间里的视觉语言模型思路。",
+		summary: "把文字和图像对齐到同一语义空间的视觉语言模型方法。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"CLIP 让模型能把一句描述和一张图片联系起来。它影响了图像检索、图像生成和多模态理解等应用。",
+			"CLIP 会让模型同时看图和读字，并学会判断哪段文字更像在描述这张图。这样一来，模型就能把文字和图像放进同一个可比较的语义空间，进而支持图像检索、图像理解和文生图条件控制。",
 		commonMisunderstanding:
-			"CLIP 本身不等于图片生成器，它更像连接文字和图像理解的桥。",
-		relatedTerms: ["CV", "Multimodal", "Embedding"],
+			"CLIP 本身不负责把图片直接画出来，它更像文字和图像之间的对齐器，经常和扩散模型或其他视觉模型配合使用。",
+		relatedTerms: ["Multimodal", "CV", "Embedding", "Diffusion Models"],
 	},
 	{
 		term: "CNN",
 		zh: "卷积神经网络",
-		summary: "常用于图像识别的一类神经网络结构。",
+		summary: "擅长提取局部图像特征、长期用于视觉任务的一类神经网络结构。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"CNN 会用卷积核在图像上提取局部特征，例如边缘、纹理和形状。它曾长期是计算机视觉任务的主力结构。",
+			"CNN 会用卷积核在图像上滑动，逐步抓住边缘、纹理、形状等局部线索。它曾长期是图像分类、目标检测等任务的主力结构，也帮助很多人第一次理解“模型怎么看图”。",
 		commonMisunderstanding:
-			"CNN 不是所有视觉 AI 的代名词，后来的 Transformer 也大量进入视觉任务。",
-		relatedTerms: ["CV", "Neural Network", "Deep Learning"],
+			"CNN 不是所有视觉 AI 的总代称，更不等于今天所有图像生成模型；不少新系统已经大量使用 Transformer 或扩散模型。",
+		relatedTerms: ["CV", "Neural Network", "Deep Learning", "Transformer"],
 	},
 	{
 		term: "CV",
 		zh: "计算机视觉",
-		summary: "让机器识别、理解和处理图像或视频的 AI 方向。",
+		summary: "让机器识别、理解、生成和处理图像或视频的 AI 方向。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"计算机视觉包括分类、检测、分割、追踪、图像生成等任务。它解决的是机器如何看懂视觉世界。",
+			"计算机视觉研究的是机器怎么“看懂”视觉世界。它既包括识别这张图里有什么，也包括分割、追踪、三维重建，以及根据文字或图片继续生成新视觉内容。",
 		commonMisunderstanding:
-			"CV 不只等于拍照识别，它也包含视频理解、三维重建和生成式视觉。",
-		relatedTerms: ["CNN", "CLIP", "NeRF"],
+			"CV 不只等于拍照识别或人脸识别，它也覆盖视频理解、机器人感知、三维场景建模和生成式视觉。",
+		relatedTerms: ["CNN", "CLIP", "NeRF", "Multimodal"],
 	},
 	{
 		term: "ChatGPT",
@@ -465,14 +470,14 @@ export const glossaryTerms = [
 	{
 		term: "Diffusion Models",
 		zh: "扩散模型",
-		summary: "通过学习去噪过程生成图像等内容的一类模型。",
+		summary: "通过学习逐步去噪过程来生成图像等内容的一类生成模型。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"扩散模型可以粗略理解为先从噪声开始，再一步步还原出清晰内容。许多图像生成系统都和这类方法有关。",
+			"扩散模型可以粗略理解为先把目标内容想成一团噪声，再让模型一步步把噪声整理成清晰图像。今天很多文生图、图生图和视频生成系统，都把它当作核心生成方法。",
 		commonMisunderstanding:
-			"扩散模型不只会生成好看的图，它也涉及采样、条件控制、训练数据和版权问题。",
-		relatedTerms: ["AIGC", "GAN", "CLIP"],
+			"扩散模型不只是“把图画得更漂亮”的技巧，它还牵涉采样速度、条件控制、训练数据来源和生成结果版权等现实问题。",
+		relatedTerms: ["Generative AI", "GAN", "CLIP", "Multimodal"],
 	},
 	{
 		term: "Double Descent",
@@ -597,14 +602,14 @@ export const glossaryTerms = [
 	{
 		term: "GAN",
 		zh: "生成对抗网络",
-		summary: "让生成器和判别器相互竞争来生成新数据的模型方法。",
+		summary: "让生成器和判别器相互博弈来生成新数据的一类生成模型方法。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"GAN 可以理解成一个模型负责造，一个模型负责挑错。两者互相提升，最终生成更像真实数据的内容。",
+			"GAN 可以理解成一个模型负责造，一个模型负责挑错。生成器想骗过判别器，判别器想识破生成器；两边反复对抗，最后能产出越来越像真的图片、音频或其他数据。",
 		commonMisunderstanding:
-			"GAN 不是所有生成式 AI 的基础，扩散模型和 Transformer 也非常重要。",
-		relatedTerms: ["Diffusion Models", "AIGC", "Neural Network"],
+			"GAN 不是所有生成式 AI 的共同底座。它在生成式视觉历史上很重要，但今天很多主流图像系统已经更多转向扩散模型。",
+		relatedTerms: ["Diffusion Models", "Generative AI", "Neural Network", "AIGC"],
 	},
 	{
 		term: "GPT-4",
@@ -681,14 +686,14 @@ export const glossaryTerms = [
 	{
 		term: "Generative AI / Gen AI",
 		zh: "生成式 AI",
-		summary: "专注于生成新文本、图像、音频、视频或代码的 AI 分支。",
+		summary: "专注于生成新文本、图像、音频、视频或代码等内容的 AI 分支。",
 		tag: "通识",
 		category: "fundamentals",
 		beginnerExplanation:
-			"生成式 AI 关心的是模型如何产出新内容，而不只是判断、分类或推荐。ChatGPT 和 AI 绘画都属于常见入口。",
+			"生成式 AI 关心的是模型如何产出新内容，而不只是做判断、分类或推荐。ChatGPT、AI 绘画、语音克隆和视频生成，都是普通人最常见的入口。",
 		commonMisunderstanding:
-			"生成式 AI 不等于内容一定真实，生成结果需要验证来源和用途。",
-		relatedTerms: ["AIGC", "Diffusion Models", "LLM"],
+			"生成式 AI 不等于内容一定真实，也不等于只有聊天机器人；它是一个覆盖文本、图像、音频、视频和代码生成的大类。",
+		relatedTerms: ["AIGC", "Diffusion Models", "LLM", "Multimodal"],
 	},
 	{
 		term: "Gradient Descent",
@@ -897,14 +902,14 @@ export const glossaryTerms = [
 	{
 		term: "Multimodal",
 		zh: "多模态",
-		summary: "能处理文本、图像、音频、视频等多种数据类型的 AI 能力。",
+		summary: "能联合处理文本、图像、音频、视频等多种数据类型的 AI 能力。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"多模态模型能把不同类型的信息放在一起理解，例如看图回答、根据语音生成文字、用文本控制图像生成。",
+			"多模态模型能把不同类型的信息放在一起理解和生成，例如看图回答、听语音转文字、根据文字生成图片，或者同时看文档和截图给出解释。",
 		commonMisunderstanding:
-			"多模态不是简单把功能拼在一起，关键是不同模态之间能相互理解和转换。",
-		relatedTerms: ["CLIP", "CV", "Cross-modal generalization"],
+			"多模态不是简单把几个功能菜单拼在一起，关键在于不同模态之间能相互对齐、共同推理，必要时还能彼此转换。",
+		relatedTerms: ["CLIP", "CV", "Generative AI", "Cross-modal generalization"],
 	},
 	{
 		term: "NLP",
@@ -921,14 +926,14 @@ export const glossaryTerms = [
 	{
 		term: "NeRF",
 		zh: "神经辐射场",
-		summary: "用神经网络从二维图像重建或渲染三维场景的方法。",
+		summary: "用神经网络从二维图像学习并渲染三维场景表示的方法。",
 		tag: "技术",
 		category: "generative-multimodal",
 		beginnerExplanation:
-			"NeRF 可以从多个视角图像学习一个场景的三维表示，再生成新的视角。它常出现在 3D 重建和视觉合成讨论中。",
+			"NeRF 可以从多个视角图像学习一个场景的三维表示，再渲染出新的视角画面。它常出现在 3D 重建、数字孪生、沉浸式内容和视觉合成讨论里。",
 		commonMisunderstanding:
-			"NeRF 不是普通滤镜，它处理的是场景表示和视角渲染。",
-		relatedTerms: ["CV", "Multimodal", "Diffusion Models"],
+			"NeRF 不是普通滤镜或修图模型，它处理的是场景表示、几何信息和视角渲染，和纯 2D 文生图不是一回事。",
+		relatedTerms: ["CV", "Multimodal", "Diffusion Models", "Generative AI"],
 	},
 	{
 		term: "Neural Network",

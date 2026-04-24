@@ -37,3 +37,15 @@ These notes support the first public glossary pages under `content/docs/glossary
 - Anthropic, Building Effective Agents: <https://www.anthropic.com/engineering/building-effective-agents>
 - Model Context Protocol specification: <https://modelcontextprotocol.io/specification/2025-06-18>
 - Editorial boundary: emphasize permissions, logs, rollback, and human confirmation for real-world actions.
+
+## Generative AI / Gen AI
+
+- NIST, Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile: <https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence>
+- IBM, What is generative AI?: <https://www.ibm.com/think/topics/generative-ai>
+- Editorial boundary: explain Generative AI as a broad content-generation category, not as a guarantee of truthfulness or a synonym for chatbots alone.
+
+## Diffusion Models
+
+- Ho et al., Denoising Diffusion Probabilistic Models: <https://arxiv.org/abs/2006.11239>
+- Nichol & Dhariwal, Improved Denoising Diffusion Probabilistic Models: <https://arxiv.org/abs/2102.09672>
+- Editorial boundary: explain diffusion as a step-by-step denoising generation method, distinguish it from GANs and text-only LLMs, and avoid implying that all image generation systems work the same way.
