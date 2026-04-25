@@ -160,8 +160,18 @@ const coreTermConfig: Record<
 		hasDetailPage: true,
 		stability: "stable",
 	},
-	Alignment: { aliases: ["AI 对齐"], stability: "evolving" },
-	Hallucination: { aliases: ["幻觉"], stability: "evolving" },
+	Alignment: {
+		aliases: ["AI 对齐"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
+	Hallucination: {
+		aliases: ["幻觉", "Confabulation"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
 	"Foundation Model": { aliases: ["基础模型"], stability: "evolving" },
 	GPU: { aliases: ["图形处理器"], stability: "stable" },
 	MoE: { aliases: ["Mixture of Experts", "专家混合"], stability: "evolving" },
@@ -266,14 +276,14 @@ export const glossaryTerms = [
 	{
 		term: "Alignment",
 		zh: "对齐",
-		summary: "让 AI 行为尽量符合人的目标、规则和安全边界。",
+		summary: "让 AI 的目标、行为和结果尽量符合人的真实意图与安全边界。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"对齐关注的是模型是否按人真正想要的方式行动。它既包括技术训练，也包括产品边界、权限管理和社会规则。",
+			"对齐不只是让模型回答得体，而是让系统在训练、工具调用和真实流程里都尽量朝人真正想要的方向工作。",
 		commonMisunderstanding:
-			"对齐不只是让模型更礼貌，也不只是过滤敏感词，它处理的是目标、行为和风险的一致性。",
-		relatedTerms: ["RLHF", "DPO", "Bias", "XAI"],
+			"对齐不是单纯的敏感词过滤或礼貌包装；如果目标设计、权限边界或评估方式错了，系统仍然可能高效地把事情做歪。",
+		relatedTerms: ["Hallucination", "RLHF", "Bias", "XAI"],
 	},
 	{
 		term: "Attention",
@@ -302,14 +312,14 @@ export const glossaryTerms = [
 	{
 		term: "Bias",
 		zh: "偏差",
-		summary: "数据、模型或系统设计中导致输出倾向某些结果的偏向。",
+		summary: "数据、模型或系统设计中使结果持续偏向某些群体、结论或判断方式的系统性倾向。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"偏差可能来自训练数据，也可能来自标注、目标函数或产品策略。在招聘、金融、医疗等场景里，偏差会影响真实的人。",
+			"偏差常常不是一句冒犯的话，而是系统长期对某类人、某类输入或某种结论更有利或更不利。它可能来自数据分布、标注习惯、目标函数，也可能来自产品流程本身。",
 		commonMisunderstanding:
-			"偏差不只是不公平，也可能是统计假设和数据分布带来的系统性误差。",
-		relatedTerms: ["Alignment", "Training Data", "XAI"],
+			"偏差不只等于“政治不正确”。它既可能体现为不公平，也可能体现为统计误差、代表性不足和场景迁移失败。",
+		relatedTerms: ["Alignment", "Hallucination", "Training Data", "XAI"],
 	},
 	{
 		term: "CLIP",
@@ -482,14 +492,14 @@ export const glossaryTerms = [
 	{
 		term: "Double Descent",
 		zh: "双降",
-		summary: "模型规模或复杂度增加时，误差可能先降后升再下降的现象。",
+		summary: "测试误差随模型规模、训练时长或数据规模变化时，可能先变好、再变差、最后又继续变好的现象。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"传统直觉认为模型太复杂会过拟合，但双降现象提醒我们，大模型行为可能更复杂。它常出现在现代机器学习泛化讨论中。",
+			"双降提醒我们：现代模型不是越复杂越容易一直变差。某些情况下，它会先进入看似过拟合的糟糕区间，继续扩大后反而又恢复更好的泛化表现。",
 		commonMisunderstanding:
-			"双降不是说模型越大永远越好，它描述的是特定条件下的误差变化现象。",
-		relatedTerms: ["Overfitting", "Generalization ability", "Scaling Law"],
+			"双降不是“越大越无脑更强”的口号，它只说明误差曲线可能不是传统教材里那条简单 U 形线。",
+		relatedTerms: ["Generalization ability", "Overfitting", "Scaling Law", "Emergence"],
 	},
 	{
 		term: "Embedding",
@@ -506,14 +516,14 @@ export const glossaryTerms = [
 	{
 		term: "Emergence",
 		zh: "涌现",
-		summary: "系统规模或复杂度增加后出现原本不明显的新能力或行为。",
+		summary: "模型规模、训练方式或系统复杂度跨过某个阈值后，突然表现出先前不明显的新能力或行为。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"在 AI 里，涌现常用来描述模型变大或训练变化后突然表现出某些能力。它是能力评估和风险讨论里的重要概念。",
+			"涌现常用来描述“小模型看不出来，大模型突然会了”的现象。它提醒我们，能力增长不一定总是平滑线性上升。",
 		commonMisunderstanding:
-			"涌现不等于神秘魔法，也不代表所有新能力都无法解释。",
-		relatedTerms: ["Scaling Law", "Generalization ability", "LLM"],
+			"涌现不是神秘主义标签，也不自动说明能力可靠；很多所谓涌现现象仍然可能和评测方式、任务阈值或提示设计有关。",
+		relatedTerms: ["Scaling Law", "Double Descent", "Generalization ability", "LLM"],
 	},
 	{
 		term: "End-to-End Learning",
@@ -662,14 +672,14 @@ export const glossaryTerms = [
 	{
 		term: "Generalization ability",
 		zh: "泛化能力",
-		summary: "模型在没见过的新数据或新场景上表现良好的能力。",
+		summary: "模型把训练中学到的规律带到新数据、新任务或新场景里仍能有效工作的能力。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"泛化能力决定模型是不是只记住训练样本，还是学到了可迁移的规律。它是判断模型可靠性的核心指标之一。",
+			"泛化能力强，说明模型学到的不是死记训练样本，而是更可迁移的规律。它决定模型离开实验环境后还能不能靠谱。",
 		commonMisunderstanding:
-			"训练集表现好不等于泛化好，必须看验证集、测试集和真实场景。",
-		relatedTerms: ["Overfitting", "Validation Data", "Scaling Law"],
+			"训练集分数高不等于泛化好；只有在验证集、测试集甚至真实世界里还能稳定表现，才说明它真的学会了。",
+		relatedTerms: ["Overfitting", "Validation Data", "Double Descent", "Scaling Law"],
 	},
 	{
 		term: "Generalize",
@@ -710,14 +720,14 @@ export const glossaryTerms = [
 	{
 		term: "Hallucination",
 		zh: "幻觉",
-		summary: "模型生成看似可信但不符合事实或输入依据的内容。",
+		summary: "模型生成了听起来可信、但并不被事实、来源或输入依据支持的内容。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"幻觉是使用生成式 AI 时最常见的风险之一。模型可能把不存在的引用、错误数据或编造细节说得很像真的。",
+			"幻觉最麻烦的地方，不是它乱说，而是它会把编造的引用、数字或细节说得特别顺。用户如果只看语气，很容易被带偏。",
 		commonMisunderstanding:
-			"幻觉不是模型在故意撒谎，而是生成机制和知识边界导致的错误输出。",
-		relatedTerms: ["RAG", "Alignment", "XAI"],
+			"幻觉不等于模型有意撒谎；很多时候它是在证据不足时仍继续“补全像答案的东西”。",
+		relatedTerms: ["Alignment", "RAG", "Bias", "XAI"],
 	},
 	{
 		term: "Hidden Layer",
@@ -1130,14 +1140,14 @@ export const glossaryTerms = [
 	{
 		term: "Scaling Law",
 		zh: "规模定律",
-		summary: "描述模型性能与参数量、数据量、计算量之间关系的规律。",
+		summary: "描述模型性能如何随参数量、数据量和训练算力扩大而变化的经验规律。",
 		tag: "技术",
 		category: "frontier",
 		beginnerExplanation:
-			"规模定律帮助研究者估计继续扩大模型、数据和算力可能带来的收益。它影响了大模型时代的投入决策。",
+			"规模定律像一份经验地图：继续加模型、加数据、加算力，通常还能涨多少表现，值不值得继续烧资源。大模型时代很多训练预算就是按这个思路估算的。",
 		commonMisunderstanding:
-			"规模定律不是无限保证，数据质量、架构和成本都会改变收益。",
-		relatedTerms: ["Compute", "Parameters", "Emergence"],
+			"规模定律不是无限灵药。它描述的是常见趋势，不保证任何模型只要变大就一定更便宜、更可靠或更好用。",
+		relatedTerms: ["Compute", "Parameters", "Emergence", "Generalization ability"],
 	},
 	{
 		term: "Singularity",
@@ -1346,14 +1356,14 @@ export const glossaryTerms = [
 	{
 		term: "XAI",
 		zh: "可解释的人工智能",
-		summary: "让 AI 决策过程更容易被理解、检查和追责的研究方向。",
+		summary: "让人更容易理解、检查和追责 AI 决策依据与过程的研究方向。",
 		tag: "通识",
 		category: "frontier",
 		beginnerExplanation:
-			"XAI 关注模型为什么给出某个结果，尤其适用于医疗、金融、法律等高风险场景。它帮助人类判断系统是否可信。",
+			"XAI 关注的不是模型会不会答，而是人能不能理解它为什么这么答、哪些因素影响了结果、什么时候不该相信它。",
 		commonMisunderstanding:
-			"可解释不等于完全透明，也不保证模型一定正确。",
-		relatedTerms: ["Bias", "Alignment", "Hallucination"],
+			"可解释不等于模型内部完全透明，也不等于结果自动正确；解释只是帮助人更好地审查风险。",
+		relatedTerms: ["Alignment", "Bias", "Hallucination", "Generalization ability"],
 	},
 	{
 		term: "Zero-Shot",
