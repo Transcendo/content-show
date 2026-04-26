@@ -62,6 +62,33 @@ These notes support the first public glossary pages under `content/docs/glossary
 - NIST, Generative Artificial Intelligence Profile: <https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence>
 - Editorial boundary: define hallucination as unsupported output rather than intentional deception; stress evidence, retrieval, and review limits instead of claiming any single mitigation removes the risk.
 
+## Foundation Model
+
+- Bommasani et al., On the Opportunities and Risks of Foundation Models: <https://arxiv.org/abs/2108.07258>
+- Stanford HAI, What is a Foundation Model?: <https://hai.stanford.edu/news/what-foundation-model>
+- Editorial boundary: explain foundation model as a reusable model base trained on broad data, not as a synonym for chatbot, not as a guarantee of product quality, and not as language-only.
+
+## MoE
+
+- Fedus et al., Switch Transformers: <https://jmlr.org/papers/v23/21-0998.html>
+- Shazeer et al., Outrageously Large Neural Networks: <https://arxiv.org/abs/1701.06538>
+- Editorial boundary: explain MoE as sparse expert routing inside the model, not as “many models stitched together” and not as a blanket promise of cheap inference.
+
+## Related card refresh for 2026-04-26
+
+- Compute: keep the focus on AI-relevant compute as a bundle of chips, time, power, throughput, and scheduling; avoid reducing it to “number of GPUs”.
+- GPU: useful anchor is NVIDIA’s data-center explainer alongside existing infrastructure context; stress parallel compute instead of gaming imagery.
+- TPU: use Google Cloud TPU docs as the clean reference; distinguish specialized tensor hardware from the broader GPU ecosystem.
+- Accelerator: present it as an umbrella term covering GPU, TPU, and other AI chips rather than a single product category.
+- Chatbot: keep the distinction between interaction form and underlying model capability; old rule-based bots still count.
+- ChatGPT: present it as a product built on model capability plus interface, tools, and policies; avoid treating the brand name as a synonym for all AI.
+
+## Next backlog after 2026-04-26
+
+- Continue the infrastructure lane with Inference, Pruning, and Knowledge Distillation so the deployment-efficiency row under `/infrastructure` becomes complete.
+- Decide whether Compute deserves a standalone public page or should stay as a strong glossary card plus topic-page explanation.
+- Add missing public pages for the most-linked adjacent infrastructure terms only after sources and diagrams are ready.
+
 ## Related card refresh for 2026-04-25
 
 - Bias: keep the focus on system-level skew, not only offensive wording. Useful anchors: NIST AI RMF and OECD AI principles.

@@ -1,4 +1,4 @@
 {
   "title": "AI 术语百科",
-  "pages": ["index", "ai", "agi", "asi", "llm", "rag", "agent", "machine-learning", "deep-learning", "neural-network", "transformer", "generative-ai", "diffusion-models", "alignment", "hallucination"]
+  "pages": ["index", "ai", "agi", "asi", "llm", "rag", "agent", "machine-learning", "deep-learning", "neural-network", "transformer", "generative-ai", "diffusion-models", "alignment", "hallucination", "foundation-model", "moe"]
 }

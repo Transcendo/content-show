@@ -252,14 +252,14 @@ export const glossaryTerms = [
 	{
 		term: "Accelerator",
 		zh: "加速器",
-		summary: "用于加快 AI 训练或推理的硬件或专用计算单元。",
+		summary: "用来加快 AI 训练或推理的硬件设备或专用计算单元。",
 		tag: "产品",
 		category: "infrastructure",
 		beginnerExplanation:
-			"加速器可以理解成让模型算得更快、更省成本的设备或芯片。GPU、TPU 和一些专用 AI 芯片都常被放进这个讨论。",
+			"加速器这个词是大类，不特指某一家芯片。只要它的作用是让模型算得更快、更省能耗或更便宜，通常都能被放进 accelerator 的讨论里。",
 		commonMisunderstanding:
-			"加速器不是模型本身，它只影响模型训练和运行的速度、成本和规模。",
-		relatedTerms: ["Compute", "GPU", "TPU"],
+			"加速器不是模型本身，也不是只等于 GPU；它说的是底层硬件如何支撑训练和推理效率。",
+		relatedTerms: ["Compute", "GPU", "TPU", "MoE"],
 	},
 	{
 		term: "Agents",
@@ -360,26 +360,26 @@ export const glossaryTerms = [
 	{
 		term: "ChatGPT",
 		zh: "ChatGPT",
-		summary: "OpenAI 推出的对话式 AI 产品。",
+		summary: "OpenAI 推出的对话式 AI 产品，也是很多人接触大模型的入口。",
 		tag: "产品",
 		category: "agents-products",
 		beginnerExplanation:
-			"ChatGPT 是很多普通人接触大语言模型的入口。它把模型能力包装成聊天、写作、总结、编程和工具调用等体验。",
+			"ChatGPT 是产品层的名字，不只是一个模型名。它把底层模型、对话界面、工具能力和安全策略包装成普通人能直接使用的聊天体验。",
 		commonMisunderstanding:
-			"ChatGPT 是产品，不等于整个 AI，也不等于所有大语言模型。",
-		relatedTerms: ["LLM", "Chatbot", "GPT-4", "OpenAI"],
+			"ChatGPT 不等于整个 AI 行业，也不等于所有大语言模型；它是一个具体产品，而不是通用技术类别。",
+		relatedTerms: ["LLM", "Chatbot", "Foundation Model", "OpenAI"],
 	},
 	{
 		term: "Chatbot",
 		zh: "聊天机器人",
-		summary: "通过文本或语音和用户对话的程序或 AI 系统。",
+		summary: "通过文字或语音与用户对话的程序或 AI 系统。",
 		tag: "通识",
 		category: "agents-products",
 		beginnerExplanation:
-			"聊天机器人可以是规则驱动，也可以由大语言模型驱动。判断它能力时，要看它是否能理解上下文、调用工具和处理复杂任务。",
+			"Chatbot 说的是交互形式，不自动代表底层技术先进。它可以是老式规则客服，也可以是由大语言模型驱动、还能调用工具的现代对话系统。",
 		commonMisunderstanding:
-			"聊天机器人不一定是大模型，老式客服机器人也属于 chatbot。",
-		relatedTerms: ["ChatGPT", "Agents", "LLM"],
+			"聊天机器人不等于大模型，更不等于智能体。能聊天只是入口，背后能力差距可能非常大。",
+		relatedTerms: ["ChatGPT", "Agent", "LLM", "Foundation Model"],
 	},
 	{
 		term: "CoT",
@@ -396,14 +396,14 @@ export const glossaryTerms = [
 	{
 		term: "Compute",
 		zh: "计算",
-		summary: "训练或运行 AI 模型所需的计算资源。",
+		summary: "训练或运行 AI 模型所需的算力、时间、电力和系统资源。",
 		tag: "技术",
 		category: "infrastructure",
 		beginnerExplanation:
-			"计算资源包括芯片、服务器、时间、电力和调度能力。模型越大、用户越多，算力成本越关键。",
+			"在 AI 语境里，compute 不只是芯片数量，还包括机器运行多久、耗多少电、怎么调度。模型越大、并发越高，算力成本越会直接影响价格和速度。",
 		commonMisunderstanding:
-			"算力多不自动意味着产品更好，还要看数据、算法、工程和使用场景。",
-		relatedTerms: ["GPU", "TPU", "Accelerator", "Scaling Law"],
+			"算力更强不自动等于产品更好；它解决的是能不能更快、更大规模地训练和运行，不替代数据质量、算法设计和产品体验。",
+		relatedTerms: ["GPU", "TPU", "Accelerator", "Foundation Model", "MoE"],
 	},
 	{
 		term: "Connectionism",
@@ -600,14 +600,14 @@ export const glossaryTerms = [
 	{
 		term: "Foundation Model",
 		zh: "基础模型",
-		summary: "在广泛数据上训练、可适配多种任务的大型模型。",
+		summary: "先在广泛数据上预训练、再被适配到多种任务的模型底座。",
 		tag: "技术",
 		category: "infrastructure",
 		beginnerExplanation:
-			"基础模型像通用底座，可以通过提示、检索、微调或工具调用进入不同应用。大语言模型和多模态模型都可能是基础模型。",
+			"基础模型像 AI 时代的通用底座。它先学一遍通用模式，再通过提示、检索、微调或工具调用进入不同应用，所以聊天助手、企业问答和代码工具可能共用同一类底层能力。",
 		commonMisunderstanding:
-			"基础模型不是直接等于最终产品，产品还需要数据、工程、安全和交互设计。",
-		relatedTerms: ["LLM", "Pre-training", "Fine-Tuning"],
+			"基础模型不是最终产品本身，也不只等于聊天机器人；真正可用的产品还要叠加数据、工程、安全和交互设计。",
+		relatedTerms: ["LLM", "Transformer", "Fine-Tuning", "RAG", "MoE"],
 	},
 	{
 		term: "GAN",
@@ -636,14 +636,14 @@ export const glossaryTerms = [
 	{
 		term: "GPU",
 		zh: "图形处理单元",
-		summary: "适合并行计算的芯片，广泛用于 AI 训练和推理。",
+		summary: "擅长并行计算、因此成为 AI 训练和推理主力的通用加速芯片。",
 		tag: "产品",
 		category: "infrastructure",
 		beginnerExplanation:
-			"GPU 原本常用于图形渲染，但它的大规模并行计算能力很适合神经网络。AI 热潮让 GPU 成为关键基础设施。",
+			"GPU 最早主要服务图形渲染，但它一次能处理很多并行计算任务，这正好适合神经网络。今天大家谈 AI 算力，很多时候说的核心就是 GPU 资源够不够。",
 		commonMisunderstanding:
-			"GPU 不只服务游戏显卡语境，在数据中心里它是 AI 算力核心之一。",
-		relatedTerms: ["Compute", "Accelerator", "TPU"],
+			"GPU 不只是游戏显卡。放进数据中心后，它讨论的是训练速度、推理吞吐和成本，而不是画面帧率。",
+		relatedTerms: ["Compute", "Accelerator", "TPU", "Foundation Model"],
 	},
 	{
 		term: "GQA",
@@ -900,14 +900,14 @@ export const glossaryTerms = [
 	{
 		term: "MoE",
 		zh: "专家混合模型",
-		summary: "通过路由选择部分专家参与计算的高效模型架构。",
+		summary: "把很多专家模块放进模型里，但每次只激活少数几个的稀疏架构。",
 		tag: "技术",
 		category: "infrastructure",
 		beginnerExplanation:
-			"MoE 让模型拥有很多专家，但每次只激活其中一部分。它可以扩大参数规模，同时控制单次计算成本。",
+			"MoE 像先分诊再找专家：模型内部有很多参数模块，但输入进来后只会挑少数模块参与计算。这样可以把总参数做大，同时不必每次都全量运行。",
 		commonMisunderstanding:
-			"参数总量大不等于每次推理都用到全部参数，MoE 的关键是稀疏激活。",
-		relatedTerms: ["Mixture of Experts", "Parameters", "Compute"],
+			"MoE 不是把几个独立模型简单拼起来，也不代表每次推理都会调用全部参数；它的关键是路由和稀疏激活。",
+		relatedTerms: ["Foundation Model", "Transformer", "Compute", "Parameters"],
 	},
 	{
 		term: "Multimodal",
@@ -1200,14 +1200,14 @@ export const glossaryTerms = [
 	{
 		term: "TPU",
 		zh: "张量处理单元",
-		summary: "为机器学习计算设计的专用加速芯片。",
+		summary: "面向机器学习张量计算优化的专用 AI 加速芯片。",
 		tag: "技术",
 		category: "infrastructure",
 		beginnerExplanation:
-			"TPU 面向张量计算优化，常用于训练和运行机器学习模型。它体现了 AI 发展对专用硬件的需求。",
+			"TPU 可以理解成为机器学习场景专门设计的一类芯片。它强调张量计算效率，代表了 AI 发展中“专用硬件越来越重要”的趋势。",
 		commonMisunderstanding:
-			"TPU 和 GPU 都能服务 AI，但它们的设计目标和生态并不完全相同。",
-		relatedTerms: ["GPU", "Accelerator", "Compute"],
+			"TPU 不是 GPU 的简单别名。两者都能服务 AI，但设计目标、配套生态和使用场景并不完全一样。",
+		relatedTerms: ["GPU", "Accelerator", "Compute", "Foundation Model"],
 	},
 	{
 		term: "TensorFlow",
