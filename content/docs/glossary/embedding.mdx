@@ -1,0 +1,104 @@
+---
+title: Embedding（嵌入）
+description: 理解 embedding 如何把文本、图像或其他对象转成向量表示，以及它为什么支撑语义搜索、推荐和 RAG。
+category: llm-prompting
+tags:
+  - embedding
+  - vector
+  - rag
+lastReviewed: "2026-04-26"
+stability: stable
+sources:
+  - https://developers.openai.com/api/docs/guides/embeddings
+  - https://arxiv.org/abs/1301.3781
+image: /diagrams/embedding-vector-space.svg
+imageCredit: Content Show diagram
+---
+
+# Embedding（嵌入）
+
+Embedding，是把文本、图片、用户、商品或其他对象转换成**向量表示**的方法。向量之间的距离可以用来衡量它们在语义、用途或模式上的相似程度。
+
+![Embedding 把内容放入向量空间的示意图](/diagrams/embedding-vector-space.svg)
+
+> [!info]
+> **一句话先记住**：Embedding 像是给内容生成一个“可计算的位置”，让机器能比较“意思近不近”。
+
+## 先记住这 3 点
+
+- **Embedding 不是原文压缩包。**它保留的是便于计算相似性的表示，不是完整原文。
+- **Embedding 的价值在于比较。**搜索、推荐、聚类、去重、RAG 召回，都依赖“向量之间有多近”。
+- **Embedding 质量受模型、数据和切分方式影响。**向量不是天然客观真理，仍然可能继承数据偏差和任务边界。
+
+## 给普通人的解释
+
+如果机器只看文字表面，很难知道“猫喜欢鱼”和“小猫爱吃鱼”意思接近。Embedding 的思路是：把每段内容变成一串数字，也就是向量。意思越接近的内容，向量空间里的距离通常越近。
+
+这样一来，系统就能做一些以前很难靠关键词完成的事：
+
+- 用户搜“怎么降低模型胡说”，系统能找到“幻觉缓解方法”；
+- 推荐系统能把相似文章、商品或问题放在一起；
+- RAG 系统能先找出和问题语义接近的文档片段，再交给大模型回答。
+
+## 它到底表示什么
+
+Embedding 表示的不是人能直接阅读的句子，而是一组数字。每个数字本身通常没有直观含义，但整个向量组合可以编码某些语义、风格、类别或上下文模式。
+
+这也是为什么 embedding 常被放进向量数据库：数据库不是按标题精确匹配，而是按向量相似度找“最接近”的内容。
+
+## 它和相近概念有什么区别
+
+### Embedding vs Token
+
+Token 是模型处理文本前的切分单位；embedding 是把 token、文本片段或其他对象转成向量表示。前者更像切块，后者更像坐标。
+
+### Embedding vs Vector Database
+
+Embedding 是向量本身；向量数据库是存储和检索大量向量的系统。没有高质量 embedding，向量数据库也只能高效地找错东西。
+
+### Embedding vs RAG
+
+RAG 常用 embedding 来做语义检索，但 RAG 不只等于 embedding。它还包括切分文档、召回、重排、引用、生成和验证。
+
+### Embedding vs Fine-Tuning
+
+Embedding 主要让系统更好地检索和比较；微调则改变模型在特定任务或风格上的行为。知识问答缺资料时，通常优先考虑 RAG/embedding，而不是直接微调。
+
+## 常见误解
+
+### 误解 1：向量距离近就一定是正确答案
+
+不对。距离近只表示在某种表示空间里相似，不代表事实正确、来源可靠或适合当前问题。
+
+### 误解 2：Embedding 可以完全替代关键词搜索
+
+不一定。很多系统会混合关键词、过滤条件、向量召回和重排。只靠向量，可能漏掉精确术语、编号、时间和专有名词。
+
+### 误解 3：Embedding 不会泄露信息
+
+要谨慎。Embedding 不是原文，但仍可能包含敏感语义信号。企业使用时仍要考虑权限、隔离和数据合规。
+
+## 为什么普通读者需要知道它
+
+因为 embedding 是很多 AI 产品“看起来懂语义”的底层原因。
+
+懂了 embedding，你会更容易理解：
+
+- 为什么 AI 搜索能找到不含原关键词的内容；
+- 为什么 RAG 要先切文档、再向量化、再检索；
+- 为什么“找得到相似资料”和“生成正确答案”是两件事。
+
+## 延伸阅读
+
+- [Token（词元）](/glossary/token)
+- [RAG](/glossary/rag)
+- [Fine-Tuning（微调）](/glossary/fine-tuning)
+- [CLIP](/glossary)
+- [大模型与提示工程](/llm-prompting)
+
+## 参考来源
+
+- [OpenAI API, Vector embeddings](https://developers.openai.com/api/docs/guides/embeddings)
+- [Mikolov et al., Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/abs/1301.3781)
+
+最后审核时间：2026-04-26

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Embedding vector space</title>
+  <desc id="desc">Documents are transformed into vectors; similar meanings appear closer in vector space.</desc>
+  <rect width="960" height="420" rx="28" fill="#0f172a"/>
+  <text x="48" y="64" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Embedding = meaning as vectors</text>
+  <text x="48" y="96" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="16">Similarity search works by comparing vector distances.</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="58" y="146" width="224" height="68" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="82" y="176" fill="#f8fafc" font-size="18" font-weight="700">文档 A</text>
+    <text x="82" y="198" fill="#cbd5e1" font-size="14">“模型为什么会幻觉？”</text>
+
+    <rect x="58" y="238" width="224" height="68" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="82" y="268" fill="#f8fafc" font-size="18" font-weight="700">文档 B</text>
+    <text x="82" y="290" fill="#cbd5e1" font-size="14">“如何减少编造答案？”</text>
+
+    <path d="M300 180 H380" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M372 168 L392 180 L372 192" stroke="#64748b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M300 272 H380" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M372 260 L392 272 L372 284" stroke="#64748b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="410" y="126" width="164" height="210" rx="18" fill="#082f49" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="446" y="168" fill="#f8fafc" font-size="21" font-weight="700">Embedding</text>
+    <text x="446" y="204" fill="#bae6fd" font-size="15">[0.12, -0.04,</text>
+    <text x="446" y="228" fill="#bae6fd" font-size="15"> 0.87, ...]</text>
+    <text x="446" y="270" fill="#bae6fd" font-size="15">[0.09, -0.01,</text>
+    <text x="446" y="294" fill="#bae6fd" font-size="15"> 0.81, ...]</text>
+
+    <path d="M592 230 H672" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+    <path d="M664 218 L684 230 L664 242" stroke="#64748b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="704" y="112" width="198" height="240" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <line x1="734" y1="318" x2="878" y2="318" stroke="#475569"/>
+    <line x1="734" y1="318" x2="734" y2="142" stroke="#475569"/>
+    <circle cx="786" cy="198" r="10" fill="#38bdf8"/>
+    <circle cx="804" cy="214" r="10" fill="#38bdf8"/>
+    <circle cx="838" cy="282" r="10" fill="#f97316"/>
+    <text x="810" y="196" fill="#e0f2fe" font-size="14">相近语义</text>
+    <text x="792" y="344" fill="#94a3b8" font-size="14">Vector space</text>
+  </g>
+</svg>

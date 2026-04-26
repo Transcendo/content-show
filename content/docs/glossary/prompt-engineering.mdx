@@ -1,0 +1,127 @@
+---
+title: 提示工程（Prompt Engineering）
+description: 理解提示工程如何通过清晰指令、上下文、示例和评估，让大模型更稳定地完成任务。
+category: llm-prompting
+tags:
+  - prompt-engineering
+  - prompting
+  - llm
+lastReviewed: "2026-04-26"
+stability: evolving
+sources:
+  - https://developers.openai.com/api/docs/guides/prompt-engineering
+  - https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview
+image: /diagrams/prompt-engineering-loop.svg
+imageCredit: Content Show diagram
+---
+
+# 提示工程（Prompt Engineering）
+
+提示工程，是通过设计**指令、上下文、示例、输出格式和评估方式**，让大语言模型更稳定地产出符合目标结果的方法。
+
+![提示工程从目标到评估的闭环](/diagrams/prompt-engineering-loop.svg)
+
+> [!info]
+> **一句话先记住**：提示工程不是“咒语学”，而是把任务、材料、边界和验收标准讲清楚。
+
+## 先记住这 3 点
+
+- **提示词的核心是降低歧义。**模型越清楚任务、输入、限制和输出格式，越容易稳定完成。
+- **提示工程需要评估，不是凭感觉调。**真正可靠的提示要用样例、失败案例和指标反复验证。
+- **提示不能替代知识、工具和系统设计。**知识缺失、权限错误、数据过期或任务目标模糊，光改提示词解决不了。
+
+## 给普通人的解释
+
+把提示工程想成“给一个能力很强但容易跑偏的助手写任务说明”。
+
+如果你只说“帮我分析一下”，模型会猜：分析什么？给谁看？要多长？按什么标准？要不要引用来源？哪些信息不能用？
+
+更好的提示会说明：
+
+- 你希望它完成什么任务；
+- 它应该基于哪些材料；
+- 输出给谁看；
+- 用什么结构、长度和语气；
+- 哪些情况必须承认不知道；
+- 怎样判断结果是否合格。
+
+这不是神秘技巧，而是把隐含需求显式写出来。
+
+## 常见提示组成部分
+
+### 1. 任务目标
+
+明确模型要做什么：总结、改写、分类、提取、规划、检查、生成代码，还是给出决策建议。
+
+### 2. 背景上下文
+
+提供必要材料、角色、场景、用户对象和业务边界。没有上下文时，模型只能根据一般概率补全。
+
+### 3. 输出格式
+
+要求列表、表格、JSON、Markdown、步骤、字段名或固定模板。格式越具体，越容易后续复用。
+
+### 4. 示例
+
+Few-shot 示例能告诉模型什么算“对的输出”。但示例质量差，会把模型带偏。
+
+### 5. 评估与迭代
+
+提示工程不是写完就结束。要用真实样例测试：哪里答偏了，哪里啰嗦，哪里编造，哪里格式不稳，再迭代。
+
+## 它和相近概念有什么区别
+
+### 提示工程 vs 普通提问
+
+普通提问偏一次性表达；提示工程更像可复用的任务设计，强调结构、边界和一致性。
+
+### 提示工程 vs Fine-Tuning
+
+提示工程是在推理阶段给模型更好的输入；微调是在训练阶段用数据改变模型行为。很多问题先用提示工程和 RAG 就够了，不必一上来微调。
+
+### 提示工程 vs RAG
+
+RAG 负责把外部资料检索进上下文；提示工程负责告诉模型如何使用这些资料、如何引用、如何处理证据不足。
+
+### 提示工程 vs Agent 工作流
+
+Agent 会拆任务、调用工具、持续执行；提示工程通常是其中一部分，用来约束每一步怎么判断和输出。
+
+## 常见误解
+
+### 误解 1：提示工程就是背万能提示词
+
+不对。万能提示词通常很快失效。更可靠的是理解任务、数据和验收标准。
+
+### 误解 2：提示写得足够好，就不会幻觉
+
+不对。提示可以降低风险，但不能保证事实正确。需要来源、检索、工具调用、人工审查和评估。
+
+### 误解 3：提示越长越好
+
+不一定。过长提示会浪费 token，也可能引入冲突指令。好的提示应该清楚、必要、可验证。
+
+## 为什么普通读者需要知道它
+
+因为提示工程是普通人提升 AI 工具效果的最快入口之一。
+
+懂了提示工程，你会更容易：
+
+- 把模糊需求变成可执行任务；
+- 让模型输出更稳定的格式；
+- 判断什么时候该补资料、什么时候该换模型、什么时候该做系统设计。
+
+## 延伸阅读
+
+- [Token（词元）](/glossary/token)
+- [Few-Shot](/glossary)
+- [RAG](/glossary/rag)
+- [Fine-Tuning（微调）](/glossary/fine-tuning)
+- [智能体（Agent）](/glossary/agent)
+
+## 参考来源
+
+- [OpenAI API, Prompt engineering](https://developers.openai.com/api/docs/guides/prompt-engineering)
+- [Anthropic Docs, Prompt engineering overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+
+最后审核时间：2026-04-26

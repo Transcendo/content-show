@@ -48,6 +48,15 @@ This file is durable working memory for AI agents in this repository. Read it af
 
 ## Agent Operation Log
 
+### 2026-04-26
+
+- Reviewed the 2026-04-20 to 2026-04-26 weekly content plan and found four missing planned public pages: Token, Prompt Engineering, Embedding, and Fine-Tuning.
+- Added the four missing glossary MDX pages under `content/docs/glossary/` plus original diagrams under `public/diagrams/`.
+- Updated `content/docs/glossary/meta.json`, `lib/ai-glossary.ts`, `AI Knowledge/glossary-core-sources.md`, and `content/docs/resources/source-list.mdx` so published pages, glossary cards, source notes, and resources stay aligned.
+- Updated `README.md` to reflect 20 published core glossary pages and the weekly planning workbook location.
+- Added next-week planning artifacts: `AI Knowledge/weekly-plans/2026-04-27-2026-05-03-content-roadmap.md`, `AI Knowledge/weekly-plans/weekly-plan.xlsx`, and dated copy `2026-04-27-2026-05-03-weekly-plan.xlsx`.
+- Validation: custom glossary metadata/source check passed for 20 detail pages; `pnpm build` passed. Initial `pnpm typecheck` failed because stale generated `.next/dev/types` referenced removed `/docs` routes; removing generated `.next/dev` fixed it and `pnpm typecheck` then passed.
+
 ### 2026-04-19
 
 - Expanded `AGENTS.md` from a brief repo overview into a fuller AI-agent guide covering technical stack, content architecture, editorial rules, common commands, and memory workflow.

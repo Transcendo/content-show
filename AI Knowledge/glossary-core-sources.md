@@ -20,11 +20,59 @@ These notes support the first public glossary pages under `content/docs/glossary
 - Google DeepMind, Frontier Safety Framework: <https://deepmind.google/blog/introducing-the-frontier-safety-framework/>
 - Editorial boundary: present ASI as a forward-looking governance and risk topic, not a current product category.
 
+## Machine Learning
+
+- Tom Mitchell, Machine Learning: <https://www.cs.cmu.edu/~tom/mlbook.html>
+- Stanford CS229 Machine Learning: <https://cs229.stanford.edu/>
+- Editorial boundary: explain machine learning as learning patterns from data, not as a synonym for all AI or for deep learning alone.
+
+## Deep Learning
+
+- Goodfellow, Bengio, and Courville, Deep Learning: <https://www.deeplearningbook.org/>
+- LeCun, Bengio, and Hinton, Deep learning: <https://www.nature.com/articles/nature14539>
+- Editorial boundary: explain deep learning as a machine-learning branch based on multi-layer neural networks; avoid reducing it to current LLM products.
+
+## Neural Network
+
+- IBM, What are neural networks?: <https://www.ibm.com/think/topics/neural-networks>
+- Goodfellow, Bengio, and Courville, Deep Learning: <https://www.deeplearningbook.org/>
+- Editorial boundary: explain layers, weights, activations, and training without implying neural networks think like biological brains.
+
+## Transformer
+
+- Vaswani et al., Attention Is All You Need: <https://arxiv.org/abs/1706.03762>
+- Stanford CS224N notes on self-attention and transformers: <https://web.stanford.edu/class/cs224n/readings/cs224n-self-attention-transformers-2023_draft.pdf>
+- Editorial boundary: explain Transformer as an architecture centered on attention, not as a product or a synonym for every LLM.
+
 ## LLM
 
 - Vaswani et al., Attention Is All You Need: <https://arxiv.org/abs/1706.03762>
 - Stanford CS324, Large Language Models: <https://stanford-cs324.github.io/winter2022/>
 - Editorial boundary: separate model behavior from product features such as browsing, retrieval, and tool use.
+
+## Token
+
+- OpenAI Cookbook, How to count tokens with tiktoken: <https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken>
+- OpenAI tiktoken repository: <https://github.com/openai/tiktoken>
+- Editorial boundary: define token as model/tokenizer processing unit, not as a fixed character, word, or semantic concept.
+
+## Prompt Engineering
+
+- OpenAI API, Prompt engineering: <https://developers.openai.com/api/docs/guides/prompt-engineering>
+- Anthropic Docs, Prompt engineering overview: <https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview>
+- Editorial boundary: present prompting as task/context/format/evaluation design, not as magic phrases that remove the need for data, retrieval, or review.
+
+## Embedding
+
+- OpenAI API, Vector embeddings: <https://developers.openai.com/api/docs/guides/embeddings>
+- Mikolov et al., Efficient Estimation of Word Representations in Vector Space: <https://arxiv.org/abs/1301.3781>
+- Editorial boundary: explain embeddings as vector representations for similarity and retrieval, not as full-fidelity copies of source content or proof of factual correctness.
+
+## Fine-Tuning
+
+- Hugging Face PEFT documentation: <https://huggingface.co/docs/peft/en/index>
+- Hugging Face Transformers, Parameter-efficient fine-tuning: <https://huggingface.co/docs/transformers/en/peft>
+- Editorial boundary: distinguish behavior adaptation from knowledge retrieval; avoid recommending fine-tuning when RAG, prompting, or data cleanup is the better first step.
 
 ## RAG
 

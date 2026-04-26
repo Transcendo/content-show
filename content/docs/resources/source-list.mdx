@@ -1,26 +1,45 @@
 ---
 title: 资料来源清单
-description: 当前用于整理 Content Show AI 知识目录和名词库的来源线索。
+description: 当前用于整理 Content Show AI 知识目录、核心词条和名词库的来源线索。
+lastReviewed: "2026-04-26"
 ---
 
 # 资料来源清单
 
-## 当前已使用线索
+本页记录 Content Show 当前公开内容使用和后续核查优先参考的资料来源。原则很简单：**公开词条要能回到可信来源，不把二手截图或营销话术当成事实本身。**
 
-| 来源 | 用途 |
+## 来源使用原则
+
+| 来源类型 | 使用方式 |
 | --- | --- |
-| [WaytoAGI 公开知识库](https://wiki.waytoagi.com/docs/QPe5w5g7UisbEkkow8XcDmOpn8e) | 学习路径、资料栏目和初始信息架构参考 |
-| 用户提供的 WaytoAGI 飞书名词表截图 | 本轮 99 个公开术语的主素材 |
-| OpenAI、DeepMind 等官方材料 | 产品、模型、对齐和治理类内容后续核查 |
-| Our World in Data AI 专题 | AI 发展趋势、社会影响和数据背景后续核查 |
-| OECD、NIST、arXiv 论文和课程资料 | 核心术语定义、技术机制和风险框架核查 |
-| Fumadocs 官方文档 | 搜索、图谱和 MDX 组件能力实现参考 |
+| 原始论文、官方文档、标准机构 | 优先用于定义、技术机制、风险框架和产品事实 |
+| 大学课程、教材、研究机构解释 | 用于补充概念背景和学习路径 |
+| 公司博客、产品文档 | 只用于对应公司产品、API、工程实践，避免泛化成行业定论 |
+| 用户提供截图、知识库或笔记 | 可作为选题和结构线索，不作为唯一事实依据 |
 
-## 后续建议
+## 核心来源索引
 
-每新增一篇知识卡片，至少补齐三类信息：
+| 主题 | 代表来源 | 当前用途 |
+| --- | --- | --- |
+| AI 总论与风险框架 | [OECD AI Principles](https://oecd.ai/en/ai-principles)、[NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI、治理、安全、风险边界 |
+| AGI / ASI | [Levels of AGI](https://arxiv.org/abs/2311.02462)、[OpenAI Charter](https://openai.com/charter/)、[DeepMind Frontier Safety Framework](https://deepmind.google/blog/introducing-the-frontier-safety-framework/) | AGI、ASI、前沿风险讨论 |
+| 机器学习 | [Tom Mitchell, Machine Learning](https://www.cs.cmu.edu/~tom/mlbook.html)、[Stanford CS229](https://cs229.stanford.edu/) | Machine Learning、学习方式、泛化 |
+| 深度学习与神经网络 | [Deep Learning Book](https://www.deeplearningbook.org/)、[LeCun/Bengio/Hinton, Deep Learning](https://www.nature.com/articles/nature14539) | Deep Learning、Neural Network、训练机制 |
+| Transformer / LLM | [Attention Is All You Need](https://arxiv.org/abs/1706.03762)、[Stanford CS324](https://stanford-cs324.github.io/winter2022/) | Transformer、LLM、Attention 相关解释 |
+| Token / Prompting | [OpenAI tiktoken Cookbook](https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken)、[OpenAI Prompt Engineering](https://developers.openai.com/api/docs/guides/prompt-engineering)、[Anthropic Prompt Engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) | Token、Prompt Engineering、提示边界 |
+| Embedding / RAG | [OpenAI Vector Embeddings](https://developers.openai.com/api/docs/guides/embeddings)、[Mikolov word vectors](https://arxiv.org/abs/1301.3781)、[Lewis et al., RAG](https://arxiv.org/abs/2005.11401) | Embedding、RAG、语义检索 |
+| Fine-Tuning / PEFT | [Hugging Face PEFT](https://huggingface.co/docs/peft/en/index)、[Transformers PEFT](https://huggingface.co/docs/transformers/en/peft) | Fine-Tuning、LoRA/PEFT 边界 |
+| 生成式 AI / 扩散模型 | [NIST GenAI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)、[DDPM](https://arxiv.org/abs/2006.11239)、[Improved DDPM](https://arxiv.org/abs/2102.09672) | Generative AI、Diffusion Models |
+| 对齐与幻觉 | [AI Alignment Survey](https://arxiv.org/abs/2310.19852)、[Hallucination Survey](https://arxiv.org/abs/2311.05232)、[NIST GenAI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence) | Alignment、Hallucination、治理判断 |
+| 基础模型与 MoE | [Foundation Models report](https://arxiv.org/abs/2108.07258)、[Stanford HAI Foundation Model explainer](https://hai.stanford.edu/news/what-foundation-model)、[Switch Transformers](https://jmlr.org/papers/v23/21-0998.html) | Foundation Model、MoE、基础设施语境 |
+| 信息架构原始线索 | [WaytoAGI 公开知识库](https://wiki.waytoagi.com/docs/QPe5w5g7UisbEkkow8XcDmOpn8e)、用户提供的 WaytoAGI 飞书名词表截图 | 学习路径、初始 99 个术语和栏目结构参考 |
+| 站点实现 | [Fumadocs 官方文档](https://fumadocs.dev/) | 搜索、图谱、MDX 和静态站点实现参考 |
 
-- 术语定义来自哪里，哪些内容来自截图素材。
-- 当前事实和行业共识是什么。
-- 哪些说法属于解释、推测或个人判断。
-- 图片或图示的来源、许可证和署名信息是什么。
+## 维护要求
+
+每新增或重写一篇公开核心词条，需要同时确认：
+
+- MDX frontmatter 中有 `sources` 和 `lastReviewed`。
+- `AI Knowledge/glossary-core-sources.md` 中有对应来源笔记和编辑边界。
+- 如果使用图片或图示，必须有 `imageCredit`；原创图示写 `Content Show diagram`。
+- 涉及产品、模型版本、API 行为、治理框架时，记录审核日期，避免把旧事实写成永久事实。

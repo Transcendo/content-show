@@ -122,19 +122,47 @@ const coreTermConfig: Record<
 		stability: "speculative",
 		sourceLevel: "primary",
 	},
-	"Machine Learning": { aliases: ["ML", "机器学习"], stability: "stable" },
-	"Deep Learning": { aliases: ["DL", "深度学习"], stability: "stable" },
+	"Machine Learning": {
+		aliases: ["ML", "机器学习"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Deep Learning": {
+		aliases: ["DL", "深度学习"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Neural Network": {
+		aliases: ["神经网络"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
 	LLM: {
 		aliases: ["Large Language Model", "大语言模型"],
 		hasDetailPage: true,
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
-	Transformer: { aliases: ["Transformer 架构"], stability: "stable" },
-	Token: { aliases: ["词元"], stability: "stable" },
+	Transformer: {
+		aliases: ["Transformer 架构"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	Token: {
+		aliases: ["词元"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
 	"Prompt Engineering": {
 		aliases: ["提示工程"],
+		hasDetailPage: true,
 		stability: "evolving",
+		sourceLevel: "primary",
 	},
 	RAG: {
 		aliases: ["Retrieval-Augmented Generation", "检索增强生成"],
@@ -142,8 +170,18 @@ const coreTermConfig: Record<
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
-	Embedding: { aliases: ["嵌入", "向量表示"], stability: "stable" },
-	"Fine-Tuning": { aliases: ["微调"], stability: "evolving" },
+	Embedding: {
+		aliases: ["嵌入", "向量表示"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Fine-Tuning": {
+		aliases: ["微调"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
 	Agents: {
 		aliases: ["AI Agent", "智能体"],
 		hasDetailPage: true,
@@ -154,11 +192,13 @@ const coreTermConfig: Record<
 		aliases: ["生成式 AI", "Generative AI"],
 		hasDetailPage: true,
 		stability: "evolving",
+		sourceLevel: "primary",
 	},
 	"Diffusion Models": {
 		aliases: ["扩散模型"],
 		hasDetailPage: true,
 		stability: "stable",
+		sourceLevel: "primary",
 	},
 	Alignment: {
 		aliases: ["AI 对齐"],
@@ -172,9 +212,19 @@ const coreTermConfig: Record<
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
-	"Foundation Model": { aliases: ["基础模型"], stability: "evolving" },
+	"Foundation Model": {
+		aliases: ["基础模型"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
 	GPU: { aliases: ["图形处理器"], stability: "stable" },
-	MoE: { aliases: ["Mixture of Experts", "专家混合"], stability: "evolving" },
+	MoE: {
+		aliases: ["Mixture of Experts", "专家混合"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
 };
 
 function slugifyGlossaryTerm(term: string) {

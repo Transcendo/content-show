@@ -1,0 +1,112 @@
+---
+title: Token（词元）
+description: 理解大模型为什么按 token 而不是按“字”或“词”处理文本，以及 token 如何影响上下文长度、成本和输出质量。
+category: llm-prompting
+tags:
+  - token
+  - tokenizer
+  - llm
+lastReviewed: "2026-04-26"
+stability: stable
+sources:
+  - https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken
+  - https://github.com/openai/tiktoken
+image: /diagrams/tokenization-flow.svg
+imageCredit: Content Show diagram
+---
+
+# Token（词元）
+
+Token，是大模型处理文本时使用的**基本计算单位**。它不一定等于一个汉字、一个英文单词或一个标点，而是由 tokenizer 把文本切分出来的片段。
+
+![文本被切分为 token 的示意图](/diagrams/tokenization-flow.svg)
+
+> [!info]
+> **一句话先记住**：大模型不是直接“读句子”，而是先把文本切成 token，再基于这些 token 进行计算、计费和生成。
+
+## 先记住这 3 点
+
+- **Token 是模型输入和输出的计量单位。**上下文窗口、API 成本和生成长度通常都按 token 计算。
+- **Token 不等于自然语言里的“词”。**英文、中文、空格、标点和特殊符号都可能被切成不同粒度的 token。
+- **不同模型可能使用不同 tokenizer。**同一句话在不同编码规则下，token 数可能不同。
+
+## 给普通人的解释
+
+可以把 token 理解成模型读写文本前的“切块”。
+
+人读一句话时，会自然按词、短语、标点和语境理解。但模型在计算前，需要先把文本转换成一串数字 ID。Tokenizer 的工作就是把原文切成 token，再把每个 token 映射成数字。
+
+比如英文里的 `great` 可能是一个 token，也可能和前面的空格一起形成类似 ` great` 的 token；中文里，一个词可能被切成一个或多个 token。具体怎么切，取决于 tokenizer 的词表和编码规则。
+
+这就是为什么你在使用大模型时经常看到：
+
+- 输入上限是“多少 token”，不是“多少字”；
+- 收费按 input tokens 和 output tokens 计算；
+- 长文、代码、表格和多轮对话会更快占满上下文窗口。
+
+## Token 和相近概念有什么区别
+
+### Token vs 字符
+
+字符是文本里的可见或不可见符号，比如一个汉字、一个英文字母、一个空格。Token 是 tokenizer 切分后的计算单位，一个 token 可能包含多个字符，也可能只是一个字符的一部分。
+
+### Token vs 单词
+
+单词是语言学里的单位，token 是模型工程里的单位。英文里很多 token 接近词或词片段；中文里 token 和词的对应关系更不直观。
+
+### Token vs 上下文窗口
+
+Token 是单位；上下文窗口是模型一次能处理的 token 总量上限。窗口越大，能放入的历史对话、文档和工具结果越多，但不等于模型一定会更好地利用所有信息。
+
+### Token vs Embedding
+
+Token 是输入切分单位；Embedding 是把 token、文本或其他对象变成向量表示。模型通常先把 token ID 转成向量，再进入后续计算。
+
+## 为什么它影响使用体验
+
+Token 会影响三件非常现实的事：
+
+1. **长度限制**：文档太长、对话太久，都会因为 token 超限而需要截断或压缩。
+2. **成本**：许多模型 API 以 token 为计费基础，输入越长、输出越长，成本越高。
+3. **结构设计**：写提示词、做 RAG、处理长文时，需要考虑哪些内容最值得占用 token。
+
+所以 token 不是只有工程师才关心的底层细节。只要你使用长上下文、文档问答、自动总结或批量生成，它都会影响结果。
+
+## 常见误解
+
+### 误解 1：一个 token 就是一个字
+
+不对。Token 是 tokenizer 的切分结果，不是固定等于字、词或字符。
+
+### 误解 2：上下文窗口越大，模型就一定越懂
+
+不一定。更大的窗口只是允许放入更多 token，模型是否能准确找到、使用和推理这些信息，还取决于模型能力、提示结构和任务难度。
+
+### 误解 3：只要压缩 token，就不会损失信息
+
+也不对。压缩、摘要和截断都可能丢失细节。真正好的长文处理，需要区分哪些信息必须保留，哪些可以概括。
+
+## 为什么普通读者需要知道它
+
+因为 token 是理解大模型产品限制的基础。
+
+懂了 token，你会更容易判断：
+
+- 为什么同样一页内容，有的模型能放下，有的模型放不下；
+- 为什么长对话越聊越贵或越容易丢上下文；
+- 为什么提示词不是越长越好，而是要把关键信息放进去。
+
+## 延伸阅读
+
+- [大语言模型（LLM）](/glossary/llm)
+- [提示工程（Prompt Engineering）](/glossary/prompt-engineering)
+- [Embedding（嵌入）](/glossary/embedding)
+- [RAG](/glossary/rag)
+- [大模型与提示工程](/llm-prompting)
+
+## 参考来源
+
+- [OpenAI Cookbook, How to count tokens with tiktoken](https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken)
+- [OpenAI, tiktoken](https://github.com/openai/tiktoken)
+
+最后审核时间：2026-04-26

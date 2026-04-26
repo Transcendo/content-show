@@ -18,7 +18,7 @@ Public URLs intentionally do **not** use `/docs/...`.
 | Learning entry | `/learn` |
 | Learning path | `/learn/learning-path` |
 | AI glossary | `/glossary` |
-| Core glossary pages | `/glossary/ai`, `/glossary/agi`, `/glossary/asi`, `/glossary/llm`, `/glossary/rag`, `/glossary/agent` |
+| Core glossary pages | 20 published pages, including `/glossary/ai`, `/glossary/llm`, `/glossary/rag`, `/glossary/machine-learning`, `/glossary/transformer`, `/glossary/token`, `/glossary/prompt-engineering`, `/glossary/embedding`, `/glossary/fine-tuning`, `/glossary/foundation-model`, and `/glossary/moe` |
 | Topic pages | `/fundamentals`, `/machine-learning`, `/model-mechanisms`, `/llm-prompting`, `/generative-multimodal`, `/agents-products`, `/frontier`, `/infrastructure` |
 | Knowledge graph | `/graph` |
 | Sources | `/resources`, `/resources/source-list` |
@@ -36,7 +36,7 @@ Content Show is a public-facing science communication site, so accuracy matters 
 - Use diagrams, callouts, cards, tabs, steps, accordions, and image credits where they improve understanding.
 - Keep glossary depth layered: not every term needs a full article, but core terms should be professional, readable, and source-backed.
 
-Research notes and source preparation can live in `AI Knowledge/` before being adapted into public MDX pages.
+Research notes and source preparation can live in `AI Knowledge/` before being adapted into public MDX pages. Weekly planning lives under `AI Knowledge/weekly-plans/`; the rolling Excel workbook is `AI Knowledge/weekly-plans/weekly-plan.xlsx`.
 
 ## Features
 
