@@ -122,6 +122,22 @@ These notes support the first public glossary pages under `content/docs/glossary
 - Shazeer et al., Outrageously Large Neural Networks: <https://arxiv.org/abs/1701.06538>
 - Editorial boundary: explain MoE as sparse expert routing inside the model, not as “many models stitched together” and not as a blanket promise of cheap inference.
 
+## 2026-05-01 Source Coverage Audit
+
+本次维护与公开页 `content/docs/resources/source-list.mdx` 同步：当前已发布的 20 个核心词条，都需要在公开 MDX frontmatter 与本文件中保留至少 2 个可信来源。来源使用时按“定义/机制/风险边界”拆开看，不把厂商营销说明直接当成行业事实。
+
+| 主题组 | 公开词条 | 来源边界 |
+| --- | --- | --- |
+| AI 范围与能力层级 | AI, AGI, ASI | 用 OECD / NIST 处理 AI 总论与风险框架；用 Levels of AGI、OpenAI Charter、DeepMind Frontier Safety Framework 处理能力层级与治理讨论。 |
+| 机器学习基础 | Machine Learning, Deep Learning, Neural Network | 用教材、Stanford CS229、Nature deep learning 论文处理稳定定义；避免把全部 AI 都收缩成深度学习。 |
+| 模型结构与 LLM 基础 | Transformer, LLM, Token | 用 Attention Is All You Need、Stanford CS224N / CS324、tokenizer 文档区分架构、模型家族和文本处理单位。 |
+| 提示、检索与适配 | Prompt Engineering, Embedding, RAG, Fine-Tuning | 厂商文档只用于对应实践/API；论文与 PEFT 文档用于解释技术边界。 |
+| 生成式与多模态方法 | Generative AI, Diffusion Models | 用 NIST GenAI Profile 处理风险框架；用 DDPM 论文处理扩散模型机制。 |
+| 可靠性、治理与代理 | Alignment, Hallucination, Agent | Alignment / Hallucination 写成风险与可靠性问题；Agent 写成带权限、日志、回滚和人工确认的工作流系统。 |
+| 基础设施与模型组织 | Foundation Model, MoE | 用基础模型报告和 MoE 论文解释可复用底座模型与稀疏路由；避免写成产品排名或成本承诺。 |
+
+维护规则：新增或大幅重写公开核心页时，需要在同一个变更中同步更新本文件和 `content/docs/resources/source-list.mdx`。
+
 ## Related card refresh for 2026-04-26
 
 - Compute: keep the focus on AI-relevant compute as a bundle of chips, time, power, throughput, and scheduling; avoid reducing it to “number of GPUs”.

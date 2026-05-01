@@ -1,7 +1,7 @@
 ---
 title: 资料来源清单
-description: 当前用于整理 Content Show AI 知识目录、核心词条和名词库的来源线索。
-lastReviewed: "2026-04-26"
+description: 当前用于整理 Content Show AI 知识目录、核心词条和名词库的来源线索，按主题追踪公开核心词条的主要依据。
+lastReviewed: "2026-05-01"
 ---
 
 # 资料来源清单
@@ -19,6 +19,8 @@ lastReviewed: "2026-04-26"
 
 ## 核心来源索引
 
+下面先按主题整理常用来源。它们不是“装饰性参考文献”，而是写作时判断定义、边界和风险的依据。
+
 | 主题 | 代表来源 | 当前用途 |
 | --- | --- | --- |
 | AI 总论与风险框架 | [OECD AI Principles](https://oecd.ai/en/ai-principles)、[NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI、治理、安全、风险边界 |
@@ -34,6 +36,28 @@ lastReviewed: "2026-04-26"
 | 基础模型与 MoE | [Foundation Models report](https://arxiv.org/abs/2108.07258)、[Stanford HAI Foundation Model explainer](https://hai.stanford.edu/news/what-foundation-model)、[Switch Transformers](https://jmlr.org/papers/v23/21-0998.html) | Foundation Model、MoE、基础设施语境 |
 | 信息架构原始线索 | [WaytoAGI 公开知识库](https://wiki.waytoagi.com/docs/QPe5w5g7UisbEkkow8XcDmOpn8e)、用户提供的 WaytoAGI 飞书名词表截图 | 学习路径、初始 99 个术语和栏目结构参考 |
 | 站点实现 | [Fumadocs 官方文档](https://fumadocs.dev/) | 搜索、图谱、MDX 和静态站点实现参考 |
+
+
+## 已发布核心词条来源覆盖
+
+截至 2026-05-01，公开核心词条均已在页面 frontmatter 和内部来源笔记中保留至少 2 个可信来源。下面这张表用于快速检查“这个词条主要靠什么来源站住脚”。
+
+| 主题组 | 已发布词条 | 主要来源线索 |
+| --- | --- | --- |
+| AI 总论与能力层级 | AI、AGI、ASI | OECD / NIST 用于定义与风险框架；Levels of AGI、OpenAI Charter、DeepMind Frontier Safety Framework 用于 AGI/ASI 的层级和治理边界 |
+| 机器学习基础 | Machine Learning、Deep Learning、Neural Network | Tom Mitchell、Stanford CS229、Deep Learning Book、LeCun/Bengio/Hinton 论文用于解释“从数据中学习”和神经网络训练，不把深度学习等同于全部 AI |
+| 模型结构与语言模型 | Transformer、LLM、Token | Attention Is All You Need、Stanford CS224N / CS324、OpenAI tiktoken 用于解释注意力、语言模型和分词单位 |
+| 提示、检索与适配 | Prompt Engineering、Embedding、RAG、Fine-Tuning | OpenAI / Anthropic 提示工程文档、OpenAI Embeddings、Mikolov word vectors、Lewis RAG、Hugging Face PEFT 用于区分提示、检索增强和微调 |
+| 生成式 AI 与多模态生成 | Generative AI、Diffusion Models | NIST GenAI Profile、IBM generative AI、DDPM / Improved DDPM 用于解释生成式系统与扩散生成机制 |
+| 治理、可靠性与代理 | Alignment、Hallucination、Agent | AI Alignment Survey、NIST AI RMF / GenAI Profile、Hallucination Survey、Anthropic agents、MCP specification 用于说明风险、权限和证据边界 |
+| 基础设施与模型组织 | Foundation Model、MoE | Foundation Models report、Stanford HAI、Switch Transformers、Outrageously Large Neural Networks 用于解释可复用底座模型和稀疏专家路由 |
+
+## 编辑边界备忘
+
+- **定义类内容**优先回到教材、课程、论文或标准机构，不用厂商宣传语定调。
+- **产品类内容**只说明对应产品或文档承诺的能力，不外推成整个行业事实。
+- **治理和风险类内容**要标明日期和框架来源；不要把“研究争议”写成已经解决的问题。
+- **相近词条**要互相区分：例如 Prompt Engineering、RAG、Fine-Tuning 解决的问题不同；Foundation Model、LLM、Generative AI 也不是同义词。
 
 ## 维护要求
 
