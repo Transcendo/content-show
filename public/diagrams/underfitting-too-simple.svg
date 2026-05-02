@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Underfitting too simple</title>
+  <desc id="desc">Original diagram showing an overly simple model line failing to capture an obvious data pattern.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Underfitting：模型太简单，规律没学到</text>
+    <text x="48" y="96" font-size="16" fill="#475569">欠拟合时，训练集和新数据上都不好，不是“泛化很好”。</text>
+    <line x1="120" y1="330" x2="820" y2="330" stroke="#334155" stroke-width="3"/>
+    <line x1="120" y1="330" x2="120" y2="135" stroke="#334155" stroke-width="3"/>
+    <circle cx="180" cy="285" r="8" fill="#2563eb"/><circle cx="250" cy="230" r="8" fill="#2563eb"/><circle cx="330" cy="170" r="8" fill="#2563eb"/>
+    <circle cx="430" cy="178" r="8" fill="#2563eb"/><circle cx="530" cy="235" r="8" fill="#2563eb"/><circle cx="640" cy="295" r="8" fill="#2563eb"/><circle cx="740" cy="250" r="8" fill="#2563eb"/>
+    <path d="M150 260 H790" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+    <path d="M160 292 C260 210 320 160 430 178 C535 196 610 300 760 246" fill="none" stroke="#16a34a" stroke-width="4" stroke-dasharray="8 6"/>
+    <text x="545" y="248" font-size="15" fill="#b91c1c">太简单的模型</text>
+    <text x="455" y="156" font-size="15" fill="#15803d">数据里的基本趋势</text>
+  </g>
+</svg>

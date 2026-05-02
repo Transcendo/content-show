@@ -138,6 +138,24 @@ These notes support the first public glossary pages under `content/docs/glossary
 
 维护规则：新增或大幅重写公开核心页时，需要在同一个变更中同步更新本文件和 `content/docs/resources/source-list.mdx`。
 
+## 2026-05-02 Machine Learning basics expansion
+
+本次新增/升级 9 个机器学习基础核心页：Supervised Learning、Unsupervised Learning、Reinforcement Learning、Training Data、Validation Data、Generalization ability、Overfitting、Underfitting、Regularization。
+
+| 词条 | 主要来源 | 编辑边界 |
+| --- | --- | --- |
+| Supervised Learning | Stanford CS229；scikit-learn supervised learning | 写成“有标签答案的输入-输出映射学习”，不要写成所有机器学习，也不要等同人工规则。 |
+| Unsupervised Learning | scikit-learn unsupervised learning；Stanford CS229 | 写成“无显式标签找结构/表示”，强调算法目标仍由人设计，聚类不天然等于真实解释。 |
+| Reinforcement Learning | Sutton & Barto；David Silver/UCL RL lectures | 写成奖励驱动的序列决策方法，不写成 AGI 魔法；强调奖励设计会被钻空子。 |
+| Training Data | Google ML Crash Course data prep；NIST AI RMF | 写成模型看到世界的窗口，强调数据多不等于数据好，污染、重复、偏差、标签错误都会影响模型。 |
+| Validation Data | scikit-learn cross-validation；Google ML Crash Course data split | 写成开发期调参/选模型/早停用数据，不把验证集当最终测试集。 |
+| Generalization ability | Deep Learning Book ML basics；Stanford CS229 | 写成未见数据上的可迁移表现，不把 demo 或训练分数当作泛化证据。 |
+| Overfitting | Deep Learning Book ML basics；scikit-learn underfitting/overfitting example | 写成训练表现好但新数据差，不把训练高分写成可靠成功。 |
+| Underfitting | Deep Learning Book ML basics；scikit-learn underfitting/overfitting example | 写成模型太简单或训练不足，强调训练和验证都差不是“稳健”。 |
+| Regularization | Deep Learning Book regularization；scikit-learn linear models | 写成控制复杂度/约束模型的手段之一，不承诺能解决数据泄漏或分布偏移。 |
+
+维护边界：这些概念属于稳定机器学习基础，`stability` 可保持 `stable`；若后续写产品化训练管线或大模型偏好优化，需要额外标明版本、日期和产品范围。
+
 ## Related card refresh for 2026-04-26
 
 - Compute: keep the focus on AI-relevant compute as a bundle of chips, time, power, throughput, and scheduling; avoid reducing it to “number of GPUs”.

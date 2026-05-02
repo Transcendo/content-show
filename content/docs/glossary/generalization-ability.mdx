@@ -1,0 +1,73 @@
+---
+title: 泛化能力（Generalization ability）
+description: 泛化能力指模型把训练中学到的规律迁移到新数据、新用户和新场景时仍然有效的能力。
+category: machine-learning
+tags:
+  - generalization
+  - machine-learning
+  - 泛化能力
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Deep Learning Book, Machine Learning Basics: https://www.deeplearningbook.org/contents/ml.html"
+  - "Stanford CS229: https://cs229.stanford.edu/"
+image: "/diagrams/generalization-bridge.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 泛化能力（Generalization ability）
+
+泛化能力是判断机器学习模型是否真的有用的核心指标。它是什么？一句话说，**泛化能力就是模型离开训练样本之后，在没见过的新数据上还能不能靠谱工作。**
+
+![泛化桥梁](/diagrams/generalization-bridge.svg)
+
+图片说明：原创图示，展示模型从训练数据走向真实新场景时，需要跨过“可迁移规律”这座桥。
+
+## 它解决什么问题
+
+机器学习不是为了在训练集上拿高分，而是为了面对未来输入仍然有效。泛化能力帮助你判断：
+
+- Demo 里的好结果能不能迁移到真实用户。
+- 模型是否只背了训练样本。
+- 评估集是否覆盖目标场景。
+- 数据、算法、正则化和部署环境是否匹配。
+
+如果一个模型训练时很强，部署后遇到新语言、新设备、新人群就崩，那它的泛化能力就不足。
+
+## 和相邻概念的边界
+
+| 概念 | 关注点 | 边界 |
+| --- | --- | --- |
+| 泛化能力 | 新数据、新场景表现 | 是目标，不等于训练集分数。 |
+| 过拟合 | 训练好，新数据差 | 是泛化失败的常见原因。 |
+| 验证数据 | 开发期估计泛化 | 只是测量工具，会被过度调参污染。 |
+| 鲁棒性 | 面对扰动或攻击仍稳定 | 与泛化相关，但更强调干扰和异常条件。 |
+
+边界要说清：**泛化能力比 demo 更重要。** Demo 可以被挑选，训练分数可以很漂亮，但真实场景的未知输入才是模型价值的考试。
+
+## 常见误解
+
+### 误解 1：测试集高分就代表永远能泛化
+
+不对。测试集也只是某个时间、某种采样方式下的近似。如果真实世界变化，表现仍可能下降。
+
+### 误解 2：泛化就是“模型懂了”
+
+不一定。模型可能只是学到了足够稳定的统计规律。不要把泛化直接等同于人类理解。
+
+### 误解 3：模型越大泛化一定越好
+
+不一定。规模有时有帮助，但数据质量、训练目标和评估方式同样关键。
+
+## 继续阅读链接
+
+- [机器学习（Machine Learning）](/glossary/machine-learning)：理解为什么泛化是机器学习的中心目标。
+- [训练数据（Training Data）](/glossary/training-data)：理解数据覆盖范围如何影响泛化。
+- [验证集（Validation Data）](/glossary/validation-data)：理解如何估计泛化表现。
+- [过拟合（Overfitting）](/glossary/overfitting)：理解泛化失败的典型形态。
+
+## 参考来源
+
+- [Goodfellow, Bengio, Courville, Deep Learning — Machine Learning Basics](https://www.deeplearningbook.org/contents/ml.html)
+- [Stanford CS229 Machine Learning](https://cs229.stanford.edu/)
+- 最后核查日期：2026-05-02

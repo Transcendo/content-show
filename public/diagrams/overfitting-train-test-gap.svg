@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Overfitting train-test gap</title>
+  <desc id="desc">Original diagram showing training score rising while validation score falls, representing overfitting.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Overfitting：训练好看，新数据翻车</text>
+    <text x="48" y="96" font-size="16" fill="#475569">模型记住了训练样本和噪声，却没有学到可迁移规律。</text>
+    <line x1="120" y1="330" x2="820" y2="330" stroke="#334155" stroke-width="3"/>
+    <line x1="120" y1="330" x2="120" y2="135" stroke="#334155" stroke-width="3"/>
+    <text x="392" y="370" font-size="16">模型复杂度 / 训练轮次</text>
+    <text x="50" y="135" font-size="16" transform="rotate(-90 50,135)">表现</text>
+    <path d="M140 295 C260 230 380 190 520 160 C640 138 740 126 805 120" fill="none" stroke="#16a34a" stroke-width="5"/>
+    <path d="M140 300 C260 238 380 202 500 198 C610 198 700 235 805 285" fill="none" stroke="#dc2626" stroke-width="5"/>
+    <text x="675" y="118" font-size="16" fill="#15803d">训练集分数</text>
+    <text x="680" y="286" font-size="16" fill="#b91c1c">验证/新数据分数</text>
+    <rect x="510" y="138" width="2" height="192" fill="#64748b" stroke-dasharray="6 6"/>
+    <text x="530" y="170" font-size="15" fill="#475569">开始记噪声</text>
+  </g>
+</svg>

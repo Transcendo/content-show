@@ -1,0 +1,71 @@
+---
+title: 欠拟合（Underfitting）
+description: 欠拟合指模型太简单、训练不足或特征不足，连训练数据中的基本规律也没有学好。
+category: machine-learning
+tags:
+  - underfitting
+  - machine-learning
+  - 欠拟合
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Deep Learning Book, Machine Learning Basics: https://www.deeplearningbook.org/contents/ml.html"
+  - "scikit-learn underfitting and overfitting: https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html"
+image: "/diagrams/underfitting-too-simple.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 欠拟合（Underfitting）
+
+欠拟合是模型没有学到数据中的基本规律。它是什么？一句话说，**欠拟合就是模型太简单、训练不够或特征不够，连训练集上的题都做不好。**
+
+![欠拟合示意图](/diagrams/underfitting-too-simple.svg)
+
+图片说明：原创图示，展示过于简单的模型曲线无法捕捉数据里的明显趋势。
+
+## 它解决什么问题
+
+欠拟合提醒你：模型表现差不一定是“泛化很严格”，也可能是根本没学会。常见原因包括：
+
+- 模型容量太小，表达不了数据里的规律。
+- 训练时间太短或优化设置不合适。
+- 特征太弱，关键信息没有进入模型。
+- 正则化太强，把模型限制得过死。
+
+## 和相邻概念的边界
+
+| 概念 | 表现 | 边界 |
+| --- | --- | --- |
+| 欠拟合 | 训练和验证都差 | 模型连基础规律都没学到。 |
+| 过拟合 | 训练好、验证差 | 模型学得太贴训练集。 |
+| 正则化 | 控制复杂度 | 太强可能造成欠拟合。 |
+| 泛化能力 | 新数据表现 | 欠拟合不是好泛化，而是整体能力不足。 |
+
+边界要说清：**欠拟合不是“很稳健”，而是模型能力或训练过程不够。** 如果训练集都做不好，新数据通常也不会突然变好。
+
+## 常见误解
+
+### 误解 1：验证集和训练集差距小就是好事
+
+不一定。如果两边都很差，那不是泛化好，而是欠拟合。
+
+### 误解 2：欠拟合只要加数据就能解决
+
+不一定。如果模型太简单或特征缺失，加同类数据也可能仍然学不会。
+
+### 误解 3：越强的正则化越安全
+
+不对。正则化过强会压制模型学习能力，导致欠拟合。
+
+## 继续阅读链接
+
+- [过拟合（Overfitting）](/glossary/overfitting)：理解另一种常见失败模式。
+- [正则化（Regularization）](/glossary/regularization)：理解约束太强为什么会出问题。
+- [训练数据（Training Data）](/glossary/training-data)：理解特征和样本覆盖。
+- [泛化能力（Generalization ability）](/glossary/generalization-ability)：理解最终评估目标。
+
+## 参考来源
+
+- [Goodfellow, Bengio, Courville, Deep Learning — Machine Learning Basics](https://www.deeplearningbook.org/contents/ml.html)
+- [scikit-learn, Underfitting vs. Overfitting](https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html)
+- 最后核查日期：2026-05-02

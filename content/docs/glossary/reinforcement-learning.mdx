@@ -1,0 +1,73 @@
+---
+title: 强化学习（Reinforcement Learning）
+description: 强化学习让智能体在环境中行动，根据奖励反馈学习策略，适合决策、控制和交互式任务。
+category: machine-learning
+tags:
+  - reinforcement-learning
+  - machine-learning
+  - 强化学习
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Sutton and Barto, Reinforcement Learning: http://incompleteideas.net/book/the-book-2nd.html"
+  - "DeepMind x UCL Reinforcement Learning lectures: https://www.davidsilver.uk/teaching/"
+image: "/diagrams/reinforcement-learning-loop.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 强化学习（Reinforcement Learning）
+
+强化学习是一种机器学习方式：智能体在环境中采取行动，环境返回状态和奖励，智能体再根据反馈调整策略。它是什么？一句话说，**强化学习不是给每一步标准答案，而是让系统通过奖励学会怎么行动。**
+
+![强化学习循环](/diagrams/reinforcement-learning-loop.svg)
+
+图片说明：原创图示，展示智能体、环境、动作、状态和奖励之间的反馈循环。
+
+## 它解决什么问题
+
+强化学习适合“行动会影响下一步局面”的问题，例如：
+
+- 游戏智能体学习下棋或打游戏。
+- 机器人在环境中学习控制动作。
+- 推荐系统在长期反馈中优化策略。
+- 大模型训练中的偏好优化或策略改进环节。
+
+它关心的不只是单次预测是否正确，而是长期行动序列带来的累计回报。
+
+## 和相邻概念的边界
+
+| 概念 | 反馈方式 | 边界 |
+| --- | --- | --- |
+| 强化学习 | 行动后获得奖励 | 学策略，强调探索、长期回报和环境反馈。 |
+| 监督学习 | 每个样本有标准答案 | 学输入到输出的映射，不直接处理长期策略。 |
+| RLHF | 人类反馈参与奖励建模 | 是强化学习思想在大模型对齐中的一种路线，不等于全部强化学习。 |
+| AGI | 通用智能目标 | 强化学习不是 AGI 魔法，也不能自动产生通用智能。 |
+
+最重要的边界是：**强化学习不是普通监督学习，也不是 AGI 魔法。** 它是一套处理序列决策和奖励反馈的方法，能力取决于环境、奖励、算法和安全约束。
+
+## 常见误解
+
+### 误解 1：奖励越高，行为就越符合人的真实意图
+
+不一定。奖励函数设计烂，智能体可能学会钻空子，拿到高分但做出荒唐或危险行为。
+
+### 误解 2：强化学习就是让模型自己随便试
+
+不对。真实系统通常需要仿真环境、安全边界、探索限制和人工评估，否则试错成本很高。
+
+### 误解 3：AlphaGo 成功说明所有复杂任务都适合强化学习
+
+也不对。围棋规则清晰、反馈明确；开放现实任务通常更脏、更慢、更难定义奖励。
+
+## 继续阅读链接
+
+- [机器学习（Machine Learning）](/glossary/machine-learning)：理解强化学习在机器学习中的位置。
+- [RLHF](/glossary)：理解人类反馈如何参与大模型行为塑形。
+- [PPO](/glossary)：理解常见策略优化算法的名字从哪里来。
+- [Agents](/glossary/agent)：理解真实智能体还需要工具、权限和日志。
+
+## 参考来源
+
+- [Sutton & Barto, Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
+- [David Silver, UCL Course on Reinforcement Learning](https://www.davidsilver.uk/teaching/)
+- 最后核查日期：2026-05-02

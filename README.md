@@ -18,7 +18,7 @@ Public URLs intentionally do **not** use `/docs/...`.
 | Learning entry | `/learn` |
 | Learning path | `/learn/learning-path` |
 | AI glossary | `/glossary` |
-| Core glossary pages | 20 published pages, including `/glossary/ai`, `/glossary/llm`, `/glossary/rag`, `/glossary/machine-learning`, `/glossary/transformer`, `/glossary/token`, `/glossary/prompt-engineering`, `/glossary/embedding`, `/glossary/fine-tuning`, `/glossary/foundation-model`, and `/glossary/moe` |
+| Core glossary pages | 29 published pages, including `/glossary/ai`, `/glossary/llm`, `/glossary/rag`, `/glossary/machine-learning`, `/glossary/supervised-learning`, `/glossary/unsupervised-learning`, `/glossary/reinforcement-learning`, `/glossary/training-data`, `/glossary/validation-data`, `/glossary/generalization-ability`, `/glossary/overfitting`, `/glossary/underfitting`, `/glossary/regularization`, `/glossary/prompt-engineering`, `/glossary/foundation-model`, and `/glossary/moe` |
 | Topic pages | `/fundamentals`, `/machine-learning`, `/model-mechanisms`, `/llm-prompting`, `/generative-multimodal`, `/agents-products`, `/frontier`, `/infrastructure` |
 | Knowledge graph | `/graph` |
 | Sources | `/resources`, `/resources/source-list` |

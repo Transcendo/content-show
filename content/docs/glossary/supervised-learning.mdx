@@ -1,0 +1,73 @@
+---
+title: 监督学习（Supervised Learning）
+description: 监督学习是用带标签答案的数据训练模型，让模型学会把输入映射到正确输出的机器学习方式。
+category: machine-learning
+tags:
+  - supervised-learning
+  - machine-learning
+  - 监督学习
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Stanford CS229: https://cs229.stanford.edu/"
+  - "scikit-learn supervised learning: https://scikit-learn.org/stable/supervised_learning.html"
+image: "/diagrams/supervised-learning-label-flow.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 监督学习（Supervised Learning）
+
+监督学习是一种机器学习方式：训练数据里同时有输入和“标准答案”，模型通过这些成对样本学习从输入到输出的映射。它是什么？一句话说，**监督学习就是让模型拿着带答案的题库练习，之后遇到新题时预测答案。**
+
+![监督学习标签流程](/diagrams/supervised-learning-label-flow.svg)
+
+图片说明：原创图示，展示带标签训练样本、模型学习映射、再对新输入做预测。
+
+## 它解决什么问题
+
+监督学习适合答案形式比较明确的问题，例如：
+
+- 根据房屋信息预测价格。
+- 根据邮件内容判断是不是垃圾邮件。
+- 根据医学影像辅助判断是否存在某类异常。
+- 根据历史用户行为预测下一步是否会点击或购买。
+
+这些任务共同点是：过去样本里已经有可学习的“答案”或目标值。模型不是靠人工写死规则，而是从大量样本中学习输入特征和输出结果之间的统计关系。
+
+## 和相邻概念的边界
+
+| 概念 | 核心反馈 | 边界 |
+| --- | --- | --- |
+| 监督学习 | 明确标签或目标值 | 不是所有机器学习，只覆盖有答案样本的训练方式。 |
+| 无监督学习 | 没有显式标签 | 重点找结构、聚类或表示，不直接学习标准答案。 |
+| 强化学习 | 行动后的奖励 | 学的是策略，不是单条输入到标准答案的映射。 |
+| 人工规则 | 人手写判断逻辑 | 不等于监督学习；监督学习的规则由数据和训练过程学出来。 |
+
+最重要的边界是：**监督学习不是所有机器学习，也不等于人工规则。** 如果标签不存在、标签不可靠，或者任务目标会随环境互动变化，就不能简单套监督学习。
+
+## 常见误解
+
+### 误解 1：有标签就一定可靠
+
+不对。标签本身可能错、偏、过时，或者只代表某一类人群和场景。标签质量差会直接带偏模型。
+
+### 误解 2：监督学习就是把规则自动写出来
+
+也不对。模型学到的是统计映射，不是人类可读的规则清单。它可能在训练分布内很好，在分布外失灵。
+
+### 误解 3：训练分数高就代表真实效果好
+
+训练分数只说明模型在见过的数据上表现如何。真正要看的是验证集、测试集和真实场景中的泛化能力。
+
+## 继续阅读链接
+
+- [机器学习（Machine Learning）](/glossary/machine-learning)：先理解更大的方法集合。
+- [训练数据（Training Data）](/glossary/training-data)：理解标签和样本如何决定上限。
+- [验证集（Validation Data）](/glossary/validation-data)：理解如何检查泛化表现。
+- [过拟合（Overfitting）](/glossary/overfitting)：理解训练分数漂亮但新数据翻车的问题。
+
+## 参考来源
+
+- [Stanford CS229 Machine Learning](https://cs229.stanford.edu/)
+- [scikit-learn, Supervised learning](https://scikit-learn.org/stable/supervised_learning.html)
+- 最后核查日期：2026-05-02

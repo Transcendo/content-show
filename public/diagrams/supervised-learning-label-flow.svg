@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Supervised learning label flow</title>
+  <desc id="desc">Original diagram showing labeled examples training a model and producing predictions checked against labels.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Supervised Learning：有标签答案的学习</text>
+    <text x="48" y="96" font-size="16" fill="#475569">题目 + 标准答案 → 模型学习映射 → 用新题目预测</text>
+    <rect x="60" y="150" width="210" height="140" rx="18" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="88" y="188" font-size="21" font-weight="700">训练样本</text>
+    <text x="88" y="222" font-size="16">图片、文本、表格</text>
+    <text x="88" y="252" font-size="16" fill="#1d4ed8">每条都有标签答案</text>
+    <path d="M285 220 H395" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="410" y="140" width="170" height="160" rx="24" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="450" y="205" font-size="24" font-weight="700">模型</text>
+    <text x="438" y="240" font-size="15">学习输入到输出</text>
+    <path d="M595 220 H705" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="720" y="150" width="180" height="140" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="752" y="188" font-size="21" font-weight="700">预测</text>
+    <text x="752" y="222" font-size="16">新输入的答案</text>
+    <text x="752" y="252" font-size="16" fill="#15803d">用验证数据检查</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/></marker></defs>
+</svg>

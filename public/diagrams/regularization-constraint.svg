@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Regularization constraint</title>
+  <desc id="desc">Original diagram showing regularization as guardrails that prevent a model from chasing noisy curves.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Regularization：给模型加约束</text>
+    <text x="48" y="96" font-size="16" fill="#475569">正则化不追求训练集上无限贴合，而是限制复杂度、改善泛化。</text>
+    <line x1="120" y1="330" x2="820" y2="330" stroke="#334155" stroke-width="3"/>
+    <line x1="120" y1="330" x2="120" y2="135" stroke="#334155" stroke-width="3"/>
+    <path d="M140 285 C210 180 270 360 340 220 C420 90 500 350 590 190 C680 80 730 320 805 160" fill="none" stroke="#dc2626" stroke-width="4" stroke-dasharray="8 6"/>
+    <path d="M140 285 C265 235 390 215 520 205 C650 195 730 180 805 160" fill="none" stroke="#16a34a" stroke-width="6"/>
+    <rect x="235" y="150" width="455" height="130" rx="18" fill="none" stroke="#9333ea" stroke-width="4"/>
+    <text x="350" y="145" font-size="17" fill="#6d28d9">复杂度护栏</text>
+    <text x="600" y="296" font-size="15" fill="#15803d">更平滑、更可能泛化</text>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+---
+title: 训练数据（Training Data）
+description: 训练数据是模型学习时看到的样本集合，它决定模型能接触到哪些模式、偏差、噪声和边界。
+category: machine-learning
+tags:
+  - training-data
+  - machine-learning
+  - 训练数据
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Google Machine Learning Crash Course, Data prep: https://developers.google.com/machine-learning/crash-course/data-prep"
+  - "NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework"
+image: "/diagrams/training-data-world-window.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 训练数据（Training Data）
+
+训练数据是模型训练时用来学习的样本集合。它是什么？一句话说，**训练数据就是模型看世界的窗口：窗口里有什么、缺什么、错什么，都会影响模型最后会什么。**
+
+![训练数据世界窗口](/diagrams/training-data-world-window.svg)
+
+图片说明：原创图示，展示训练数据如何把真实世界过滤成模型能够学习的样本。
+
+## 它解决什么问题
+
+训练数据不是“附属材料”，而是机器学习的核心输入。它影响：
+
+- 模型能学到哪些模式。
+- 模型在哪些人群、语言、场景上表现更好或更差。
+- 模型会不会继承数据中的偏见、错误和过时事实。
+- 评估结果是否真的反映未来使用场景。
+
+一个模型再复杂，如果训练数据不覆盖真实问题，或者标签质量很差，效果也会被直接限制。
+
+## 和相邻概念的边界
+
+| 概念 | 用途 | 边界 |
+| --- | --- | --- |
+| 训练数据 | 学习参数或模式 | 用来训练，不应用来冒充独立评估。 |
+| 验证数据 | 调参、选模型、早停 | 用来做开发期判断，反复使用会被“用烂”。 |
+| 测试数据 | 最终估计表现 | 应尽量独立，避免泄漏。 |
+| 更多数据 | 数量增加 | 不等于更好；代表性、质量和来源同样关键。 |
+
+最重要的边界是：**数据多不等于数据好。** 重复、污染、偏差、标签错误都可能毁掉效果。
+
+## 常见误解
+
+### 误解 1：只要数据量足够大，错误会自动被平均掉
+
+不对。系统性偏差不会因为样本多就消失，反而可能被模型学得更牢。
+
+### 误解 2：训练数据只是工程细节
+
+不对。它决定模型看到的世界，常常比换一个更花哨的算法更重要。
+
+### 误解 3：公开数据天然安全可靠
+
+也不对。公开数据可能含版权、隐私、污染、过时事实和有害偏见，需要来源审查和清洗。
+
+## 继续阅读链接
+
+- [监督学习（Supervised Learning）](/glossary/supervised-learning)：理解标签答案如何参与学习。
+- [验证集（Validation Data）](/glossary/validation-data)：理解训练之外如何检查模型。
+- [泛化能力（Generalization ability）](/glossary/generalization-ability)：理解新场景表现为什么关键。
+- [过拟合（Overfitting）](/glossary/overfitting)：理解模型为什么会记住噪声。
+
+## 参考来源
+
+- [Google Machine Learning Crash Course, Data prep](https://developers.google.com/machine-learning/crash-course/data-prep)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- 最后核查日期：2026-05-02

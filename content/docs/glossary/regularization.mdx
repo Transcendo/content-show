@@ -1,0 +1,73 @@
+---
+title: 正则化（Regularization）
+description: 正则化是在训练中加入约束或惩罚，减少模型过度贴合训练数据、提升泛化能力的方法集合。
+category: machine-learning
+tags:
+  - regularization
+  - machine-learning
+  - 正则化
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Deep Learning Book, Regularization: https://www.deeplearningbook.org/contents/regularization.html"
+  - "scikit-learn linear models: https://scikit-learn.org/stable/modules/linear_model.html"
+image: "/diagrams/regularization-constraint.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 正则化（Regularization）
+
+正则化是一组训练方法，用来限制模型复杂度或给模型加约束，减少过拟合。它是什么？一句话说，**正则化就是别让模型为了训练集分数，把噪声和偶然规律也当成真规律。**
+
+![正则化复杂度护栏](/diagrams/regularization-constraint.svg)
+
+图片说明：原创图示，展示正则化如何把模型从过度弯曲的拟合拉回更稳的形态。
+
+## 它解决什么问题
+
+正则化主要解决过拟合风险。常见做法包括：
+
+- 对过大的权重加入惩罚。
+- 限制模型复杂度。
+- 使用 dropout、数据增强或早停等方式减少记噪声。
+- 在模型选择中更重视新数据表现，而不是训练集完美贴合。
+
+它的目标不是让训练分数最高，而是让模型在没见过的数据上更稳。
+
+## 和相邻概念的边界
+
+| 概念 | 作用 | 边界 |
+| --- | --- | --- |
+| 正则化 | 加约束、控复杂度 | 缓解过拟合，不保证解决所有数据问题。 |
+| 过拟合 | 训练好，新数据差 | 正则化常用于缓解它。 |
+| 欠拟合 | 模型太简单或训练不足 | 正则化太强也可能导致欠拟合。 |
+| 数据清洗 | 改善数据质量 | 和正则化互补，不是同一件事。 |
+
+边界要记住：**正则化不是越强越好。** 约束太弱挡不住过拟合，太强会让模型连基本规律都学不动。
+
+## 常见误解
+
+### 误解 1：正则化一定会提高训练集表现
+
+通常不会。它可能故意牺牲一点训练集表现，换取更好的泛化能力。
+
+### 误解 2：只要用了正则化就不会过拟合
+
+不对。数据泄漏、分布偏移、标签错误和评估不当仍然会造成问题。
+
+### 误解 3：正则化只适合传统模型
+
+不对。深度学习里也有许多正则化思想，例如权重衰减、dropout、数据增强和早停。
+
+## 继续阅读链接
+
+- [过拟合（Overfitting）](/glossary/overfitting)：理解正则化主要想缓解什么。
+- [欠拟合（Underfitting）](/glossary/underfitting)：理解约束过强的另一面。
+- [泛化能力（Generalization ability）](/glossary/generalization-ability)：理解正则化最终服务的目标。
+- [训练数据（Training Data）](/glossary/training-data)：理解数据问题不能只靠正则化硬扛。
+
+## 参考来源
+
+- [Goodfellow, Bengio, Courville, Deep Learning — Regularization](https://www.deeplearningbook.org/contents/regularization.html)
+- [scikit-learn, Generalized Linear Models](https://scikit-learn.org/stable/modules/linear_model.html)
+- 最后核查日期：2026-05-02

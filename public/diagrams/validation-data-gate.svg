@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Validation data tuning gate</title>
+  <desc id="desc">Original diagram showing training data, validation data, and test data as separated gates.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Validation Data：调参与早期预警</text>
+    <text x="48" y="96" font-size="16" fill="#475569">验证集用于选择模型和调参数，不应被反复用到失去独立性。</text>
+    <rect x="80" y="170" width="210" height="120" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="126" y="220" font-size="22" font-weight="700">训练集</text>
+    <text x="112" y="252" font-size="15">学习参数</text>
+    <path d="M310 230 H365" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="385" y="150" width="220" height="160" rx="20" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <text x="430" y="215" font-size="22" font-weight="700">验证集</text>
+    <text x="422" y="247" font-size="15">调参 / 选模型 / 早停</text>
+    <path d="M625 230 H680" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="700" y="170" width="180" height="120" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="747" y="220" font-size="22" font-weight="700">测试集</text>
+    <text x="728" y="252" font-size="15">最终估计</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/></marker></defs>
+</svg>

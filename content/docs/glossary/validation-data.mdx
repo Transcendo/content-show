@@ -1,0 +1,73 @@
+---
+title: 验证集（Validation Data）
+description: 验证集是在训练之外用于调参、选模型和早期发现过拟合的数据子集，不应被当成最终考试。
+category: machine-learning
+tags:
+  - validation-data
+  - machine-learning
+  - 验证集
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "scikit-learn cross-validation: https://scikit-learn.org/stable/modules/cross_validation.html"
+  - "Google Machine Learning Crash Course, Validation: https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets"
+image: "/diagrams/validation-data-gate.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 验证集（Validation Data）
+
+验证集是训练数据之外的一部分数据，用来在开发过程中调参数、选模型、做早停和发现过拟合。它是什么？一句话说，**验证集是训练过程旁边的检查站，不是最终考试卷。**
+
+![验证集调参闸门](/diagrams/validation-data-gate.svg)
+
+图片说明：原创图示，展示训练集、验证集和测试集在机器学习流程中的不同作用。
+
+## 它解决什么问题
+
+训练模型时，研究者或工程师需要不断做选择：
+
+- 用哪个模型结构？
+- 训练多少轮？
+- 学习率、正则化强度等超参数怎么设？
+- 什么时候训练表现开始只是记噪声？
+
+验证集就是用来回答这些开发期问题的。它帮助发现过拟合，但因为会被反复查看和调参，所以它不能再完全代表最终独立评估。
+
+## 和相邻概念的边界
+
+| 概念 | 用途 | 边界 |
+| --- | --- | --- |
+| 训练集 | 学习模型参数 | 模型直接从这里学习。 |
+| 验证集 | 调参、选模型、早停 | 会影响开发选择，不能当最终考试。 |
+| 测试集 | 最终估计泛化表现 | 应尽量少碰，保持独立。 |
+| 交叉验证 | 多次划分评估 | 适合数据较少时更稳地估计表现。 |
+
+边界要记住：**验证集不是测试集。** 如果你根据验证集不断调到最好，验证集就会逐渐变成“被间接训练过”的数据。
+
+## 常见误解
+
+### 误解 1：验证集准确率高就能上线
+
+不够。还要看独立测试、真实分布、错误类型和上线监控。
+
+### 误解 2：验证集可以无限反复使用
+
+不对。反复调参会让模型和团队都“适应”验证集，导致估计过于乐观。
+
+### 误解 3：验证集越小越省数据越好
+
+不一定。太小会让指标波动大，无法稳定判断模型差异。
+
+## 继续阅读链接
+
+- [训练数据（Training Data）](/glossary/training-data)：理解数据划分从哪里来。
+- [监督学习（Supervised Learning）](/glossary/supervised-learning)：理解标签任务如何评估。
+- [过拟合（Overfitting）](/glossary/overfitting)：理解验证集为什么能报警。
+- [泛化能力（Generalization ability）](/glossary/generalization-ability)：理解最终关心的新数据表现。
+
+## 参考来源
+
+- [scikit-learn, Cross-validation: evaluating estimator performance](https://scikit-learn.org/stable/modules/cross_validation.html)
+- [Google Machine Learning Crash Course, Training and test sets / validation](https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets)
+- 最后核查日期：2026-05-02

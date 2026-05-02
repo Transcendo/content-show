@@ -1,0 +1,73 @@
+---
+title: 无监督学习（Unsupervised Learning）
+description: 无监督学习是在没有显式标签答案的数据中寻找结构、相似性、聚类或表示的机器学习方式。
+category: machine-learning
+tags:
+  - unsupervised-learning
+  - machine-learning
+  - 无监督学习
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "scikit-learn unsupervised learning: https://scikit-learn.org/stable/unsupervised_learning.html"
+  - "Stanford CS229: https://cs229.stanford.edu/"
+image: "/diagrams/unsupervised-learning-structure-map.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 无监督学习（Unsupervised Learning）
+
+无监督学习是一种机器学习方式：训练数据没有人工给出的标准答案，模型要从数据本身寻找结构、相似性或压缩表示。它是什么？一句话说，**无监督学习就是不给答案，让模型先把数据里的形状和关系整理出来。**
+
+![无监督学习结构图](/diagrams/unsupervised-learning-structure-map.svg)
+
+图片说明：原创图示，展示无标签数据如何被模型整理成候选结构或聚类。
+
+## 它解决什么问题
+
+无监督学习常用于这些场景：
+
+- 把相似用户、商品或文档分组。
+- 在大量数据中发现异常点。
+- 把高维数据压缩成更容易观察的表示。
+- 为推荐、搜索或下游模型准备更好的特征。
+
+它的价值在于：现实里很多数据没有现成答案。先让模型找结构，往往能帮助人理解数据、发现线索，或为后续监督学习打基础。
+
+## 和相邻概念的边界
+
+| 概念 | 有无标准答案 | 关键区别 |
+| --- | --- | --- |
+| 无监督学习 | 没有显式标签 | 找结构、相似性、聚类、表示。 |
+| 监督学习 | 有标签答案 | 学输入到输出的映射。 |
+| 自监督学习 | 从数据中构造训练目标 | 常用于大模型预训练，但目标仍由设计者定义。 |
+| 数据可视化 | 人看图理解数据 | 不等于训练模型，更多是分析手段。 |
+
+无监督学习的边界要说清楚：**它不是“没人设计目标”。** 算法、距离度量、聚类数量、表示方式都有人选择；只是数据里没有直接给出每个样本的标准标签。
+
+## 常见误解
+
+### 误解 1：聚类结果天然代表真实分类
+
+不对。聚类只是按某种相似性规则分组，不自动等于现实世界里的因果类别或正确解释。
+
+### 误解 2：无监督学习比监督学习更“自由”，所以更聪明
+
+也不对。它少了标签约束，但也更需要人解释结果。结构能不能用，要看业务问题和后续验证。
+
+### 误解 3：没有标签就没有偏差
+
+不对。数据采样、特征选择、距离度量都会带来偏差。
+
+## 继续阅读链接
+
+- [机器学习（Machine Learning）](/glossary/machine-learning)：理解它属于机器学习哪一层。
+- [Embedding](/glossary/embedding)：很多语义检索会用向量表示承接无监督/自监督表示。
+- [训练数据（Training Data）](/glossary/training-data)：理解无标签数据也会决定模型看到的世界。
+- [泛化能力（Generalization ability）](/glossary/generalization-ability)：判断结构能否迁移到新数据。
+
+## 参考来源
+
+- [scikit-learn, Unsupervised learning](https://scikit-learn.org/stable/unsupervised_learning.html)
+- [Stanford CS229 Machine Learning](https://cs229.stanford.edu/)
+- 最后核查日期：2026-05-02

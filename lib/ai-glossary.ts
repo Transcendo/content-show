@@ -164,6 +164,60 @@ const coreTermConfig: Record<
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
+	"Supervised Learning": {
+		aliases: ["监督学习"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Unsupervised Learning": {
+		aliases: ["无监督学习"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Reinforcement Learning": {
+		aliases: ["RL", "强化学习"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Training Data": {
+		aliases: ["训练数据"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	Overfitting: {
+		aliases: ["过拟合"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Generalization ability": {
+		aliases: ["泛化能力", "Generalization"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	"Validation Data": {
+		aliases: ["Validation Set", "验证集"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	Regularization: {
+		aliases: ["正则化"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
+	Underfitting: {
+		aliases: ["欠拟合"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
 	RAG: {
 		aliases: ["Retrieval-Augmented Generation", "检索增强生成"],
 		hasDetailPage: true,
@@ -261,7 +315,7 @@ export const glossaryTerms = [
 			"AI 是最大的总称，推荐算法、图像识别、大语言模型和自动驾驶都可以放在这个范围里。不同 AI 的能力边界差异很大。",
 		commonMisunderstanding:
 			"AI 不是一个统一能力等级，不能因为一个系统会写文章，就推断它也能可靠做所有事情。",
-		relatedTerms: ["ANI", "AGI", "Machine Learning", "Generative AI"],
+		relatedTerms: ["ANI", "AGI", "Machine Learning", "Generative AI / Gen AI"],
 	},
 	{
 		term: "AIGC",
@@ -273,7 +327,7 @@ export const glossaryTerms = [
 			"AIGC 更偏应用和产业语境，关注 AI 能产出什么内容，以及这些内容如何进入创作、营销、教育和办公流程。",
 		commonMisunderstanding:
 			"AIGC 不等于所有 AI，它只是 AI 在内容生成方向上的一个重要分支。",
-		relatedTerms: ["Generative AI", "Diffusion Models", "ChatGPT", "GAN"],
+		relatedTerms: ["Generative AI / Gen AI", "Diffusion Models", "ChatGPT", "GAN"],
 	},
 	{
 		term: "ANI",
@@ -429,7 +483,7 @@ export const glossaryTerms = [
 			"Chatbot 说的是交互形式，不自动代表底层技术先进。它可以是老式规则客服，也可以是由大语言模型驱动、还能调用工具的现代对话系统。",
 		commonMisunderstanding:
 			"聊天机器人不等于大模型，更不等于智能体。能聊天只是入口，背后能力差距可能非常大。",
-		relatedTerms: ["ChatGPT", "Agent", "LLM", "Foundation Model"],
+		relatedTerms: ["ChatGPT", "Agents", "LLM", "Foundation Model"],
 	},
 	{
 		term: "CoT",
@@ -525,7 +579,7 @@ export const glossaryTerms = [
 			"DeepMind 因 AlphaGo 等成果被大众熟知，也长期参与强化学习、蛋白质结构预测和基础模型研究。",
 		commonMisunderstanding:
 			"公司名不是技术名，讨论具体能力时仍要回到模型、论文或产品。",
-		relatedTerms: ["Reinforcement Learning", "OpenAI", "AlphaGo"],
+		relatedTerms: ["Reinforcement Learning", "OpenAI", "Deep Learning"],
 	},
 	{
 		term: "Diffusion Models",
@@ -537,7 +591,7 @@ export const glossaryTerms = [
 			"扩散模型可以粗略理解为先把目标内容想成一团噪声，再让模型一步步把噪声整理成清晰图像。今天很多文生图、图生图和视频生成系统，都把它当作核心生成方法。",
 		commonMisunderstanding:
 			"扩散模型不只是“把图画得更漂亮”的技巧，它还牵涉采样速度、条件控制、训练数据来源和生成结果版权等现实问题。",
-		relatedTerms: ["Generative AI", "GAN", "CLIP", "Multimodal"],
+		relatedTerms: ["Generative AI / Gen AI", "GAN", "CLIP", "Multimodal"],
 	},
 	{
 		term: "Double Descent",
@@ -669,7 +723,7 @@ export const glossaryTerms = [
 			"GAN 可以理解成一个模型负责造，一个模型负责挑错。生成器想骗过判别器，判别器想识破生成器；两边反复对抗，最后能产出越来越像真的图片、音频或其他数据。",
 		commonMisunderstanding:
 			"GAN 不是所有生成式 AI 的共同底座。它在生成式视觉历史上很重要，但今天很多主流图像系统已经更多转向扩散模型。",
-		relatedTerms: ["Diffusion Models", "Generative AI", "Neural Network", "AIGC"],
+		relatedTerms: ["Diffusion Models", "Generative AI / Gen AI", "Neural Network", "AIGC"],
 	},
 	{
 		term: "GPT-4",
@@ -724,7 +778,7 @@ export const glossaryTerms = [
 		zh: "泛化能力",
 		summary: "模型把训练中学到的规律带到新数据、新任务或新场景里仍能有效工作的能力。",
 		tag: "技术",
-		category: "frontier",
+		category: "machine-learning",
 		beginnerExplanation:
 			"泛化能力强，说明模型学到的不是死记训练样本，而是更可迁移的规律。它决定模型离开实验环境后还能不能靠谱。",
 		commonMisunderstanding:
@@ -765,7 +819,7 @@ export const glossaryTerms = [
 			"如果把损失函数想成一片高低起伏的地形，梯度下降就是模型沿着往下走的方向不断试探，让自己从更高的错误位置走向更低的错误位置。每一步走多大、往哪边走，都会影响训练速度和稳定性。",
 		commonMisunderstanding:
 			"梯度下降不是一下子找到最优答案的魔法方法。它通常只能不断改进，而且结果会受到学习率、初始化、数据分布和优化细节影响。",
-		relatedTerms: ["Loss Function", "Backpropagation", "Parameters", "Learning Rate"],
+		relatedTerms: ["Loss Function", "Backpropagation", "Hyperparameter Tuning"],
 	},
 	{
 		term: "Hallucination",
@@ -969,7 +1023,7 @@ export const glossaryTerms = [
 			"多模态模型能把不同类型的信息放在一起理解和生成，例如看图回答、听语音转文字、根据文字生成图片，或者同时看文档和截图给出解释。",
 		commonMisunderstanding:
 			"多模态不是简单把几个功能菜单拼在一起，关键在于不同模态之间能相互对齐、共同推理，必要时还能彼此转换。",
-		relatedTerms: ["CLIP", "CV", "Generative AI", "Cross-modal generalization"],
+		relatedTerms: ["CLIP", "CV", "Generative AI / Gen AI", "Cross-modal generalization"],
 	},
 	{
 		term: "NLP",
@@ -993,7 +1047,7 @@ export const glossaryTerms = [
 			"NeRF 可以从多个视角图像学习一个场景的三维表示，再渲染出新的视角画面。它常出现在 3D 重建、数字孪生、沉浸式内容和视觉合成讨论里。",
 		commonMisunderstanding:
 			"NeRF 不是普通滤镜或修图模型，它处理的是场景表示、几何信息和视角渲染，和纯 2D 文生图不是一回事。",
-		relatedTerms: ["CV", "Multimodal", "Diffusion Models", "Generative AI"],
+		relatedTerms: ["CV", "Multimodal", "Diffusion Models", "Generative AI / Gen AI"],
 	},
 	{
 		term: "Neural Network",
@@ -1245,7 +1299,7 @@ export const glossaryTerms = [
 			"系统 1 常指快速、自动、直觉式判断，系统 2 常指慢速、费力、理性分析。AI 讨论里常借它解释快速生成和深度推理的差异。",
 		commonMisunderstanding:
 			"这不是严格的脑区划分，也不能简单套成模型真的拥有两套人类思维系统。",
-		relatedTerms: ["CoT", "Inference", "Reasoning"],
+		relatedTerms: ["CoT", "Inference", "LLM"],
 	},
 	{
 		term: "TPU",

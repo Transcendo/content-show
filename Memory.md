@@ -48,6 +48,14 @@ This file is durable working memory for AI agents in this repository. Read it af
 
 ## Agent Operation Log
 
+### 2026-05-02
+
+- Advanced the same-day 50-task Content Show run: repaired glossary relationship naming for Generative AI / Gen AI, Agents, AlphaGo, Learning Rate, Reasoning, and moved Generalization ability into the machine-learning category.
+- Added nine source-backed machine-learning glossary pages: Supervised Learning, Unsupervised Learning, Reinforcement Learning, Training Data, Validation Data, Generalization ability, Overfitting, Underfitting, and Regularization.
+- Added nine original SVG diagrams under `public/diagrams/` and wired new slugs into `content/docs/glossary/meta.json` plus `lib/ai-glossary.ts` core metadata.
+- Updated `/machine-learning`, `/learn/learning-path`, `/llm-prompting`, source tracking, and README page counts to reflect the expanded core learning path.
+- Validation notes for this run should be checked in the final cron report; do not assume full Node validation passed unless `pnpm typecheck` / `pnpm build` are recorded there.
+
 ### 2026-04-26
 
 - Reviewed the 2026-04-20 to 2026-04-26 weekly content plan and found four missing planned public pages: Token, Prompt Engineering, Embedding, and Fine-Tuning.

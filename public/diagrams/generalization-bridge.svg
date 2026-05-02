@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Generalization bridge</title>
+  <desc id="desc">Original diagram showing a model bridge from training data to unseen real-world cases.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Generalization：从训练样本走向新场景</text>
+    <text x="48" y="96" font-size="16" fill="#475569">泛化能力强，说明模型学到的是可迁移规律，而不是背题。</text>
+    <rect x="80" y="170" width="220" height="120" rx="20" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="126" y="220" font-size="22" font-weight="700">训练数据</text>
+    <text x="118" y="252" font-size="15">模型见过的样本</text>
+    <path d="M330 230 C430 145 540 145 640 230" fill="none" stroke="#9333ea" stroke-width="10" stroke-linecap="round"/>
+    <text x="420" y="150" font-size="18" fill="#6d28d9">可迁移规律</text>
+    <rect x="670" y="170" width="220" height="120" rx="20" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="713" y="220" font-size="22" font-weight="700">新数据</text>
+    <text x="706" y="252" font-size="15">真实用户与新场景</text>
+    <text x="350" y="310" font-size="16" fill="#475569">真正要测的是桥能不能走过去，而不是训练端有多漂亮。</text>
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Unsupervised learning structure map</title>
+  <desc id="desc">Original diagram showing unlabeled data points grouped into discovered clusters and patterns.</desc>
+  <rect width="960" height="420" rx="28" fill="#f8fafc"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="48" y="62" font-size="30" font-weight="700">Unsupervised Learning：无标签找结构</text>
+    <text x="48" y="96" font-size="16" fill="#475569">没有标准答案，不等于没有目标；模型寻找相似性、聚类和低维结构。</text>
+    <rect x="70" y="135" width="280" height="210" rx="22" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+    <text x="96" y="174" font-size="20" font-weight="700">无标签数据</text>
+    <circle cx="135" cy="235" r="10" fill="#7c3aed"/><circle cx="172" cy="212" r="10" fill="#7c3aed"/><circle cx="198" cy="252" r="10" fill="#7c3aed"/>
+    <circle cx="265" cy="220" r="10" fill="#db2777"/><circle cx="302" cy="255" r="10" fill="#db2777"/><circle cx="282" cy="292" r="10" fill="#db2777"/>
+    <path d="M380 240 H500" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="530" y="135" width="340" height="210" rx="22" fill="#ecfeff" stroke="#0891b2" stroke-width="2"/>
+    <text x="558" y="174" font-size="20" font-weight="700">发现的结构</text>
+    <ellipse cx="632" cy="247" rx="86" ry="58" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="8 6"/>
+    <ellipse cx="765" cy="267" rx="86" ry="58" fill="none" stroke="#db2777" stroke-width="3" stroke-dasharray="8 6"/>
+    <text x="585" y="335" font-size="15" fill="#0e7490">结构需要人解释与验证，不能自动当成真实原因。</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 Z" fill="#64748b"/></marker></defs>
+</svg>

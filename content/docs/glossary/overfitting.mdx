@@ -1,0 +1,71 @@
+---
+title: 过拟合（Overfitting）
+description: 过拟合指模型在训练数据上表现很好，但对新数据泛化很差，常见原因是记住了噪声或偶然模式。
+category: machine-learning
+tags:
+  - overfitting
+  - machine-learning
+  - 过拟合
+lastReviewed: "2026-05-02"
+stability: stable
+sources:
+  - "Deep Learning Book, Machine Learning Basics: https://www.deeplearningbook.org/contents/ml.html"
+  - "scikit-learn underfitting and overfitting: https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html"
+image: "/diagrams/overfitting-train-test-gap.svg"
+imageCredit: "Original diagram by Content Show, 2026."
+---
+
+# 过拟合（Overfitting）
+
+过拟合是机器学习里最常见的翻车方式之一。它是什么？一句话说，**过拟合就是模型在训练集上看起来很会做题，但换成新数据就露馅。**
+
+![过拟合训练验证差距](/diagrams/overfitting-train-test-gap.svg)
+
+图片说明：原创图示，展示训练分数继续上升，而验证或新数据表现开始下降。
+
+## 它解决什么问题
+
+严格说，过拟合不是解决问题，而是在提醒你：训练表现不能单独当成成功证据。它帮助我们判断：
+
+- 模型是否把训练样本背下来了。
+- 模型是否学到了噪声、重复或泄漏信息。
+- 验证集和测试集是否还能真实反映未来表现。
+- 是否需要更多高质量数据、正则化、早停或更简单模型。
+
+## 和相邻概念的边界
+
+| 概念 | 表现 | 边界 |
+| --- | --- | --- |
+| 过拟合 | 训练好，新数据差 | 问题是记噪声或过度贴合训练集。 |
+| 欠拟合 | 训练和新数据都差 | 问题是模型太简单或训练不足。 |
+| 泛化能力 | 新数据表现 | 是目标；过拟合会损害泛化。 |
+| 正则化 | 控制复杂度 | 是缓解过拟合的手段之一，不是唯一答案。 |
+
+边界要记牢：**过拟合不是“模型太聪明”，而是模型把不该学的东西也学进去了。**
+
+## 常见误解
+
+### 误解 1：训练准确率越高越好
+
+不一定。如果验证集表现下降，继续提高训练准确率可能只是把噪声记得更牢。
+
+### 误解 2：大模型一定都会过拟合，所以不能用
+
+不对。模型大小只是因素之一。数据规模、正则化、训练目标和评估方式都会影响泛化。
+
+### 误解 3：加更多数据一定能解决过拟合
+
+不一定。更多重复、污染或偏差数据，可能只是让问题更隐蔽。
+
+## 继续阅读链接
+
+- [训练数据（Training Data）](/glossary/training-data)：理解噪声和污染从哪里来。
+- [验证集（Validation Data）](/glossary/validation-data)：理解怎么发现过拟合。
+- [泛化能力（Generalization ability）](/glossary/generalization-ability)：理解真正目标是什么。
+- [正则化（Regularization）](/glossary/regularization)：理解常见缓解手段。
+
+## 参考来源
+
+- [Goodfellow, Bengio, Courville, Deep Learning — Machine Learning Basics](https://www.deeplearningbook.org/contents/ml.html)
+- [scikit-learn, Underfitting vs. Overfitting](https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html)
+- 最后核查日期：2026-05-02
