@@ -50,6 +50,10 @@ This file is durable working memory for AI agents in this repository. Read it af
 
 ### 2026-05-03
 
+- Ran the Sunday weekly review for the 2026-04-27 to 2026-05-03 plan: confirmed 29 glossary detail pages are present, `content/docs/glossary/meta.json` matches those pages, and public glossary pages include source markers.
+- Created the next planning artifacts for 2026-05-04 to 2026-05-10: `AI Knowledge/weekly-plans/2026-05-04-2026-05-10-content-roadmap.md`, dated weekly-plan Excel, and updated rolling `weekly-plan.xlsx`.
+- Updated `README.md` with the latest maintenance status, current weekly-plan pointers, and validation status.
+- Validation: `pnpm typecheck` and `pnpm build` passed before publishing.
 - Restructured eight major AI knowledge sections so each section `index.mdx` is an Overview / chapter directory page and the substantive subsections live in sibling MDX child pages.
 - Updated corresponding section `meta.json` files so `index` remains first and the child pages appear directly under the Overview in navigation.
 - Updated `components/sidebar-content.tsx` so the custom docs sidebar exposes the new child pages under each section.

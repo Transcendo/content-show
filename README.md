@@ -36,7 +36,16 @@ Content Show is a public-facing science communication site, so accuracy matters 
 - Use diagrams, callouts, cards, tabs, steps, accordions, and image credits where they improve understanding.
 - Keep glossary depth layered: not every term needs a full article, but core terms should be professional, readable, and source-backed.
 
-Research notes and source preparation can live in `AI Knowledge/` before being adapted into public MDX pages. Weekly planning lives under `AI Knowledge/weekly-plans/`; the rolling Excel workbook is `AI Knowledge/weekly-plans/weekly-plan.xlsx`.
+Research notes and source preparation can live in `AI Knowledge/` before being adapted into public MDX pages. Weekly planning lives under `AI Knowledge/weekly-plans/`; the rolling Excel workbook is `AI Knowledge/weekly-plans/weekly-plan.xlsx`, with dated copies kept beside it.
+
+## Maintenance Status
+
+Last reviewed: **2026-05-03**.
+
+- Core glossary: **29** published detail pages.
+- Current weekly plan: `AI Knowledge/weekly-plans/2026-05-04-2026-05-10-content-roadmap.md` and `AI Knowledge/weekly-plans/2026-05-04-2026-05-10-weekly-plan.xlsx`.
+- Latest maintenance checks recorded on 2026-05-03: glossary pages and `content/docs/glossary/meta.json` are aligned; public glossary pages include source markers.
+- Validation for the 2026-05-03 maintenance run: `pnpm typecheck` passed; `pnpm build` passed.
 
 ## Features
 
