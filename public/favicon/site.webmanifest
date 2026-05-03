@@ -3,17 +3,7 @@
 	"short_name": "Content Show",
 	"icons": [
 		{
-			"src": "/favicon/favicon.svg",
-			"sizes": "any",
-			"type": "image/svg+xml"
-		},
-		{
-			"src": "/favicon/android-chrome-192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "/favicon/android-chrome-512x512.png",
+			"src": "/favicon/djd.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}

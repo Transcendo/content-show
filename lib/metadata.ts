@@ -27,20 +27,14 @@ export function createMetadata(override: Metadata): Metadata {
 		},
 		icons: {
 			icon: [
-				{ url: "/favicon/favicon.svg", type: "image/svg+xml" },
-				{ url: "/favicon/favicon.ico", sizes: "any" },
 				{
-					url: "/favicon/favicon-32x32.png",
-					sizes: "32x32",
+					url: "/favicon/djd.png",
+					sizes: "512x512",
 					type: "image/png",
 				},
-				{
-					url: "/favicon/favicon-16x16.png",
-					sizes: "16x16",
-					type: "image/png",
-				},
+				{ url: "/favicon/djd.ico", sizes: "any" },
 			],
-			apple: "/favicon/apple-touch-icon.png",
+			apple: "/favicon/djd.png",
 		},
 		manifest: "/favicon/site.webmanifest",
 	};
