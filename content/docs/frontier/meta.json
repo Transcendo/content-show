@@ -1,4 +1,9 @@
 {
   "title": "前沿、安全与治理",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "four-lines",
+    "why-it-matters",
+    "key-terms"
+  ]
 }

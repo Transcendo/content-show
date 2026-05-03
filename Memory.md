@@ -48,6 +48,13 @@ This file is durable working memory for AI agents in this repository. Read it af
 
 ## Agent Operation Log
 
+### 2026-05-03
+
+- Restructured eight major AI knowledge sections so each section `index.mdx` is an Overview / chapter directory page and the substantive subsections live in sibling MDX child pages.
+- Updated corresponding section `meta.json` files so `index` remains first and the child pages appear directly under the Overview in navigation.
+- Updated `components/sidebar-content.tsx` so the custom docs sidebar exposes the new child pages under each section.
+- Validation: `pnpm exec fumadocs-mdx && pnpm typecheck`, custom section-structure check, `git diff --check`, and `pnpm build` all passed before publishing.
+
 ### 2026-05-02
 
 - Advanced the same-day 50-task Content Show run: repaired glossary relationship naming for Generative AI / Gen AI, Agents, AlphaGo, Learning Rate, Reasoning, and moved Generalization ability into the machine-learning category.

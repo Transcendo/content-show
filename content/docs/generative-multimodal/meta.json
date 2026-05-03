@@ -1,4 +1,9 @@
 {
   "title": "生成式与多模态",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "three-entry-points",
+    "quality-judgment",
+    "key-terms"
+  ]
 }

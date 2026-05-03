@@ -1,4 +1,9 @@
 {
   "title": "AI 基础概念",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "hierarchy",
+    "history-routes",
+    "key-terms"
+  ]
 }

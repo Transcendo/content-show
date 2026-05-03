@@ -1,4 +1,9 @@
 {
   "title": "算力与基础设施",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "three-layers",
+    "why-it-matters",
+    "key-terms"
+  ]
 }

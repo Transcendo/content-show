@@ -1,0 +1,18 @@
+---
+title: 先抓住整条链路
+description: 先抓住输入、输出、损失、梯度、参数更新的完整链路。
+---
+
+如果只看最短版本，可以先记这一串：
+
+**输入 → 神经网络 / Transformer 处理 → 注意力分配重点 → 得到输出 → 用损失衡量错多少 → 用梯度下降更新参数 → 训练完成后进入推理。**
+
+这条链路里，每个词负责的事情不同：
+
+| 环节 | 关键词 | 它真正解决什么问题 |
+| --- | --- | --- |
+| 结构 | [神经网络（Neural Network）](/glossary/neural-network)、[Transformer](/glossary/transformer) | 模型用什么结构处理输入。 |
+| 关注 | Attention | 模型在一堆信息里，当前更该看哪里。 |
+| 记忆 | Parameters、Weight | 模型把训练经验存在哪里。 |
+| 纠错 | Loss Function、Backpropagation、[Gradient Descent](/glossary) | 模型如何知道自己错了，以及该怎么改。 |
+| 运行 | Forward Propagation、Inference | 训练好以后，模型怎样正式上岗。 |

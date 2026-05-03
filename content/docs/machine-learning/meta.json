@@ -1,4 +1,15 @@
 {
   "title": "机器学习基础",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "reading-order",
+    "machine-learning-frame",
+    "deep-learning-mainline",
+    "learning-paradigms",
+    "generalization",
+    "overfitting",
+    "why-it-matters",
+    "reading-next",
+    "key-terms"
+  ]
 }

@@ -1,4 +1,16 @@
 {
   "title": "大模型与提示工程",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "problem-map",
+    "prompt-engineering",
+    "rag",
+    "embedding-vector-database",
+    "fine-tuning",
+    "preference-optimization",
+    "how-to-choose",
+    "misconceptions",
+    "reading-next",
+    "key-terms"
+  ]
 }

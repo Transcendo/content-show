@@ -1,4 +1,16 @@
 {
   "title": "模型与训练机制",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "whole-chain",
+    "reading-order",
+    "model-structure",
+    "attention",
+    "learning-from-errors",
+    "training-vs-inference",
+    "why-it-matters",
+    "common-confusions",
+    "reading-next",
+    "key-terms"
+  ]
 }

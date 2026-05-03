@@ -3,95 +3,23 @@ title: 大模型与提示工程
 description: 理解 LLM、Token、提示词、RAG、向量数据库、微调和偏好优化。
 ---
 
-# 大模型与提示工程
-
 大语言模型（LLM）不是搜索引擎，也不是一个只会聊天的窗口。搜索引擎的核心是找到网页和资料；LLM 的核心是根据上下文生成最可能有用的文本、代码或结构化输出。聊天只是最常见的界面，不是能力边界。
 
 所以使用 LLM 时，真正的问题通常不是“提示词怎么写得更玄”，而是：任务有没有讲清楚、资料有没有给够、模型能力是否匹配、输出偏好是否被训练或约束到位。
 
-## 四类问题判断表
+## 本章目录
 
-| 现象 | 真实问题 | 优先工具 | 典型修法 |
-| --- | --- | --- | --- |
-| 回答跑偏、格式不稳 | 任务不清 | Prompt Engineering、Few-Shot、CoT | 明确角色、输入、输出格式、限制和示例。 |
-| 缺最新资料、缺私有资料、引用不可靠 | 资料不足 | RAG、Embedding、Vector Database | 检索可信资料，把证据放进上下文。 |
-| 推理太弱、上下文太长、任务超出模型能力 | 能力需适配 | 更合适的 LLM、工具调用、工作流拆分 | 换模型、拆步骤、加入校验，而不是只堆提示词。 |
-| 语气、格式、拒答边界、偏好不对 | 偏好不对 | SFT、RLHF、DPO、PPO | 用示例和偏好数据塑形行为。 |
+本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
 
-## Prompt Engineering 解决什么
-
-Prompt Engineering 适合处理“任务、格式、限制、示例没说清”的问题。好的提示词会告诉模型：
-
-- 你要完成什么任务。
-- 输入材料是什么，哪些可以信，哪些只是背景。
-- 输出格式、长度、语言、结构是什么。
-- 不确定时怎么处理，哪些事不能编。
-- 给一两个正例或反例，让模型对齐预期。
-
-它不适合解决缺资料、缺实时事实、模型能力不足或产品级偏好训练问题。把提示词当万能钥匙，很容易变成玄学调参。
-
-## RAG 解决什么
-
-RAG（Retrieval-Augmented Generation）适合缺最新资料、私有资料、可核查证据的场景。它先检索外部资料，再让 LLM 基于资料回答。
-
-RAG 的关键不是“把更多文本塞进去”，而是：资料来源是否可信、检索是否命中、切片是否合理、引用是否能回到原文。RAG 更像给模型外接一个资料台，而不是改变模型本身的记忆。
-
-## Embedding 和 Vector Database 解决什么
-
-Embedding 把文本、图片或其他对象变成向量，让系统能按语义相似度检索。Vector Database 用来存储、索引和查询这些向量。
-
-它们服务语义检索，不是万能知识库。向量库只知道“哪些片段相似”，不保证片段真实、最新、完整，也不保证模型会正确使用检索结果。
-
-## Fine-Tuning 解决什么
-
-Fine-Tuning 适合稳定格式、稳定风格、特定任务适配，尤其当同一类输入输出模式反复出现时有价值。
-
-它不负责补实时知识。把新文档微调进模型，通常不如 RAG 可控、可更新、可引用。微调改变的是模型行为倾向和任务适配，不是给模型装一个可查询资料库。
-
-## SFT / RLHF / DPO / PPO 先怎么理解
-
-普通读者先不用陷进算法细节，先记住它们都和“偏好与行为塑形”有关：
-
-- SFT：用高质量示范答案教模型按某种方式回答。
-- RLHF：用人类偏好训练奖励模型，再优化模型行为。
-- DPO：直接用偏好对比数据调整模型，不一定显式训练奖励模型。
-- PPO：强化学习里常见的策略优化算法，曾广泛用于 RLHF 流程。
-
-它们关心的不是“模型知道多少资料”，而是“模型在各种情况下应该怎么表现”。
-
-## 提示词、RAG、微调怎么选
-
-| 你遇到的问题 | 先选 |
-| --- | --- |
-| 需求说不清、输出格式乱 | Prompt Engineering |
-| 缺公司文档、最新政策、引用证据 | RAG |
-| 需要稳定风格、固定格式、领域任务习惯 | Fine-Tuning / SFT |
-| 模型行为偏好、拒答边界、排序选择不对 | RLHF / DPO / PPO 等偏好优化 |
-| 任务本身太复杂 | 拆工作流、加工具、加评估，不要只靠提示词 |
-
-## 常见误解
-
-### 把 RAG 当微调
-
-RAG 是检索资料后生成，微调是改变模型参数或适配行为。一个管“用什么资料回答”，一个管“模型更倾向于怎么回答”。
-
-### 把向量库当事实库
-
-向量库负责相似度检索，不负责判断真假。错误文档进了向量库，检索会更快地把错误送到模型面前。
-
-### 把提示词当万能钥匙
-
-提示词能改善表达和约束，但不能凭空制造缺失资料，也不能稳定替代训练、检索、权限、评估和监控。
-
-## 继续阅读顺序
-
-1. [Token](/glossary/token)：先理解模型处理文本的基本单位。
-2. [LLM](/glossary/llm)：理解大语言模型是什么。
-3. [Prompt Engineering](/glossary/prompt-engineering)：学习如何把任务说清楚。
-4. [Embedding](/glossary/embedding)：理解语义表示。
-5. [RAG](/glossary/rag)：理解检索增强生成。
-6. [Fine-Tuning](/glossary/fine-tuning)：理解什么时候需要行为适配。
-
-## 这组词
-
-<GlossaryCategoryTerms category="llm-prompting" />
+<Cards>
+  <Card title="四类问题判断表" href="/llm-prompting/problem-map" description="用四类问题判断提示词、RAG、Embedding、微调该怎么选。" />
+  <Card title="Prompt Engineering 解决什么" href="/llm-prompting/prompt-engineering" description="理解提示词工程适合解决任务表达不清的问题。" />
+  <Card title="RAG 解决什么" href="/llm-prompting/rag" description="理解 RAG 如何通过检索资料提升回答可核查性。" />
+  <Card title="Embedding 和 Vector Database 解决什么" href="/llm-prompting/embedding-vector-database" description="理解向量和向量数据库如何支持语义检索。" />
+  <Card title="Fine-Tuning 解决什么" href="/llm-prompting/fine-tuning" description="理解微调适合稳定格式、风格和特定任务适配。" />
+  <Card title="SFT / RLHF / DPO / PPO 先怎么理解" href="/llm-prompting/preference-optimization" description="先用偏好塑形理解 SFT、RLHF、DPO、PPO。" />
+  <Card title="提示词、RAG、微调怎么选" href="/llm-prompting/how-to-choose" description="用问题类型选择提示词、RAG 还是微调。" />
+  <Card title="常见误解" href="/llm-prompting/misconceptions" description="拆开 RAG、微调、向量库和提示词的常见误解。" />
+  <Card title="继续阅读顺序" href="/llm-prompting/reading-next" description="按应用链路继续补齐大模型与提示工程词条。" />
+  <Card title="这组词" href="/llm-prompting/key-terms" description="查看大模型与提示工程相关术语卡片。" />
+</Cards>

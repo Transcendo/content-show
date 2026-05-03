@@ -1,4 +1,9 @@
 {
   "title": "智能体、产品与公司",
-  "pages": ["index"]
+  "pages": [
+    "index",
+    "four-objects",
+    "why-agent-matters",
+    "key-terms"
+  ]
 }
