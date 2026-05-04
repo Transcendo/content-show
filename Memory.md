@@ -44,9 +44,16 @@ This file is durable working memory for AI agents in this repository. Read it af
 
 ## Open Follow-ups
 
-- `.codex/skills/content-show-editorial-standard/SKILL.md` currently appears to be a placeholder. If the user wants a reusable local Codex skill for this repo, fill it from `AGENTS.md`, `README.md`, and this memory file.
+- Use `AI Knowledge/second-batch-glossary-candidates-2026-05-04.md` as the shortlist for the 2026-05-05 to 2026-05-07 glossary expansion work. First-tier main terms are Inference, Parameters, and RLHF; second-tier candidates include Attention, Gradient Descent, Loss Function, Compute, Multimodal, Vector Database, and Bias.
 
 ## Agent Operation Log
+
+### 2026-05-04
+
+- Completed the Monday candidate inventory for the 2026-05-04 to 2026-05-10 weekly plan.
+- Reviewed 69 remaining glossary card terms from `lib/ai-glossary.ts` and created `AI Knowledge/second-batch-glossary-candidates-2026-05-04.md`, grading terms into main-term priority, related-card enhancement, and deferred buckets.
+- Recommended Inference, Parameters, and RLHF as first-tier candidates for upcoming public detail pages, with Bias / Vector Database / Compute / Multimodal as strong alternates depending on the daily theme.
+- Updated `AI Knowledge/README.md` and `README.md` to point to the new candidate inventory.
 
 ### 2026-05-03
 

@@ -40,10 +40,11 @@ Research notes and source preparation can live in `AI Knowledge/` before being a
 
 ## Maintenance Status
 
-Last reviewed: **2026-05-03**.
+Last reviewed: **2026-05-04**.
 
 - Core glossary: **29** published detail pages.
 - Current weekly plan: `AI Knowledge/weekly-plans/2026-05-04-2026-05-10-content-roadmap.md` and `AI Knowledge/weekly-plans/2026-05-04-2026-05-10-weekly-plan.xlsx`.
+- 2026-05-04 candidate inventory: `AI Knowledge/second-batch-glossary-candidates-2026-05-04.md` grades remaining glossary cards into main-term, card-enhancement, and deferred buckets.
 - Latest maintenance checks recorded on 2026-05-03: glossary pages and `content/docs/glossary/meta.json` are aligned; public glossary pages include source markers.
 - Validation for the 2026-05-03 maintenance run: `pnpm typecheck` passed; `pnpm build` passed.
 

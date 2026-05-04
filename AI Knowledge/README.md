@@ -9,6 +9,7 @@ This folder stores source-backed first-pass research notes and structured explai
 ## Current topics
 
 - `ASI.md` — Artificial Superintelligence overview
+- `second-batch-glossary-candidates-2026-05-04.md` — second-batch glossary candidate grading for the 2026-05-04 to 2026-05-10 weekly plan
 
 ## Editorial rules
 
