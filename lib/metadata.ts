@@ -15,7 +15,7 @@ export function createMetadata(override: Metadata): Metadata {
 			description: override.description ?? undefined,
 			url: "https://transcendo.github.io/content-show",
 			images: "/og.png",
-			siteName: "Content Show",
+			siteName: "AI知路",
 			...override.openGraph,
 		},
 		twitter: {

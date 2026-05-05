@@ -1,6 +1,6 @@
-# Content Show
+# AI知路
 
-Content Show is an AI knowledge and glossary site for general readers. It is built with **Next.js 16** and **Fumadocs**, and is currently organized around three public experiences:
+AI知路 is an AI knowledge and glossary site for general readers. It is built with **Next.js 16** and **Fumadocs**, and is currently organized around three public experiences:
 
 - **AI glossary**: short explanations for high-frequency AI terms, with selected core terms expanded into source-backed MDX pages.
 - **Learning path**: a guided route for non-technical readers to understand AI concepts, model basics, tools, risks, and infrastructure.
@@ -27,7 +27,7 @@ Public URLs intentionally do **not** use `/docs/...`.
 
 ## Content Principles
 
-Content Show is a public-facing science communication site, so accuracy matters more than speed.
+AI知路 is a public-facing science communication site, so accuracy matters more than speed.
 
 - Use credible sources, preferably primary or near-primary sources.
 - Separate facts, mainstream explanations, disputes, and speculation.

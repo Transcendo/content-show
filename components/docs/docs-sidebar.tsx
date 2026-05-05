@@ -79,7 +79,7 @@ export function DocsSidebar() {
 		>
 			<Link
 				href="/"
-				aria-label="返回 Content Show 首页"
+				aria-label="返回 AI知路 首页"
 				className="group flex h-(--docs-topbar-height) shrink-0 items-center gap-2.5 border-b border-foreground/5 px-4 text-left transition-colors hover:bg-foreground/3"
 			>
 				<ContentShowLogo
@@ -88,7 +88,7 @@ export function DocsSidebar() {
 				/>
 				<span className="min-w-0">
 					<span className="block truncate text-sm font-semibold leading-4 text-foreground">
-						Content Show
+						AI知路
 					</span>
 					<span className="block truncate text-[11px] leading-3 text-foreground/50">
 						AI 知识学习站

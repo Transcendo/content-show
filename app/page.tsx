@@ -10,8 +10,7 @@ import {
 	learningTracks,
 } from "@/lib/site-config";
 
-const heroImage =
-	"https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/960px-Colored_neural_network.svg.png";
+const heroImage = "/branding/ai-zhilu-home.png";
 
 export default function HomePage() {
 	return (
@@ -24,13 +23,13 @@ export default function HomePage() {
 					<div className="max-w-3xl">
 						<p className="inline-flex items-center gap-2 border border-[#11140f]/15 bg-white px-3 py-1 text-xs font-medium uppercase text-[#315f4a] shadow-sm dark:border-white/15 dark:bg-white/8 dark:text-[#8bd8ae]">
 							<span className="size-1.5 bg-[#27ae60]" />
-							AI Knowledge for Everyone
+							AI知路 · AI Learning Map
 						</p>
 						<h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.06] sm:text-6xl">
-							把普通人也能学懂的 AI 知识，整理成一条清楚的学习路线。
+							AI知路：把高频 AI 概念、模型逻辑和工具应用串成一条清楚路线。
 						</h1>
 						<p className="mt-6 max-w-2xl text-base leading-7 text-[#485147] sm:text-lg dark:text-[#c9d0c4]">
-							Content Show 不做技术黑话堆叠。先解释高频名词，再串起模型、工具、应用、资源和治理问题，帮助你判断 AI 到底能帮自己做什么。
+							AI知路不堆技术黑话。先把名词讲明白，再按基础、模型、工具、资源和治理问题组织路径，帮你判断下一步该学什么、用什么、避开什么坑。
 						</p>
 						<div className="mt-8 flex flex-wrap gap-3">
 							<Link
@@ -69,16 +68,16 @@ export default function HomePage() {
 						<div className="absolute -right-3 bottom-16 h-16 w-16 bg-[#e84d3d]" />
 						<div className="relative border border-[#11140f]/12 bg-[#10130f] p-5 shadow-[16px_16px_0_#f0c419] dark:border-white/15">
 							<img
-								alt="Colored neural network diagram"
+								alt="AI知路学习路线图"
 								className="aspect-[4/3] w-full object-contain"
 								src={heroImage}
 							/>
 							<div className="border-t border-white/15 pt-4 text-white">
 								<p className="text-xs uppercase text-[#8bd8ae]">
-									Term Map
+									AI知路导航图
 								</p>
 								<p className="mt-2 text-2xl font-semibold">
-									先把词放对位置，再决定该深入哪条线。
+									从名词到路径，一眼看清 AI 学习该往哪走。
 								</p>
 							</div>
 						</div>

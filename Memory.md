@@ -14,7 +14,7 @@ This file is durable working memory for AI agents in this repository. Read it af
 
 ## Stable Project Memory
 
-- Project name: Content Show.
+- Project name: AI知路 (repository/package remains `content-show`).
 - Purpose: public-facing AI knowledge, glossary, learning path, topic, source, and knowledge graph site for general readers.
 - Stack: Next.js 16 App Router, React 19, Fumadocs MDX, Tailwind CSS 4, pnpm.
 - Deployment model: static export to `out/` for GitHub Pages.
@@ -47,6 +47,12 @@ This file is durable working memory for AI agents in this repository. Read it af
 - Use `AI Knowledge/second-batch-glossary-candidates-2026-05-04.md` as the shortlist for the 2026-05-05 to 2026-05-07 glossary expansion work. First-tier main terms are Inference, Parameters, and RLHF; second-tier candidates include Attention, Gradient Descent, Loss Function, Compute, Multimodal, Vector Database, and Bias.
 
 ## Agent Operation Log
+
+### 2026-05-05
+
+- Renamed the public-facing brand from Content Show to AI知路 across the app shell, metadata, docs root title, web manifests, homepage, docs sidebar, and core intro pages.
+- Replaced the homepage hero visual with `/public/branding/ai-zhilu-home.png`, derived from the user-provided AI知路 image.
+- Validation: `pnpm typecheck` passed. Local `pnpm build` intentionally not run to avoid heavy frontend build on the 16GB Mac mini; GitHub Pages workflow will run the production build after push.
 
 ### 2026-05-04
 

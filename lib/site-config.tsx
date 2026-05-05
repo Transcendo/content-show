@@ -1,7 +1,7 @@
 import type { LinkItemType } from "fumadocs-ui/layouts/shared";
 import { ContentShowLogo } from "@/components/icons/logo";
 
-export const siteName = "Content Show";
+export const siteName = "AI知路";
 
 export const topNavLinks: LinkItemType[] = [
 	{
