@@ -122,6 +122,13 @@ These notes support the first public glossary pages under `content/docs/glossary
 - Shazeer et al., Outrageously Large Neural Networks: <https://arxiv.org/abs/1701.06538>
 - Editorial boundary: explain MoE as sparse expert routing inside the model, not as “many models stitched together” and not as a blanket promise of cheap inference.
 
+## Inference
+
+- Stanford CS324, Large Language Models: <https://stanford-cs324.github.io/winter2022/>
+- Hugging Face, Text Generation Inference documentation: <https://huggingface.co/docs/text-generation-inference/en/index>
+- NVIDIA Triton Inference Server documentation: <https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html>
+- Editorial boundary: explain inference as using trained model parameters on new inputs, not as per-request retraining and not as guaranteed human-like reasoning.
+
 ## 2026-05-01 Source Coverage Audit
 
 本次维护与公开页 `content/docs/resources/source-list.mdx` 同步：当前已发布的 20 个核心词条，都需要在公开 MDX frontmatter 与本文件中保留至少 2 个可信来源。来源使用时按“定义/机制/风险边界”拆开看，不把厂商营销说明直接当成行业事实。

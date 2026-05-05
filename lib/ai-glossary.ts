@@ -272,6 +272,12 @@ const coreTermConfig: Record<
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
+	Inference: {
+		aliases: ["推理", "Model Inference"],
+		hasDetailPage: true,
+		stability: "stable",
+		sourceLevel: "primary",
+	},
 	GPU: { aliases: ["图形处理器"], stability: "stable" },
 	MoE: {
 		aliases: ["Mixture of Experts", "专家混合"],
