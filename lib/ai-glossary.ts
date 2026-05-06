@@ -285,6 +285,12 @@ const coreTermConfig: Record<
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
+	"Vector Database": {
+		aliases: ["向量数据库", "Vector DB"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
 };
 
 function slugifyGlossaryTerm(term: string) {
@@ -1442,14 +1448,14 @@ export const glossaryTerms = [
 	{
 		term: "Vector Database",
 		zh: "向量数据库",
-		summary: "用于存储和检索向量表示的数据库系统。",
+		summary: "用于存储 Embedding 并按语义相似度检索资料的数据库系统。",
 		tag: "技术",
 		category: "llm-prompting",
 		beginnerExplanation:
-			"向量数据库常和 RAG 一起使用。它根据语义相似度找资料，而不只依赖关键词完全匹配。",
+			"向量数据库常和 RAG、语义搜索一起使用。它把内容向量和来源元数据存起来，用户提问时按相似度找出可能相关的资料片段。",
 		commonMisunderstanding:
-			"向量数据库不是万能知识库，资料切分、嵌入质量和检索策略都会影响结果。",
-		relatedTerms: ["Embedding", "RAG", "Vector"],
+			"向量数据库不是万能知识库，也不会自动判断资料真假；资料切分、嵌入质量、权限、重排和引用检查都会影响最终答案。",
+		relatedTerms: ["Embedding", "RAG", "Prompt Engineering", "Fine-Tuning"],
 	},
 	{
 		term: "Weight",

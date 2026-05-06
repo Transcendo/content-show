@@ -122,6 +122,14 @@ These notes support the first public glossary pages under `content/docs/glossary
 - Shazeer et al., Outrageously Large Neural Networks: <https://arxiv.org/abs/1701.06538>
 - Editorial boundary: explain MoE as sparse expert routing inside the model, not as “many models stitched together” and not as a blanket promise of cheap inference.
 
+
+## Vector Database
+
+- OpenAI API, Vector embeddings: <https://developers.openai.com/api/docs/guides/embeddings>
+- Johnson, Douze, and Jégou, Billion-scale similarity search with GPUs / FAISS: <https://arxiv.org/abs/1702.08734>
+- Qdrant, Vector search overview: <https://qdrant.tech/documentation/overview/vector-search/>
+- Editorial boundary: explain vector databases as retrieval infrastructure for embeddings and metadata, not as a knowledge-quality guarantee, not as RAG itself, and not as a substitute for prompting or fine-tuning.
+
 ## Inference
 
 - Stanford CS324, Large Language Models: <https://stanford-cs324.github.io/winter2022/>
