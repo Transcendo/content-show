@@ -104,6 +104,14 @@ These notes support the first public glossary pages under `content/docs/glossary
 - NIST, AI Risk Management Framework: <https://www.nist.gov/itl/ai-risk-management-framework>
 - Editorial boundary: explain alignment as the problem of making goals, behavior, and outcomes line up with human intent; do not reduce it to politeness filters or speculative superintelligence doom talk.
 
+
+## Bias
+
+- NIST SP 1270, Towards a Standard for Identifying and Managing Bias in Artificial Intelligence: <https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence>
+- NIST, AI Risk Management Framework: <https://www.nist.gov/itl/ai-risk-management-framework>
+- ISO/IEC TR 24027:2021, Bias in AI systems and AI aided decision making: <https://www.iso.org/standard/77607.html>
+- Editorial boundary: write bias as lifecycle/system-level skew across data, objectives, evaluation, and deployment; do not reduce it to offensive wording or claim any model can be permanently “de-biased”.
+
 ## Hallucination
 
 - Huang et al., A Survey on Hallucination in Large Language Models: <https://arxiv.org/abs/2311.05232>

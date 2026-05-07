@@ -260,6 +260,12 @@ const coreTermConfig: Record<
 		stability: "evolving",
 		sourceLevel: "primary",
 	},
+	Bias: {
+		aliases: ["AI Bias", "偏差", "算法偏差"],
+		hasDetailPage: true,
+		stability: "evolving",
+		sourceLevel: "primary",
+	},
 	Hallucination: {
 		aliases: ["幻觉", "Confabulation"],
 		hasDetailPage: true,
