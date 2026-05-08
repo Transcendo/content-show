@@ -9,7 +9,8 @@
 		"dev": "next dev --webpack --port 3000",
 		"build": "next build",
 		"start": "serve out",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"qa:content": "python3 scripts/content_qa.py"
 	},
 	"dependencies": {
 		"@orama/orama": "^3.1.18",

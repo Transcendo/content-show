@@ -1,18 +1,72 @@
 ---
 title: 生成式与多模态
-description: 理解图像生成、视觉模型、三维场景和跨模态能力。
+description: 用一个读者地图理解视觉理解、内容生成、多模态协作，以及本章各页该怎么读。
 ---
 
-生成式 AI 不只生成文字。它也可以生成图片、视频、音频、三维场景，或者把文本、图像、语音和视频放在同一个任务里处理。
+生成式与多模态不是“会画图的 AI”这么窄。它把三个问题放在一起：机器怎样看懂图片和视频，模型怎样生成新内容，以及文字、图像、语音、视频怎样在同一个任务里互相配合。
 
-这一类词主要解释两个问题：机器如何“看懂”视觉内容，以及模型如何在不同模态之间建立联系。
+这一章适合三类读者：普通用户想知道哪些能力能放心用，内容和产品团队想判断 demo 能不能交付，技术读者想把 CLIP、Diffusion、GAN、NeRF、多模态这些词放到正确位置。
+
+## 先抓住本章回答的三个问题
+
+| 问题 | 你要分清什么 | 优先阅读 |
+| --- | --- | --- |
+| 机器怎么看懂视觉内容？ | 识别、定位、分割、视频理解和看图问答都属于“理解输入”，不等于生成图片。 | [三个入口](/generative-multimodal/three-entry-points) |
+| 模型怎么生成内容？ | 文生图、图生图、视频生成和 3D 场景重建背后的模型路线不同，不能用一个词解释所有东西。 | [关键术语地图](/generative-multimodal/key-terms) |
+| 结果能不能交付？ | 好看只是第一关，真实使用还要看一致性、可编辑性、版权、失败率和人工兜底。 | [质量判断要回到任务](/generative-multimodal/quality-judgment) |
+
+<Callout title="先别被 demo 带跑" type="warn">
+一张惊艳截图只能证明模型有可能生成好结果，不能证明它能稳定完成你的任务。多试几组真实输入，看失败率和补救路径，才接近真实能力。
+</Callout>
+
+## 推荐阅读路径
+
+### 如果你刚开始了解
+
+先读 [三个入口](/generative-multimodal/three-entry-points)。它会把“看懂、生成、跨模态协作”分开，避免把 CV、CLIP、扩散模型和多模态混成一锅术语粥。
+
+然后读 [关键术语地图](/generative-multimodal/key-terms)，把常见词按任务放好：CV 和 CNN 偏视觉理解，Diffusion 和 GAN 偏生成路线，CLIP 和 cross-modal generalization 偏跨模态连接。
+
+### 如果你要选工具或做产品
+
+直接读 [质量判断要回到任务](/generative-multimodal/quality-judgment)。判断图像、视频和多模态结果时，不要只问“像不像”，要问它在真实流程里有没有完成硬条件：文字是否清楚，主体是否一致，错误是否可发现，版权和审核边界是否明确。
+
+### 如果你要继续补基础
+
+生成式与多模态会频繁碰到这些更基础的概念：
+
+- [Generative AI](/glossary/generative-ai)：理解“生成新内容”这个总框。
+- [Diffusion Models](/glossary/diffusion-models)：理解现代图像和视频生成常见路线。
+- [Transformer](/glossary/transformer)：理解大模型处理序列和注意力机制的基础。
+- [Embedding](/glossary/embedding)：理解文字、图像等信息怎样被映射成可比较的表示。
 
 ## 本章目录
 
-本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
-
 <Cards>
-  <Card title="三个入口" href="/generative-multimodal/three-entry-points" description="从生成式 AI、多模态和扩散模型三个入口理解内容生成。" />
-  <Card title="质量判断要回到任务" href="/generative-multimodal/quality-judgment" description="把生成质量判断放回具体任务，而不是只看好不好看。" />
-  <Card title="这组词" href="/generative-multimodal/key-terms" description="查看生成式与多模态相关术语卡片。" />
+  <Card title="三个入口" href="/generative-multimodal/three-entry-points" description="从视觉理解、内容生成、跨模态协作三个入口理解这一章。" />
+  <Card title="质量判断要回到任务" href="/generative-multimodal/quality-judgment" description="用任务、硬条件、失败率和风险边界判断生成结果能不能交付。" />
+  <Card title="关键术语地图" href="/generative-multimodal/key-terms" description="把 CV、CNN、CLIP、Diffusion、GAN、NeRF、多模态和跨模态泛化放进一张术语地图。" />
 </Cards>
+
+## 最常见的误区
+
+- **把多模态当成上传图片按钮。** 真正关键是模型能否把不同类型的信息放进同一个任务里理解和推理。
+- **把生成质量等同于审美。** 商品图、海报、视频、截图问答各有硬条件，漂亮但跑题仍然不合格。
+- **把某个模型路线当成全部答案。** CLIP 解决图文对齐，Diffusion 常用于逐步去噪生成，NeRF 面向三维场景表示；它们不是同一个东西。
+- **只看最好样例。** 公开 demo 常常是挑出来的，真实应用要看批量表现、边界输入和连续编辑。
+
+## 用一个任务来检查你该读哪里
+
+| 你的任务 | 先看什么 | 读完应该能判断 |
+| --- | --- | --- |
+| 想让 AI 看截图、读图片、解释视频 | [三个入口](/generative-multimodal/three-entry-points) | 它是在理解输入，还是在凭常识补全？ |
+| 想做海报、封面、商品图或短视频 | [质量判断要回到任务](/generative-multimodal/quality-judgment) | 结果是否满足交付硬条件，而不只是好看？ |
+| 想理解 CLIP、GAN、NeRF、Diffusion 的差别 | [关键术语地图](/generative-multimodal/key-terms) | 每个词解决的是理解、生成还是跨模态连接问题？ |
+| 想继续学模型基础 | [Generative AI](/glossary/generative-ai) 与 [Transformer](/glossary/transformer) | 生成式系统和大模型基础概念怎样接上？ |
+
+## 参考入口
+
+- [Learning Transferable Visual Models From Natural Language Supervision（CLIP）](https://arxiv.org/abs/2103.00020)
+- [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+- [NeRF: Representing Scenes as Neural Radiance Fields](https://www.matthewtancik.com/nerf)
+- [NIST Generative AI Profile NIST AI 600-1](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)

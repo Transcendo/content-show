@@ -1,6 +1,61 @@
 ---
-title: 这组词
-description: 查看机器学习基础相关术语卡片。
+title: 关键术语地图
+description: 用一张机器学习术语地图分清监督学习、无监督学习、强化学习、训练数据、验证数据、泛化、过拟合、欠拟合和正则化。
 ---
 
+# 关键术语地图：机器学习基础
+
+机器学习最容易被讲成一堆算法名：线性回归、决策树、神经网络、强化学习……但普通读者更需要先搞清楚三个问题：**模型从什么数据学、用什么反馈学习、学完以后能不能在新情况里可靠工作。**
+
+这一页把机器学习章节里反复出现的词放到同一张地图里。读完后再回到 [机器学习到底在学什么](/machine-learning/machine-learning-frame)、[三种学习范式](/machine-learning/learning-paradigms)、[泛化能力](/machine-learning/generalization) 和 [过拟合](/machine-learning/overfitting)，会少很多“名词认识，逻辑不通”的卡壳。
+
+## 先把核心词摆正
+
+| 术语 | 先记住的意思 | 主要回答的问题 | 常见误区 |
+| --- | --- | --- | --- |
+| [Supervised Learning](/glossary/supervised-learning) | 用带标签样本学习输入到输出的映射。 | 有标准答案时，模型怎样学会分类、预测或打分？ | 不是“有人一直监督模型”，而是训练数据里有答案。 |
+| [Unsupervised Learning](/glossary/unsupervised-learning) | 在没有人工答案的样本中寻找结构、相似性或压缩表示。 | 数据自己能不能暴露分组、异常或潜在模式？ | 不等于完全没有目标；仍然需要设计任务和评估方式。 |
+| [Reinforcement Learning](/glossary/reinforcement-learning) | 让智能体通过行动、反馈和奖励学习策略。 | 当答案不是一步给出时，系统怎样学会连续决策？ | 奖励函数写歪时，模型会钻规则空子。 |
+| [Training Data](/glossary/training-data) | 用来调整模型参数的数据。 | 模型到底从哪里学到规律？ | 数据量大不等于数据代表真实世界。 |
+| [Validation Data](/glossary/validation-data) | 训练过程中用来检查模型是否学偏的数据。 | 模型在没直接训练过的样本上表现怎样？ | 反复调到验证集最好，也可能把验证集“用脏”。 |
+| [Generalization ability](/glossary/generalization-ability) | 模型把学到的规律迁移到新样本的能力。 | 这个模型离开训练样本后还能不能用？ | 训练分数高，不代表真实任务稳定。 |
+| [Overfitting](/glossary/overfitting) | 模型记住训练数据细节，反而在新数据上变差。 | 为什么训练集很好、上线后很烂？ | 不是模型越复杂越好；复杂度要和数据、任务匹配。 |
+| [Underfitting](/glossary/underfitting) | 模型太简单或训练不足，连训练数据规律都没学好。 | 为什么模型在哪都表现差？ | 不是所有差表现都靠加数据解决，有时是模型或特征不够。 |
+| [Regularization](/glossary/regularization) | 用约束、惩罚或训练技巧减少过拟合。 | 怎样让模型少背答案、多学规律？ | 正则化不是万能补丁，过强也会造成欠拟合。 |
+
+## 三条线索读机器学习
+
+### 1. 学习范式：先问“反馈从哪里来”
+
+监督学习适合标准答案明确的任务，比如垃圾邮件识别、房价预测、医学影像分类；无监督学习适合先探索数据结构，比如用户分群、异常检测、向量聚类；强化学习适合连续决策，比如游戏、机器人控制、推荐策略优化。
+
+别把三者当成等级高低。它们只是反馈方式不同：监督学习靠标签，无监督学习靠数据结构，强化学习靠行动后的奖励。选错范式，后面换再复杂的模型也救不回来。
+
+### 2. 数据切分：训练集不是验收现场
+
+[Training Data](/glossary/training-data) 是模型学习的课本，[Validation Data](/glossary/validation-data) 是训练时的阶段测验，最终测试或真实上线数据才更接近验收现场。一个严肃项目会把这些角色分开，避免模型只是记住题库。
+
+普通读者判断一个机器学习案例时，可以直接问四句：数据来自哪里？标签怎么来的？验证数据和真实使用场景像不像？有没有按时间、地区、人群或设备差异做额外检查？这些问题比“用了什么炫酷算法”更重要。
+
+### 3. 泛化：机器学习的关键不是背题
+
+[Generalization ability](/glossary/generalization-ability) 是机器学习真正要买到的能力。模型如果只能在训练样本上漂亮，实际就是高成本记忆器；如果能在新样本、轻微分布变化和边界案例里保持合理表现，才有部署价值。
+
+[Overfitting](/glossary/overfitting)、[Underfitting](/glossary/underfitting) 和 [Regularization](/glossary/regularization) 是围绕泛化的一组诊断词：过拟合说明模型太会背细节，欠拟合说明模型连主规律都没抓住，正则化则是在两者之间给模型加一点“别太任性”的约束。
+
+## 一张阅读路径
+
+- 第一次读机器学习：从 [机器学习到底在学什么](/machine-learning/machine-learning-frame) 开始，先理解“从数据学规律”这件事。
+- 想分清任务类型：读 [三种学习范式](/machine-learning/learning-paradigms)，把监督、无监督、强化学习放到真实任务里看。
+- 想知道为什么模型上线会翻车：读 [泛化能力](/machine-learning/generalization) 和 [过拟合](/machine-learning/overfitting)。
+- 想接上深度学习：读 [深度学习为什么成了主线](/machine-learning/deep-learning-mainline)，再回看 [Neural Network](/glossary/neural-network) 与 [Deep Learning](/glossary/deep-learning)。
+- 想继续看本站卡片：下面列出已归入机器学习基础的术语。
+
 <GlossaryCategoryTerms category="machine-learning" />
+
+## 参考入口
+
+- [Google Machine Learning Crash Course: Introduction to Machine Learning](https://developers.google.com/machine-learning/crash-course/ml-intro)
+- [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)
+- [Reinforcement Learning: An Introduction](http://incompleteideas.net/book/the-book-2nd.html)
+- [Deep Learning Book](https://www.deeplearningbook.org/)

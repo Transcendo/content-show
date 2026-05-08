@@ -1,16 +1,46 @@
 ---
 title: 算力与基础设施
-description: 理解 Compute、GPU、TPU、AI 加速器、基础模型、MoE 和模型压缩。
+description: 从算力、模型底座、部署、延迟、成本和可靠性理解 AI 产品为什么能跑、为什么会贵、为什么会慢。
 ---
 
-AI 不是只存在于聊天窗口里。模型能不能训练、能不能便宜运行、能不能服务大量用户，取决于算力、芯片、工程系统和模型架构。
+# 算力与基础设施：AI 产品背后的现实约束
+
+AI 工具看起来像一个聊天框，真正运行时却是一条工程链：芯片提供计算，模型底座提供能力，部署系统负责把请求接住、排队、调用、监控和回退。一个产品“好不好用”，不只取决于模型参数多不多，也取决于它能不能在真实用户、真实成本、真实风险下稳定工作。
+
+普通读者不需要先学会运维，但需要建立一个判断框架：**能力、速度、价格、隐私和可靠性都不是凭空来的**。当你看到某个功能限量、排队、收费、只支持云端，或者企业不敢直接上线，背后通常都有基础设施原因。
+
+## 这一章回答什么
+
+| 你关心的问题 | 先读哪页 | 读完应该能判断什么 |
+| --- | --- | --- |
+| AI 背后到底有哪些层次？ | [三个层次](/infrastructure/three-layers) | 区分计算资源、模型底座、部署效率，不把所有问题都怪到“模型不够强”。 |
+| 为什么同一个 AI 功能有快慢、限额和价格差异？ | [为什么它会影响普通人](/infrastructure/why-it-matters) | 看懂延迟、吞吐、隐私部署、地区差异和成本控制。 |
+| GPU、推理、向量数据库、可观测性这些词怎么连起来？ | [关键术语地图](/infrastructure/key-terms) | 用一组核心词拆解产品说明、厂商公告和技术评测。 |
+
+## 读这一章时别踩的坑
+
+- **不要把模型能力当成免费资源。** 更强的模型通常需要更多显存、更多推理时间、更复杂的调度，最终会体现在价格、限额或响应速度上。
+- **不要把云端部署等同于“不安全”，也不要把本地部署等同于“绝对安全”。** 隐私取决于数据流、权限、日志、加密、审计和运维能力。
+- **不要只看平均响应速度。** 真实产品更怕长尾延迟、排队、失败重试和高峰期崩掉。
+- **不要把 RAG、向量库、Agent 当成万能补丁。** 它们都需要数据治理、权限边界、监控和人工兜底。
+
+## 一个简单阅读路径
+
+1. 先读 [三个层次](/infrastructure/three-layers)，把“算力 / 模型 / 部署”分开。
+2. 再读 [为什么它会影响普通人](/infrastructure/why-it-matters)，把价格、速度、隐私和地区差异接到日常体验。
+3. 回到 [关键术语地图](/infrastructure/key-terms)，补上 Compute、Inference、Deployment、Vector Database、Latency、Cost Control 等词。
+4. 如果你在评估能不能让 AI 执行任务，接着读 [智能体、产品与公司](/agents-products)；如果你在看 RAG 或企业知识库，再读 [LLM 提示与工作流](/llm-prompting)。
 
 ## 本章目录
-
-本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
 
 <Cards>
   <Card title="三个层次" href="/infrastructure/three-layers" description="从计算资源、模型底座、部署效率三个层次理解 AI 基础设施。" />
   <Card title="为什么它会影响普通人" href="/infrastructure/why-it-matters" description="理解算力基础设施如何影响价格、速度、隐私和地区差异。" />
-  <Card title="这组词" href="/infrastructure/key-terms" description="查看算力与基础设施相关术语卡片。" />
+  <Card title="关键术语地图" href="/infrastructure/key-terms" description="用算力、推理、部署、向量数据库、延迟和成本这组词读懂 AI 产品背后的工程约束。" />
 </Cards>
+
+## 参考入口
+
+- [Google Cloud：MLOps continuous delivery and automation pipelines](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+- [Hugging Face：Text Generation Inference documentation](https://huggingface.co/docs/text-generation-inference/en/index)
+- [NVIDIA：Triton Inference Server documentation](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html)

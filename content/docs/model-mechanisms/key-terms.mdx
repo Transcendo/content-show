@@ -1,6 +1,62 @@
 ---
-title: 这组词
-description: 查看模型与训练机制相关术语卡片。
+title: 关键术语地图
+description: 用一张模型机制术语地图分清 token、embedding、Transformer、注意力、参数、推理、微调和对齐各自解决的问题。
 ---
 
+# 关键术语地图：模型与训练机制
+
+模型机制不是为了把普通读者拖进数学细节，而是帮你看懂一句 AI 解释里到底在说哪一层：输入怎么被切开，信息怎么变成向量，模型结构怎么处理它，参数怎样储存能力，训练和推理又为什么不是一回事。
+
+先记住这条主线：**token 是模型看到的输入单位，embedding 是它在内部使用的表示，Transformer 和注意力负责处理关系，参数保存训练得到的模式，推理是在使用这些模式，微调和对齐是在进一步改变或约束行为。**
+
+## 先把核心词摆正
+
+| 术语 | 先记住的意思 | 主要回答的问题 | 常见误区 |
+| --- | --- | --- | --- |
+| [Token](/glossary/token) | 文本被模型切成的处理单位，可能是字、词、词片段或符号。 | 模型每一步到底在读什么、生成什么？ | token 不等于自然语言里的“一个词”，不同模型切法也不同。 |
+| [Embedding](/glossary/embedding) | 把文字、图片或其他对象变成向量表示，方便模型计算相似性和关系。 | 输入怎样从人能读的内容变成机器能算的表示？ | embedding 不是“理解”的同义词，只是可计算的表示。 |
+| [Transformer](/glossary/transformer) | 一类以注意力机制为核心的模型结构，是现代大语言模型的重要基础。 | 模型怎样并行处理序列并捕捉远距离关系？ | Transformer 不是某一家公司的产品名，也不只用于聊天。 |
+| [注意力机制](/model-mechanisms/attention) | 让模型在处理某个位置时，对其他相关位置分配不同权重。 | 为什么模型能在长句、段落或图文关系里抓重点？ | 不是人类注意力的复制品，只是可训练的加权计算。 |
+| 参数（parameters） | 模型训练后保留下来的大量数值，决定它如何把输入映射成输出。 | 模型学到的模式存在哪里？ | 参数更多不必然更可靠；数据、训练、架构和评估同样重要。 |
+| 损失与梯度 | 损失衡量预测错得多远，梯度告诉训练过程往哪个方向调参数。 | 模型怎样从错误里改进？ | 损失下降不等于真实世界任务一定安全可用。 |
+| [Inference](/glossary/inference) | 已训练模型在新输入上生成预测、回答或内容。 | 用户每次调用模型时发生了什么？ | 推理通常不会改模型参数，不是“边聊边重新训练”。 |
+| [Fine-tuning](/glossary/fine-tuning) | 在已有模型基础上继续训练，使它更适合特定领域、格式或行为。 | 什么时候需要改模型，而不只是改提示词或检索资料？ | 微调不是万能记忆注入，也可能带来过拟合和行为退化。 |
+| [Alignment](/glossary/alignment) | 让模型输出更符合人类意图、规范和安全要求的一组训练与评估方法。 | 模型能力很强之后，怎样减少有害或偏离目标的行为？ | 对齐不是一次性开关，也不能保证所有场景都正确。 |
+
+## 按三层理解这些词
+
+### 1. 输入表示层：token 和 embedding 是“进模型前的翻译”
+
+人看到的是句子、图片、音频和表格；模型看到的是可计算的单位和向量。[Token](/glossary/token) 决定文本被切成多细，[Embedding](/glossary/embedding) 把这些单位放进一个高维空间，让“相似”“相关”“可替换”这类关系可以被计算。
+
+这层的常见误区是把表示当理解。一个向量可以很好地表达统计关系，但它不自动保证事实正确、推理可靠或价值判断合理。所以读到“语义向量”“相似度检索”时，要继续问：数据从哪里来？相似是否等于答案正确？后面有没有验证和人工复核？
+
+### 2. 结构计算层：Transformer 和注意力负责“关系处理”
+
+[Transformer](/glossary/transformer) 的关键贡献，是让模型可以更高效地处理序列中的关系。[注意力机制](/model-mechanisms/attention) 则像一套可训练的权重分配：当模型处理某个 token 时，它会根据任务和上下文，把不同位置的信息按不同强度混合进来。
+
+普通读者不用先背公式，但要知道它解决了什么边界：长文本里的指代关系、代码里的变量依赖、图文任务里的对象对应，都需要模型在多个位置之间建立联系。注意力做得好，模型更容易抓住关键关系；注意力或上下文管理失败，模型就可能漏看限制、误读指代或把无关信息拼在一起。
+
+### 3. 学习与使用层：参数、训练、推理、微调和对齐不是一回事
+
+参数是训练留下的“能力痕迹”。训练时，模型用数据、损失函数和梯度更新参数；[Inference](/glossary/inference) 时，模型通常只是使用已学到的参数处理新输入。这就是为什么“调用一次模型”和“训练一个模型”在成本、风险和可控性上完全不同。
+
+[Fine-tuning](/glossary/fine-tuning) 会继续更新模型或适配器参数，适合稳定格式、领域语气或特定任务；[Alignment](/glossary/alignment) 更关注输出是否符合人类意图、安全边界和使用规范。两者都比“写好提示词”更重，也都需要评估，否则很容易把一个问题修好、顺手制造另一个问题。
+
+## 一张阅读路径
+
+- 第一次看模型内部：先读 [模型结构](/model-mechanisms/model-structure)，把神经网络、Transformer 和参数放到同一层级。
+- 想理解大模型为什么能处理上下文：读 [注意力机制](/model-mechanisms/attention)，再接 [Transformer](/glossary/transformer)。
+- 想知道模型怎么学会能力：读 [模型如何从错误中学习](/model-mechanisms/learning-from-errors)，重点看损失、梯度和参数更新。
+- 想分清训练成本和调用成本：读 [训练和推理不是一回事](/model-mechanisms/training-vs-inference) 与 [Inference](/glossary/inference)。
+- 想继续看本站卡片：下面列出已归入模型机制的术语。
+
 <GlossaryCategoryTerms category="model-mechanisms" />
+
+## 参考入口
+
+- [Vaswani et al., Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+- [Deep Learning Book](https://www.deeplearningbook.org/)
+- [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
+- [OpenAI: Fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)
+- [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework)

@@ -1,16 +1,43 @@
 ---
 title: 智能体、产品与公司
-description: 区分 Agent、Chatbot、ChatGPT、模型、公司和开发框架。
+description: 用普通读者能检查的方式，分清 Agent、AI 产品、模型、公司和工程框架，避免被演示视频带偏。
 ---
 
-普通人接触 AI，往往先接触产品名：ChatGPT、GPT-4、OpenAI、DeepMind、TensorFlow。学习时要先把产品、模型、公司和技术框架分开。
+# 智能体、产品与公司：先拆层，再判断
 
-## 本章目录
+普通人接触 AI，往往先接触产品名：ChatGPT、Claude、Copilot、GPT-4、OpenAI、DeepMind、TensorFlow。问题是，这些名字不在同一层：有的是产品入口，有的是模型能力，有的是公司机构，有的是开发框架。如果一开始就混在一起，后面判断“这个 AI 能不能替我做事”会很容易跑偏。
 
-本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
+本章的目标很朴素：帮你看懂一个 AI 工具到底在承诺什么。它是在回答问题？调用资料？执行任务？还是只是在漂亮界面里包装一个模型？尤其遇到 Agent 产品时，不要只看它顺滑完成 demo；要看权限、日志、失败处理和人工确认。
+
+## 这一章回答什么
+
+| 读者任务 | 先读哪页 | 你会得到什么 |
+| --- | --- | --- |
+| 分不清 Agent、Copilot、AI Native Product | [先分清四种对象](/agents-products/four-objects) | 把产品体验、模型能力、公司机构、工具框架拆开。 |
+| 想判断 Agent 是否真的有用 | [Agent 为什么单独放一类](/agents-products/why-agent-matters) | 用目标、工具、权限、日志和回退判断它是不是任务执行系统。 |
+| 需要补齐术语 | [关键术语地图](/agents-products/key-terms) | 串起 Agent、工具调用、记忆、工作流、护栏和产品边界。 |
+
+## 先记住三条边界
+
+- **聊天入口不是 Agent。** Chatbot 可以只是问答界面；Agent 通常要围绕目标规划步骤、调用工具、观察结果并继续推进。
+- **模型能力不是产品可靠性。** 模型会生成文字，但产品还要处理权限、数据来源、异常、撤销、审计和用户预期。
+- **演示视频不是验收标准。** Demo 常展示顺利路径；真正该看的，是工具调用失败、资料缺失、权限不足、需要人工确认时系统怎么处理。
+
+## 推荐阅读路径
+
+1. 先读 [先分清四种对象](/agents-products/four-objects)，把“公司 / 模型 / 产品 / 框架”拆开。
+2. 再读 [Agent 为什么单独放一类](/agents-products/why-agent-matters)，理解为什么自动执行任务会带来更高风险。
+3. 遇到陌生词时回到 [关键术语地图](/agents-products/key-terms)，再跳到 [Agent](/glossary/agent)、[LLM](/glossary/llm)、[RAG](/glossary/rag) 等 glossary 页面。
+4. 如果你在评估采购或上线，顺手读 [LLM 提示与工作流](/llm-prompting) 和 [基础设施与部署](/infrastructure)，因为真正的产品质量常卡在流程和运行约束上。
 
 <Cards>
-  <Card title="先分清四种对象" href="/agents-products/four-objects" description="分清 Agent、AI Agent、Copilot 和 AI Native Product。" />
-  <Card title="Agent 为什么单独放一类" href="/agents-products/why-agent-matters" description="理解 Agent 为什么不是普通聊天窗口，而是任务执行系统。" />
-  <Card title="这组词" href="/agents-products/key-terms" description="查看智能体、产品与公司相关术语卡片。" />
+  <Card title="先分清四种对象" href="/agents-products/four-objects" description="分清 Agent、AI Agent、Copilot 和 AI Native Product，不把产品名、模型名和公司名混用。" />
+  <Card title="Agent 为什么单独放一类" href="/agents-products/why-agent-matters" description="理解 Agent 为什么不是普通聊天窗口，而是带权限、工具和风险的任务执行系统。" />
+  <Card title="关键术语地图" href="/agents-products/key-terms" description="分清 Agent、工具调用、记忆、工作流、护栏、人工确认和产品边界。" />
 </Cards>
+
+## 参考入口
+
+- [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework)
+- [OpenAI: Function calling guide](https://platform.openai.com/docs/guides/function-calling)

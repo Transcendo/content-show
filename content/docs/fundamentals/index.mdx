@@ -1,16 +1,42 @@
 ---
 title: AI 基础概念
-description: 分清 AI、ANI、AGI、ASI、AIGC、生成式 AI 和 AI 思想路线。
+description: 从普通读者视角分清 AI、机器学习、深度学习、生成式 AI、AGI 与 AIGC 的边界，知道本章应该先读哪里。
 ---
 
-这一页解决最容易混在一起的问题：别人说“AI 很强”“AGI 要来了”“AIGC 改变生产力”时，具体是在说当前技术、未来目标、应用形态，还是商业叙事？
+# AI 基础概念：先把词放回正确层级
+
+这一章解决一个很实际的问题：当新闻、产品发布会或同事说“AI 很强”“AGI 要来了”“AIGC 能提升效率”时，他们到底在说当前可用的技术、未来目标、内容生成应用，还是商业叙事？不先分层，后面读模型、提示词、智能体都会越读越乱。
+
+## 这一章先回答什么
+
+| 读者任务 | 先看哪页 | 你会得到什么 |
+| --- | --- | --- |
+| 分清 AI、ANI、AGI、ASI、AIGC | [先把层级分开](/fundamentals/hierarchy) | 把总称、当前能力、未来目标和应用形态拆开。 |
+| 理解 AI 为什么有不同“派别” | [两条历史路线](/fundamentals/history-routes) | 看懂符号主义、联结主义，以及今天为什么常混合使用。 |
+| 快速查基础词 | [关键术语地图](/fundamentals/key-terms) | 把 AI、机器学习、深度学习、训练、推理、评估连成一张图。 |
+
+## 普通读者先记住三句话
+
+- **AI 是大伞，不是一种单一技术。** 搜索排序、图像识别、聊天机器人和文生图都能算 AI，但能力边界差很多。
+- **今天大多数系统还是窄域 AI。** 它们可能在特定任务上很强，却不等于具备跨场景、可自我定义目标的通用智能；读 [AGI](/glossary/agi) 和 [ASI](/glossary/asi) 时尤其要小心定义。
+- **生成式 AI 是应用形态，不是万能理解。** [Generative AI](/glossary/generative-ai) 能生成文本、图片、音频、视频或代码，但可靠使用仍需要任务边界、数据来源、评估和人工复核。
 
 ## 本章目录
-
-本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
 
 <Cards>
   <Card title="先把层级分开" href="/fundamentals/hierarchy" description="分清 AI、ANI、AGI、ASI、AIGC 分别处在什么层级。" />
   <Card title="两条历史路线" href="/fundamentals/history-routes" description="用符号主义和联结主义两条线看懂 AI 思想演进。" />
-  <Card title="这组词" href="/fundamentals/key-terms" description="查看 AI 基础概念相关术语卡片。" />
+  <Card title="关键术语地图" href="/fundamentals/key-terms" description="用 AI、机器学习、深度学习、训练、推理和评估搭一张基础地图。" />
 </Cards>
+
+## 最容易踩的坑
+
+1. **把“会生成”当成“会理解”。** 输出流畅不代表事实可靠，更不代表模型知道自己不知道什么。
+2. **把“模型”当成“产品”。** 一个可用 AI 产品通常还需要数据、检索、权限、界面、监控和人工流程。
+3. **把“未来讨论”当成“当前事实”。** AGI/ASI 是重要议题，但和今天可部署的窄域系统不是同一层问题。
+
+## 继续阅读
+
+- 想进入技术路线：读 [机器学习章节](/machine-learning) 和 [模型机制章节](/model-mechanisms)。
+- 想理解大模型怎么用：读 [提示词与工作流](/llm-prompting) 和 [智能体与产品](/agents-products)。
+- 想核对术语来源：参考 [OECD 对 AI system 的定义更新](https://oecd.ai/en/wonk/ai-system-definition-update) 与 [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)。

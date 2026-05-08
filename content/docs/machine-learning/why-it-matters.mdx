@@ -1,12 +1,49 @@
 ---
-title: 如果你只想知道这组词为什么重要
-description: 把机器学习术语落回真实 AI 工具的判断。
+title: 为什么机器学习基础重要
+description: 用机器学习的核心概念判断 AI 工具能不能离开演示、进入真实场景。
 ---
 
-因为它们决定你怎么看待一个 AI 工具：
+# 为什么机器学习基础重要
 
-- 它是真的学到规律，还是只是背过样本？
-- 它在 demo 里很强，换业务场景后还行不行？
-- 它的问题出在数据、反馈方式，还是泛化能力？
+机器学习基础不是给工程师背术语用的。它真正的价值，是帮普通读者判断一个 AI 工具到底靠什么工作、风险在哪里、什么时候不能信。
 
-说白了，机器学习这组词是在帮你建立一种判断力：**别只看模型会不会答题，要看它为什么会答对、什么时候会答错。**
+一个产品说“准确率 95%”“自动识别异常”“根据用户行为推荐内容”，你不需要马上追问它用了多炫的模型。更好的第一反应是：**它用什么数据训练？反馈信号是什么？验证方式像不像真实场景？上线后数据变化会不会让它失效？** 这些问题都来自机器学习基础。
+
+## 它帮你避开的三个坑
+
+| 场景 | 只看表面会怎么误判 | 用机器学习基础怎么追问 |
+| --- | --- | --- |
+| Demo 看起来很强 | 以为真实业务一定同样稳定 | Demo 数据和真实用户、真实噪声、边界案例是否一致？ |
+| 训练分数很高 | 以为模型已经“学会了” | 是不是只记住训练样本？验证集是否独立？有没有过拟合？ |
+| 模型换场景后变差 | 以为 AI 本身不可靠 | 数据分布是否变化？标签规则是否不同？是否需要重新评估或再训练？ |
+
+## 普通读者最该记住什么
+
+- [机器学习](/glossary/machine-learning) 的重点是从样本中学规律，不是把所有规则都写死。
+- [训练数据](/glossary/training-data) 决定模型能看到什么世界；数据偏了，模型也会偏。
+- [验证数据](/glossary/validation-data) 和测试设置决定评估有没有可信度；验收现场不能和练习题混在一起。
+- [泛化能力](/glossary/generalization-ability) 才是模型的真本事：离开旧样本后还能不能做出稳定判断。
+- [过拟合](/glossary/overfitting) 是很多 AI 翻车的根源：训练集漂亮，上线后露馅。
+
+## 看 AI 工具时可以直接问的 5 个问题
+
+1. 这个系统学的是分类、预测、生成、推荐，还是连续决策？
+2. 它的训练数据来自哪里，和我的使用场景像不像？
+3. 它有没有在未参与训练的数据上评估，而不是只展示训练结果？
+4. 它最容易在哪些人群、语言、地区、设备或边界案例里失效？
+5. 它上线后有没有监控数据漂移、错误反馈和重新评估机制？
+
+这些问题听起来不花哨，但比“用了 AI”“用了深度学习”“用了大模型”可靠得多。机器学习基础的作用，就是把讨论从玄学拉回证据。
+
+## 下一步读什么
+
+- 想建立完整路线：回到 [机器学习基础首页](/machine-learning)。
+- 想先搞清学习方式：读 [三种学习范式](/machine-learning/learning-paradigms)。
+- 想判断模型可靠性：读 [泛化能力](/machine-learning/generalization) 和 [过拟合](/machine-learning/overfitting)。
+- 想查术语：读 [机器学习关键术语地图](/machine-learning/key-terms)。
+
+## 参考入口
+
+- [Google Machine Learning Crash Course: Framing](https://developers.google.com/machine-learning/crash-course/framing/ml-framing)
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)

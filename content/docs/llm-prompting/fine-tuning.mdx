@@ -1,8 +1,50 @@
 ---
 title: Fine-Tuning 解决什么
-description: 理解微调适合稳定格式、风格和特定任务适配。
+description: 理解微调适合稳定格式、风格和特定任务适配，以及它和提示词、RAG、偏好优化的边界。
 ---
 
-Fine-Tuning 适合稳定格式、稳定风格、特定任务适配，尤其当同一类输入输出模式反复出现时有价值。
+Fine-Tuning（微调）是在已有模型基础上继续训练，让模型更稳定地完成某类任务、使用某种格式、遵守某种风格或适配某个领域。它适合“同一类输入输出反复出现，而且希望模型长期形成习惯”的场景。
 
-它不负责补实时知识。把新文档微调进模型，通常不如 RAG 可控、可更新、可引用。微调改变的是模型行为倾向和任务适配，不是给模型装一个可查询资料库。
+它不适合拿来补实时知识。把新文档“微调进模型”通常不如 [RAG](/llm-prompting/rag) 可控、可更新、可引用。微调改变的是模型行为倾向和任务适配，不是给模型装一个可检索的资料库。
+
+## 什么时候微调有价值
+
+| 场景 | 为什么可能适合微调 |
+| --- | --- |
+| 固定 JSON、表格、标签体系总是不稳 | 用高质量样本训练模型形成固定输出习惯。 |
+| 客服、法律、医疗等语气和术语要求稳定 | 让模型更一致地模仿经过审核的表达风格。 |
+| 文本分类、信息抽取、改写等任务大量重复 | 把重复任务模式从提示词迁移到模型行为里。 |
+| 已经有可评估的训练集和验证集 | 可以判断微调是否真的提升，而不是凭感觉上线。 |
+
+一个靠谱的微调项目，通常不是“找点数据训一下”这么潦草。它至少需要：清洗样本、定义成功标准、留出验证集、比较基线模型、上线后监控错误类型。
+
+## 不该优先微调的情况
+
+- **缺最新资料或私有文档。**先看 [RAG](/llm-prompting/rag) 和 [Embedding / Vector Database](/llm-prompting/embedding-vector-database)。
+- **提示词本身没说清任务。**先看 [Prompt Engineering](/llm-prompting/prompt-engineering)，把输入、输出格式、限制、示例写清楚。
+- **任务流程太复杂。**先拆工作流、加工具调用、加人工确认，不要指望微调把混乱流程变聪明。
+- **没有评估集。**没有可重复评估，微调结果很容易只是“看起来更顺眼”。这很危险，尤其是生产系统。
+
+## 和相近方案怎么分
+
+| 方案 | 改了什么 | 最适合解决 |
+| --- | --- | --- |
+| Prompt Engineering | 输入说明 | 单次任务表达、格式约束、示例引导 |
+| RAG | 上下文资料 | 最新知识、私有文档、可追溯引用 |
+| Fine-Tuning / SFT | 模型行为或适配参数 | 稳定任务模式、输出风格、领域表达 |
+| RLHF / DPO / PPO 等偏好优化 | 模型偏好排序 | 哪种回答更好、拒答边界、偏好对齐 |
+
+现实项目里，这些方法经常组合使用：RAG 给资料，提示词规定任务，微调稳定风格，偏好优化调整“什么算好答案”。别把它们硬凑成单选题；真正要避免的是用错误工具解决错误问题。
+
+## 阅读路径
+
+1. 不确定该选什么：先读[提示词、RAG、微调怎么选](/llm-prompting/how-to-choose)。
+2. 资料来源不可靠：转到[RAG 解决什么](/llm-prompting/rag)。
+3. 输出行为长期不稳：继续读[偏好优化](/llm-prompting/preference-optimization)。
+4. 想补词条定义：看[微调（Fine-Tuning）](/glossary/fine-tuning)和[关键术语地图](/llm-prompting/key-terms)。
+
+## 可信来源
+
+- [Hugging Face, PEFT documentation](https://huggingface.co/docs/peft/en/index)
+- [Hugging Face Transformers, Parameter-efficient fine-tuning](https://huggingface.co/docs/transformers/en/peft)
+- [OpenAI, Fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)

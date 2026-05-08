@@ -1,6 +1,61 @@
 ---
-title: 这组词
-description: 查看 AI 基础概念相关术语卡片。
+title: 关键术语地图
+description: 用一张 AI 基础术语地图分清 AI、机器学习、深度学习、神经网络、训练、推理、数据、模型和评估各自解决的问题。
 ---
 
+# 关键术语地图：AI 基础概念
+
+这一页不是术语背诵表，而是帮你把“AI 到底是什么”先放回正确层级。很多误解都来自把总称、技术路线、产品能力和未来设想混成一团：把一次聊天回答叫智能、把一个模型叫产品、把生成内容等同于理解世界。
+
+先记住一句话：**AI 是总称，机器学习是常见实现路线，深度学习是机器学习的重要分支，模型只是系统里的核心部件之一。**后面读 [先把层级分开](/fundamentals/hierarchy) 和 [两条历史路线](/fundamentals/history-routes) 时，用这张图做索引就够了。
+
+## 先把九个词摆正
+
+| 术语 | 先记住的意思 | 主要回答的问题 | 常见误区 |
+| --- | --- | --- | --- |
+| [AI](/glossary/ai) | 让机器完成识别、预测、生成、决策等智能相关任务的大范围说法。 | 这个系统是不是在做某种智能任务？ | 不等于“像人一样思考”，也不保证通用能力。 |
+| [Machine Learning](/glossary/machine-learning) | 让系统从数据中学习规律，而不是只靠手写规则。 | 规则太多写不完时，机器能不能从样本里学？ | 不是数据越多就一定越好。 |
+| [Deep Learning](/glossary/deep-learning) | 用多层神经网络学习复杂表示的机器学习路线。 | 图像、语音、文本里复杂模式怎么被学出来？ | 不等于透明、可解释或永远正确。 |
+| [Neural Network](/glossary/neural-network) | 由许多连接和权重组成的模型结构，用来把输入转换成输出。 | 模型内部如何逐层提取特征？ | 不是真的复制人脑，只是借用了“神经”比喻。 |
+| Training（训练） | 用数据和目标函数调整模型参数。 | 模型能力是怎么被“调”出来的？ | 训练完成后不等于永不出错。 |
+| [Inference](/glossary/inference) | 已训练模型在新输入上给出预测、回答或生成结果。 | 用户每次使用模型时发生了什么？ | 不等于重新训练，通常是在调用已有模型。 |
+| [Training Data](/glossary/training-data) / [Validation Data](/glossary/validation-data) | 训练数据用于学习，验证数据用于检查模型是否学偏。 | 模型从哪里学，怎么初步验收？ | 数据集不是现实世界本身，会有偏差和缺口。 |
+| Model（模型） | 学到的参数、结构和行为模式的组合。 | 系统核心能力储存在什么地方？ | 模型不等于完整产品，产品还需要检索、权限、界面和监控。 |
+| Evaluation（评估） | 用测试集、人工检查和真实任务指标判断模型表现。 | 这个 AI 能不能可靠地用于某个场景？ | 单一榜单分数不能代表所有使用场景。 |
+
+## 三层理解法
+
+### 1. 先看“范围层”：AI 不是一个单一技术
+
+[AI](/glossary/ai) 是最大的伞。搜索排序、垃圾邮件过滤、图片识别、语音转文字、推荐系统、聊天机器人和文生图都可以放在 AI 范围里，但它们的能力边界完全不同。
+
+所以听到“AI 会不会取代某某工作”时，别急着回答。先问：这里说的是哪类任务？是识别、预测、生成、检索、规划，还是自动执行流程？不同任务的风险、成本和可靠性差很大。
+
+### 2. 再看“学习层”：机器学习从数据里找规律
+
+[Machine Learning](/glossary/machine-learning) 的核心是从样本里学习规律。传统手写规则适合边界清楚的任务，比如“超过金额就提醒”；机器学习适合规则难以穷举的任务，比如识别图片、预测流失、判断文本意图。
+
+[Deep Learning](/glossary/deep-learning) 和 [Neural Network](/glossary/neural-network) 是其中很重要的一支。它们在图像、语音、语言和生成任务上很强，但代价是需要大量数据、算力和评估；结果也可能难解释、难复现、难保证稳定。
+
+### 3. 最后看“使用层”：训练、推理和评估不能混着说
+
+训练是“把能力做出来”，[inference](/glossary/inference) 是“把能力拿来用”。用户在网页里问一句、上传一张图、让模型生成一段文案，通常是在推理；只有继续用数据更新权重，才算进入训练或微调。
+
+评估则是使用前后的刹车。普通读者不用先学复杂指标，先看四件事：任务是否定义清楚、测试数据是否贴近真实场景、错误会造成多大损失、有没有人工复核和退出机制。
+
+## 一张快速阅读路径
+
+- 先分清层级：读 [先把层级分开](/fundamentals/hierarchy)，把 AI、ANI、AGI、ASI、AIGC 放到不同层。
+- 想知道思想来源：读 [两条历史路线](/fundamentals/history-routes)，理解符号主义和联结主义为什么都还重要。
+- 想进入学习路线：读 [Machine Learning](/glossary/machine-learning)、[Training Data](/glossary/training-data)、[Validation Data](/glossary/validation-data)。
+- 想理解大模型使用成本：读 [Inference](/glossary/inference)，区分训练成本和调用成本。
+- 想继续看本站卡片：下面会列出已归入 AI 基础概念的术语。
+
 <GlossaryCategoryTerms category="fundamentals" />
+
+## 参考入口
+
+- [OECD AI Principles: Artificial intelligence definition](https://oecd.ai/en/wonk/ai-system-definition-update)
+- [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework)
+- [Deep Learning Book](https://www.deeplearningbook.org/)
+- [Google Machine Learning Crash Course: Introduction to Machine Learning](https://developers.google.com/machine-learning/crash-course/ml-intro)

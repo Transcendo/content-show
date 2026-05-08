@@ -140,7 +140,7 @@ export const contents: Content[] = [
 		list: [
 			chapterPage("先把层级分开", "/fundamentals/hierarchy"),
 			chapterPage("两条历史路线", "/fundamentals/history-routes"),
-			chapterPage("这组词", "/fundamentals/key-terms"),
+			chapterPage("关键术语地图", "/fundamentals/key-terms"),
 		],
 	},
 	{
@@ -157,7 +157,7 @@ export const contents: Content[] = [
 			chapterPage("第五步：最后用过拟合判断模型为什么会翻车", "/machine-learning/overfitting"),
 			chapterPage("如果你只想知道这组词为什么重要", "/machine-learning/why-it-matters"),
 			chapterPage("继续往下读", "/machine-learning/reading-next"),
-			chapterPage("这组词", "/machine-learning/key-terms"),
+			chapterPage("关键术语地图", "/machine-learning/key-terms"),
 		],
 	},
 	{
@@ -175,7 +175,7 @@ export const contents: Content[] = [
 			chapterPage("普通人为什么值得懂这页", "/model-mechanisms/why-it-matters"),
 			chapterPage("最容易混淆的 4 组关系", "/model-mechanisms/common-confusions"),
 			chapterPage("继续往下读", "/model-mechanisms/reading-next"),
-			chapterPage("这组词", "/model-mechanisms/key-terms"),
+			chapterPage("关键术语地图", "/model-mechanisms/key-terms"),
 		],
 	},
 	{
@@ -193,7 +193,7 @@ export const contents: Content[] = [
 			chapterPage("提示词、RAG、微调怎么选", "/llm-prompting/how-to-choose"),
 			chapterPage("常见误解", "/llm-prompting/misconceptions"),
 			chapterPage("继续阅读顺序", "/llm-prompting/reading-next"),
-			chapterPage("这组词", "/llm-prompting/key-terms"),
+			chapterPage("关键术语地图", "/llm-prompting/key-terms"),
 		],
 	},
 	{
@@ -204,7 +204,7 @@ export const contents: Content[] = [
 		list: [
 			chapterPage("三个入口", "/generative-multimodal/three-entry-points"),
 			chapterPage("质量判断要回到任务", "/generative-multimodal/quality-judgment"),
-			chapterPage("这组词", "/generative-multimodal/key-terms"),
+			chapterPage("关键术语地图", "/generative-multimodal/key-terms"),
 		],
 	},
 	{
@@ -215,7 +215,7 @@ export const contents: Content[] = [
 		list: [
 			chapterPage("先分清四种对象", "/agents-products/four-objects"),
 			chapterPage("Agent 为什么单独放一类", "/agents-products/why-agent-matters"),
-			chapterPage("这组词", "/agents-products/key-terms"),
+			chapterPage("关键术语地图", "/agents-products/key-terms"),
 		],
 	},
 	{
@@ -226,7 +226,7 @@ export const contents: Content[] = [
 		list: [
 			chapterPage("这页先抓住四条线", "/frontier/four-lines"),
 			chapterPage("为什么普通人也要关心", "/frontier/why-it-matters"),
-			chapterPage("这组词", "/frontier/key-terms"),
+			chapterPage("关键术语地图", "/frontier/key-terms"),
 		],
 	},
 	{
@@ -237,7 +237,7 @@ export const contents: Content[] = [
 		list: [
 			chapterPage("三个层次", "/infrastructure/three-layers"),
 			chapterPage("为什么它会影响普通人", "/infrastructure/why-it-matters"),
-			chapterPage("这组词", "/infrastructure/key-terms"),
+			chapterPage("关键术语地图", "/infrastructure/key-terms"),
 		],
 	},
 	{

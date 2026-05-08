@@ -1,6 +1,71 @@
 ---
-title: 这组词
-description: 查看大模型与提示工程相关术语卡片。
+title: 关键术语地图
+description: 用一张大模型与提示工程术语地图分清 prompt、上下文、RAG、embedding、向量数据库、微调、偏好优化和幻觉。
 ---
 
+# 关键术语地图：大模型与提示工程
+
+大模型应用里最常见的误判，是把所有问题都叫“提示词没写好”。实际情况粗暴得多：有的问题是任务说明不清，有的是资料缺失，有的是检索系统召回错了，有的是模型能力不够，还有的是输出偏好或安全边界没有被训练好。
+
+这一页把 [大模型与提示工程](/llm-prompting) 章节里反复出现的词放到同一张地图里。读完后再去看 [四类问题判断表](/llm-prompting/problem-map)、[提示词、RAG、微调怎么选](/llm-prompting/how-to-choose) 和 [常见误解](/llm-prompting/misconceptions)，会更容易判断“该改提示词，还是该改系统”。
+
+## 先把核心词摆正
+
+| 术语 | 先记住的意思 | 主要回答的问题 | 常见误区 |
+| --- | --- | --- | --- |
+| [LLM](/glossary/llm) | 根据上下文生成文本、代码或结构化内容的大语言模型。 | 模型本体能做什么，不能做什么？ | LLM 不是搜索引擎；它会生成看似合理但未必有证据的内容。 |
+| [Token](/glossary/token) | 模型处理文本时使用的切分单位。 | 为什么上下文有长度限制，为什么长输入会变贵？ | token 不等于自然语言里的一个词，也不等于一个汉字。 |
+| [Prompt Engineering](/glossary/prompt-engineering) | 把任务、资料、约束和输出格式讲清楚的工程化方法。 | 怎样让模型更稳定地完成已具备能力的任务？ | 不是咒语库；不能靠漂亮措辞补上缺失事实或模型能力。 |
+| 上下文（context） | 本次调用里模型能看到的提示、资料、历史、工具结果和限制。 | 模型回答时到底参考了哪些信息？ | 上下文窗口变长不等于所有信息都会被正确使用。 |
+| [RAG](/glossary/rag) | 先检索外部资料，再让模型基于资料生成回答。 | 缺最新资料、私有资料或可核查证据时怎么办？ | RAG 不是“把文档塞进去”；召回、切片、引用和验证都要做。 |
+| [Embedding](/glossary/embedding) | 把文本、图片或对象转成向量表示，用来计算相似性。 | 系统怎样按语义而不是关键词找资料？ | 相似不等于正确；embedding 只能帮助召回，不能替代事实判断。 |
+| [Vector Database](/glossary/vector-database) | 存储和检索大量向量的数据库或检索系统。 | 文档库、知识库、客服库怎样被语义检索？ | 有向量库不等于有知识库；垃圾切片会检索出垃圾答案。 |
+| [Fine-Tuning](/glossary/fine-tuning) | 在已有模型基础上继续训练，让行为更适合特定任务或风格。 | 什么时候需要改变模型行为，而不只是给资料？ | 微调不适合当“知识注入万能药”，也不能保证事实最新。 |
+| 偏好优化（SFT / RLHF / DPO / PPO） | 用示例、反馈或偏好数据塑形模型的回答风格、边界和选择。 | 模型会答，但答得不符合人类偏好时怎么办？ | 偏好优化不是事实校验；它更像行为训练和约束。 |
+| [幻觉](/glossary/hallucination) | 模型生成了缺少证据、错误或编造的内容。 | 为什么模型会一本正经地胡说？ | 幻觉不能只靠“别瞎编”四个字解决，需要证据、检索和验证。 |
+
+## 按四层理解这些词
+
+### 1. 任务表达层：prompt 是规格，不是魔法
+
+提示词工程的价值，是把目标、输入、约束、输出格式和示例说清楚。它适合修复“任务不清”的问题：比如回答结构不稳定、输出格式乱、没有遵守限制、没有按角色处理资料。
+
+如果模型本来就会做这类任务，好的 prompt 能明显降低随机游走；如果模型缺资料、缺工具或能力不够，再多“你是世界顶级专家”也只是给问题涂粉底。先读 [Prompt Engineering 解决什么](/llm-prompting/prompt-engineering)，再回到 [四类问题判断表](/llm-prompting/problem-map) 做诊断。
+
+### 2. 资料接入层：RAG 解决“模型看不到”的问题
+
+RAG 的核心是把可信资料带进上下文。一个靠谱 RAG 系统至少要关心资料来源、文档切片、embedding、召回、重排、引用和答案验证。任何一环粗糙，最后都会表现成“模型又胡说了”。
+
+普通读者判断 RAG 项目时，可以直接问四句：资料库是否可信？检索出来的片段是否真的相关？答案里的引用能不能回到原文？找不到资料时系统会不会明确说不知道？这些问题比“用了哪家向量数据库”更值钱。
+
+### 3. 表示与检索层：embedding 和向量数据库不是知识本身
+
+Embedding 让内容变成可比较的向量，向量数据库让系统可以从大量向量里快速找相似项。它们支撑语义搜索、问答资料召回、推荐和去重，但它们本身不判断答案真伪。
+
+这层最常见的坑是把“相似”误当“正确”。用户问“退款政策例外”，系统召回了一段“退款政策总则”，看起来相关，实际可能漏掉关键限制。严肃应用会继续做重排、引用、冲突检测和人工复核，而不是把第一个相似片段直接喂给模型。
+
+### 4. 行为塑形层：微调和偏好优化更重，也更难回滚
+
+Fine-tuning 适合稳定特定格式、行业语气、分类规则或工具调用风格；偏好优化则更关注模型在多个可选回答里偏向哪一种，比如更有帮助、更安全、更符合产品边界。
+
+它们比 prompt 和 RAG 更接近“改模型行为”，所以成本和风险也更高。先问清楚：问题是不是靠说明和资料就能解决？有没有足够高质量训练/偏好数据？改完后用什么评估证明没有把别的能力搞坏？如果这些都答不上来，贸然微调就是拿扳手敲玻璃。
+
+## 一张阅读路径
+
+- 第一次进入本章：先读 [四类问题判断表](/llm-prompting/problem-map)，学会把问题分成任务不清、资料不足、能力不足、偏好不对。
+- 想写得更稳：读 [Prompt Engineering 解决什么](/llm-prompting/prompt-engineering) 和 [提示词、RAG、微调怎么选](/llm-prompting/how-to-choose)。
+- 想做知识库问答：读 [RAG 解决什么](/llm-prompting/rag)，再接 [Embedding 和 Vector Database 解决什么](/llm-prompting/embedding-vector-database)。
+- 想改变模型稳定风格：读 [Fine-Tuning 解决什么](/llm-prompting/fine-tuning) 与 [SFT / RLHF / DPO / PPO 先怎么理解](/llm-prompting/preference-optimization)。
+- 想排雷：读 [常见误解](/llm-prompting/misconceptions)，尤其是“RAG 能消灭幻觉”“微调能注入知识”这类坑。
+- 想继续看本站卡片：下面列出已归入大模型与提示工程的术语。
+
 <GlossaryCategoryTerms category="llm-prompting" />
+
+## 参考入口
+
+- [OpenAI API: Prompt engineering](https://developers.openai.com/api/docs/guides/prompt-engineering)
+- [Anthropic Docs: Prompt engineering overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
+- [OpenAI API: Vector embeddings](https://developers.openai.com/api/docs/guides/embeddings)
+- [Ouyang et al., Training language models to follow instructions with human feedback](https://arxiv.org/abs/2203.02155)
+- [Rafailov et al., Direct Preference Optimization](https://arxiv.org/abs/2305.18290)

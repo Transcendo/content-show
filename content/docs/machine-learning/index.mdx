@@ -1,27 +1,57 @@
 ---
 title: 机器学习基础
-description: 按从“机器怎么学”到“模型为什么会翻车”的顺序，理解机器学习这组核心概念。
+description: 从数据、学习方式、泛化和过拟合四条线，建立普通读者判断机器学习系统是否靠谱的阅读地图。
 ---
 
-机器学习的核心不是“机器突然懂了世界”，而是模型从数据里学习规律，再把这些规律用于新输入。
+# 机器学习基础
 
-如果你想真正看懂 AI，这一组词最好别散着记，而要按一条学习路线来理解：**先知道机器学习是什么，再分清深度学习和三种学习方式，最后回到泛化和过拟合，判断模型到底靠不靠谱。**
+机器学习不是“机器自己产生智慧”，而是一组让模型从数据中学习规律、再把规律用于新输入的方法。它是现代 AI 的主干，但不是魔法：数据质量、反馈方式、评估方法和真实场景差异，都会决定模型到底能不能用。
 
-> [!info]
-> **这页的作用不是堆术语，而是告诉你机器学习该从哪里开始、按什么顺序往下读。**
+这一章适合用来回答三个朴素问题：**模型从哪里学？它学到的是规律还是题库？它离开 demo 后还靠不靠谱？** 如果你只记算法名，很容易被发布会和排行榜带着跑；如果你先建立这张地图，再去看大模型、推荐系统、图像识别或自动驾驶，会清醒很多。
+
+## 这一章解决什么
+
+| 读者任务 | 先读哪页 | 你会获得的判断力 |
+| --- | --- | --- |
+| 分清机器学习和传统规则系统 | [机器学习这个总框](/machine-learning/machine-learning-frame) | 判断一个系统到底是在执行手写规则，还是从样本中学模式。 |
+| 理解深度学习为什么重要 | [深度学习为什么成为主线](/machine-learning/deep-learning-mainline) | 看懂神经网络、算力和数据为什么改变了 AI 的能力边界。 |
+| 区分不同学习方式 | [三种学习范式](/machine-learning/learning-paradigms) | 知道监督学习、无监督学习、强化学习各自适合什么任务。 |
+| 判断模型能否上线 | [泛化能力](/machine-learning/generalization) 与 [过拟合](/machine-learning/overfitting) | 不只看训练分数，而是看它在新数据、新用户、新场景里的稳定性。 |
+| 快速查术语 | [关键术语地图](/machine-learning/key-terms) | 把训练数据、验证集、正则化等概念放回同一张逻辑图。 |
+
+## 建议阅读路径
+
+第一次读时，别从“哪个算法最强”开始。更稳的顺序是：
+
+1. 先读 [阅读顺序](/machine-learning/reading-order)，知道这组页面为什么按这个方向排。
+2. 再读 [机器学习这个总框](/machine-learning/machine-learning-frame)，把“从数据学规律”这件事立住。
+3. 接着读 [学习范式](/machine-learning/learning-paradigms)，分清标签、结构和奖励三种反馈。
+4. 然后读 [泛化](/machine-learning/generalization) 和 [过拟合](/machine-learning/overfitting)，这是判断模型可靠性的核心。
+5. 最后用 [为什么重要](/machine-learning/why-it-matters) 和 [关键术语地图](/machine-learning/key-terms) 做复盘。
+
+## 常见误区
+
+- **误区一：模型分数高就代表真实好用。** 分数只说明它在某个测试设置里表现好，未必覆盖真实用户、边界案例和未来数据分布。
+- **误区二：数据越多一定越好。** 数据量很重要，但代表性、标签质量、偏差和隐私合规同样关键。
+- **误区三：深度学习等于全部机器学习。** 深度学习是现代 AI 的主线之一，但线性模型、树模型、聚类、强化学习和评估方法仍然是基础。
+- **误区四：过拟合只是工程师的问题。** 普通用户也会被过拟合坑到：demo 很强、换场景就崩，本质上就是没有可靠泛化。
 
 ## 本章目录
 
-本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
-
 <Cards>
   <Card title="建议按这 5 步读" href="/machine-learning/reading-order" description="用 5 步路线建立机器学习基础地图。" />
-  <Card title="第一步：先分清“机器学习”这个总框" href="/machine-learning/machine-learning-frame" description="先把机器学习看成从数据中学习规律的总框。" />
-  <Card title="第二步：再理解为什么深度学习会成为主线" href="/machine-learning/deep-learning-mainline" description="理解深度学习为什么成为现代 AI 的主线。" />
-  <Card title="第三步：用三种学习方式理解“模型是怎么学的”" href="/machine-learning/learning-paradigms" description="区分监督学习、无监督学习和强化学习三种学习方式。" />
-  <Card title="第四步：别急着看训练分数，先看它能不能泛化" href="/machine-learning/generalization" description="理解训练表现和真实世界泛化之间的差别。" />
-  <Card title="第五步：最后用过拟合判断模型为什么会翻车" href="/machine-learning/overfitting" description="用过拟合、欠拟合和正则化判断模型为什么翻车。" />
-  <Card title="如果你只想知道这组词为什么重要" href="/machine-learning/why-it-matters" description="把机器学习术语落回真实 AI 工具的判断。" />
-  <Card title="继续往下读" href="/machine-learning/reading-next" description="按学习路径继续补齐机器学习相关词条。" />
-  <Card title="这组词" href="/machine-learning/key-terms" description="查看机器学习基础相关术语卡片。" />
+  <Card title="第一步：机器学习这个总框" href="/machine-learning/machine-learning-frame" description="先把机器学习看成从数据中学习规律的方法集合。" />
+  <Card title="第二步：深度学习为什么成为主线" href="/machine-learning/deep-learning-mainline" description="理解神经网络、数据和算力怎样推动现代 AI。" />
+  <Card title="第三步：三种学习方式" href="/machine-learning/learning-paradigms" description="区分监督学习、无监督学习和强化学习。" />
+  <Card title="第四步：先看能不能泛化" href="/machine-learning/generalization" description="理解训练表现和真实世界表现之间的差别。" />
+  <Card title="第五步：用过拟合判断翻车原因" href="/machine-learning/overfitting" description="用过拟合、欠拟合和正则化诊断模型风险。" />
+  <Card title="为什么这组词重要" href="/machine-learning/why-it-matters" description="把机器学习术语落回真实 AI 工具判断。" />
+  <Card title="关键术语地图" href="/machine-learning/key-terms" description="查监督学习、训练数据、验证集、泛化、正则化等核心词。" />
+  <Card title="继续往下读" href="/machine-learning/reading-next" description="把机器学习基础接到模型机制、提示词和 AI 产品判断。" />
 </Cards>
+
+## 参考入口
+
+- [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
+- [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/)
+- [Deep Learning Book](https://www.deeplearningbook.org/)

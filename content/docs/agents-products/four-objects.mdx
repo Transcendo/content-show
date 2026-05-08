@@ -1,11 +1,46 @@
 ---
 title: 先分清四种对象
-description: 分清 Agent、AI Agent、Copilot 和 AI Native Product。
+description: 分清产品体验、模型能力、公司机构和工具框架，避免把 Agent、Copilot、GPT、OpenAI、TensorFlow 混成一团。
 ---
 
-| 对象 | 例子 | 先怎么理解 |
-| --- | --- | --- |
-| 产品体验 | ChatGPT、Chatbot | 用户直接使用的入口。 |
-| 模型或能力 | GPT-4、Agents | 产品背后调用的能力或系统形态。 |
-| 公司机构 | OpenAI、DeepMind | 提供研究、模型或产品的组织。 |
-| 工具框架 | TensorFlow | 开发者构建模型时使用的工程工具。 |
+# 先分清四种对象：名字像一类，责任完全不同
+
+讨论 AI 产品时，最常见的混乱不是技术细节，而是把不同层级的东西放在同一个句子里比较：ChatGPT、GPT-4、OpenAI、TensorFlow、Agent、Copilot。它们当然有关联，但不是同一种对象。
+
+如果不先拆层，后面判断“这个东西能不能替我完成任务”“出了错谁负责”“数据会不会泄露”都会变糊。普通读者先记住一句话：**产品是你使用的入口，模型是被调用的能力，公司是提供者，框架是开发者用来搭东西的工具。**
+
+## 四种对象怎么分
+
+| 对象 | 例子 | 先怎么理解 | 判断时该问什么 |
+| --- | --- | --- | --- |
+| 产品体验 | ChatGPT、Claude、Copilot、客服机器人 | 用户直接打开、点击、对话或集成到工作流里的入口。 | 它能做哪些任务？失败时怎么提示？数据会被怎样处理？ |
+| 模型或系统能力 | GPT-4、Claude 模型、Embedding、Agent 架构 | 产品背后调用的语言、视觉、检索、规划或工具调用能力。 | 它擅长生成、分类、检索、推理还是执行？边界在哪里？ |
+| 公司机构 | OpenAI、Anthropic、Google DeepMind | 研发、运营、销售、合规和服务承诺的组织。 | 谁提供服务？谁处理数据？谁承担商业与安全责任？ |
+| 工具框架 | TensorFlow、PyTorch、LangChain、向量数据库 | 开发者训练模型、部署系统或编排工作流的工程工具。 | 它是底层工具，不等于最终产品质量。团队会不会用才关键。 |
+
+## 为什么这件事重要
+
+- **不要用公司名替代产品能力。** “某公司很强”不等于你手上的具体功能可靠。
+- **不要用模型名替代产品体验。** 同一个模型接在不同资料源、权限系统和审核流程上，结果可能差很多。
+- **不要用 demo 替代验收。** Agent 演示通常展示顺利路径；真正该看的是工具失败、权限不足、信息缺失和需要人工确认时怎么处理。
+- **不要把框架当魔法。** 用了 LangChain、RAG、向量数据库，并不自动代表答案可信。数据质量、检索设计和评估流程更关键。
+
+## 一个简单判断流程
+
+1. 先问：我面对的是一个 **产品入口**，还是在讨论底层 **模型能力**？
+2. 再问：它有没有调用外部工具、读写文件、操作账号、发请求？如果有，就进入 [Agent 为什么单独放一类](/agents-products/why-agent-matters) 的风险判断。
+3. 如果它声称“基于你的资料回答”，继续读 [RAG](/llm-prompting/rag) 和 [Embedding 与向量数据库](/llm-prompting/embedding-vector-database)。
+4. 如果你是在评估上线或采购，把问题带到 [基础设施与部署](/infrastructure)：成本、延迟、权限、日志、回退机制都要算。
+
+## 和本站其他页面怎么接
+
+- 想理解 Agent 边界：读 [Agent 为什么单独放一类](/agents-products/why-agent-matters)。
+- 想补术语：看 [关键术语地图](/agents-products/key-terms) 和 [Agent](/glossary/agent)。
+- 想分清模型内部：转到 [模型机制](/model-mechanisms)。
+- 想知道 AI 产品为什么上线困难：转到 [基础设施与部署](/infrastructure)。
+
+## 参考入口
+
+- [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+- [OpenAI: Function calling guide](https://platform.openai.com/docs/guides/function-calling)
+- [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework)

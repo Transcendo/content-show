@@ -1,13 +1,48 @@
 ---
 title: 继续往下读
-description: 按训练链路继续补齐模型机制词条。
+description: 按目标选择模型机制之后的阅读路径：补机器学习基础、进入提示工程，或继续理解训练和部署边界。
 ---
 
-如果你想按这条链路继续往下补，推荐顺序是：
+# 继续往下读：别把模型机制学成孤立术语
 
-1. [神经网络（Neural Network）](/glossary/neural-network)
-2. [Transformer](/glossary/transformer)
-3. [推理（Inference）](/glossary/inference)：把“模型已经训练好”之后的调用、延迟和成本边界讲清楚。
-4. [机器学习基础](/machine-learning)
-5. [大模型与提示工程](/llm-prompting)
-6. [AI 学习路线](/learn/learning-path)
+读完这一章，你不需要马上跳进论文和公式。更好的做法是按自己的问题继续补：你是在判断一个 AI 产品是否可靠，还是想理解大模型为什么会幻觉，或者要跟工程团队讨论微调、检索和推理成本？不同目标该走不同路线。
+
+## 按目标选择下一站
+
+| 你的目标 | 推荐下一步 | 为什么 |
+| --- | --- | --- |
+| 想补齐基础概念 | [机器学习基础](/machine-learning) → [监督/无监督/强化学习](/machine-learning/learning-paradigms) | 先知道模型从数据中学习的几种基本方式。 |
+| 想判断模型为什么会错 | [泛化能力](/machine-learning/generalization) → [过拟合](/machine-learning/overfitting) | 很多错误不是“模型笨”，而是数据、分布和评估边界出了问题。 |
+| 想理解大模型使用方法 | [大模型与提示工程](/llm-prompting) → [提示工程](/llm-prompting/prompt-engineering) | 提示词是在推理阶段给任务说明，不是重新训练模型。 |
+| 想处理企业知识问答 | [RAG](/llm-prompting/rag) → [Embedding 与向量数据库](/llm-prompting/embedding-vector-database) | 把“模型参数里的记忆”和“外部资料检索”分开。 |
+| 想看上线成本和约束 | [AI 基础设施](/infrastructure) → [训练、推理与部署三层](/infrastructure/three-layers) | 推理延迟、吞吐、成本和可观测性会决定产品能不能稳定运行。 |
+
+## 如果你只想读 5 个核心词
+
+1. [神经网络（Neural Network）](/glossary/neural-network)：理解“模型结构”这个大类。
+2. [Transformer](/glossary/transformer)：理解现代大模型最常见的架构主线。
+3. [Token](/glossary/token)：理解模型看到的文本单位，不要把它等同于自然语言里的“词”。
+4. [Embedding](/glossary/embedding)：理解文本、图片或对象怎样变成可计算表示。
+5. [Inference](/glossary/inference)：理解每次调用模型时发生的是“使用模型”，通常不是训练模型。
+
+## 阅读时别踩这几个坑
+
+- **不要把机制解释当成可靠性证明。** 知道 Transformer 和注意力是什么，不代表某个模型在医疗、法律或金融场景就可用。
+- **不要用“参数更多”替代评估。** 参数规模会影响能力上限，但数据质量、训练目标、对齐和部署策略同样关键。
+- **不要把 RAG、微调、提示工程混成一件事。** [提示工程](/llm-prompting/prompt-engineering) 改输入，[RAG](/llm-prompting/rag) 接外部资料，[Fine-tuning](/glossary/fine-tuning) 才会继续改模型或适配器参数。
+
+## 一个实用阅读顺序
+
+如果没有明确目标，就按这条路线走：
+
+1. [模型与训练机制](/model-mechanisms) — 建立链路图。
+2. [机器学习基础](/machine-learning) — 理解数据、训练和泛化。
+3. [大模型与提示工程](/llm-prompting) — 学会在使用阶段描述任务和边界。
+4. [基础设施](/infrastructure) — 看懂为什么延迟、成本、部署和监控会限制产品。
+5. [AI 学习路线](/learn/learning-path) — 回到全站路线，补缺口而不是乱刷词条。
+
+## 参考入口
+
+- [Deep Learning Book](https://www.deeplearningbook.org/)
+- [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
+- [OpenAI fine-tuning guide](https://platform.openai.com/docs/guides/fine-tuning)

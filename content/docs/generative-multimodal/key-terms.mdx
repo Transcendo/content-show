@@ -1,6 +1,60 @@
 ---
-title: 这组词
-description: 查看生成式与多模态相关术语卡片。
+title: 关键术语地图
+description: 用一张生成式与多模态术语地图分清 CV、CNN、CLIP、扩散模型、GAN、NeRF、多模态和跨模态泛化各自解决什么问题。
 ---
 
+# 关键术语地图：生成式与多模态
+
+这一页不是把术语堆给你背。生成式与多模态最容易乱，是因为同一个产品里会同时出现“看图”“画图”“改图”“读视频”“根据图片回答问题”。先把词按任务放好，后面读 [三个入口](/generative-multimodal/three-entry-points) 和 [质量判断要回到任务](/generative-multimodal/quality-judgment) 才不会迷路。
+
+最简单的分法：**CV 负责看懂，生成模型负责产出，多模态负责把文字、图像、语音、视频放到同一个任务里协作。**
+
+## 八个核心词怎么放
+
+| 术语 | 先记住的意思 | 主要回答的问题 | 别误会成 |
+| --- | --- | --- | --- |
+| CV（Computer Vision） | 计算机视觉，让机器识别和理解图片、视频里的内容。 | 画面里有什么、在哪里、发生了什么？ | 不等于文生图；它更偏“看懂”。 |
+| CNN（卷积神经网络） | 曾经非常关键的视觉模型结构，擅长从局部图像模式里提取特征。 | 模型如何从边缘、纹理、形状里逐步理解图像？ | 不是所有现代视觉系统的唯一底座。 |
+| CLIP | 把文字和图像对齐到相近语义空间的模型路线。 | “一张狗图”和“a photo of a dog”为什么能对应起来？ | 它本身不是主要用来画图的模型。 |
+| [Diffusion Models](/glossary/diffusion-models) | 从噪声开始逐步去噪生成内容。 | 图像、视频为什么能一步步“显影”出来？ | 不是简单滤镜，也不保证版权、文字和细节都正确。 |
+| GAN | 让生成器和判别器互相博弈的生成模型路线。 | 模型怎样通过“造”和“挑错”提升逼真度？ | 不是今天所有生成式 AI 的通用解释。 |
+| NeRF | 从多视角图像学习三维场景表示，再渲染新视角。 | 机器如何重建一个可换视角观察的 3D 场景？ | 不等于普通 2D 文生图。 |
+| Multimodal（多模态） | 同一系统能处理或连接文字、图像、语音、视频等不同信息类型。 | 模型能不能把不同输入放进同一个任务里理解？ | 不等于界面上多了上传图片按钮。 |
+| Cross-modal generalization（跨模态泛化） | 从一种模态学到的表示或关系，能迁移到另一种模态或新任务。 | 看图学到的东西，能不能帮助问答、检索、生成或决策？ | 不是“什么模态都天然会”。 |
+
+## 读的时候按这三层走
+
+### 1. 先看“理解层”
+
+CV、CNN、CLIP 主要帮你理解机器怎样处理视觉输入。普通读者不用先钻数学，先问三个问题就够：它能识别什么？它能定位什么？它能不能解释依据？
+
+如果任务是图片审核、商品识别、截图问答、视频总结，重点不是画得漂不漂亮，而是有没有看准关键区域、有没有漏掉小字和遮挡、答案能不能复核。
+
+### 2. 再看“生成层”
+
+[Generative AI](/glossary/generative-ai)、[Diffusion Models](/glossary/diffusion-models)、GAN 和 NeRF 都和“产出新内容”有关，但产出的对象不同：有的偏 2D 图片，有的偏视频，有的偏 3D 场景。
+
+判断这层能力时，别只看最佳 demo。更现实的检查是：同一个人物能不能保持一致，品牌文字会不会糊，局部修改会不会牵连整张图，生成结果有没有授权和审核边界。
+
+### 3. 最后看“协作层”
+
+Multimodal 和 cross-modal generalization 关心的是不同信息类型如何互相帮忙。比如上传一张故障截图让模型定位错误、用一张商品图生成标题、用视频片段总结动作，再让文字指令继续修改画面。
+
+这层最容易被营销词污染。真正该问的是：模型是否能联合理解信息、说清不确定性、给出可复核依据，而不是只会把“多模态”写进产品介绍。
+
+## 一张选读路径
+
+- 想快速建立地图：读 [三个入口](/generative-multimodal/three-entry-points)。
+- 想知道结果能不能交付：读 [质量判断要回到任务](/generative-multimodal/quality-judgment)。
+- 想补生成式 AI 总框：读 [Generative AI](/glossary/generative-ai)。
+- 想理解现代文生图主线：读 [Diffusion Models](/glossary/diffusion-models)。
+- 想继续看本站卡片：下面的分类卡会列出已发布的生成式与多模态相关术语。
+
 <GlossaryCategoryTerms category="generative-multimodal" />
+
+## 参考入口
+
+- [Learning Transferable Visual Models From Natural Language Supervision（CLIP）](https://arxiv.org/abs/2103.00020)
+- [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)
+- [Generative Adversarial Nets](https://papers.nips.cc/paper_files/paper/2014/hash/f033ed80deb0234979a61f95710dbe25-Abstract.html)
+- [NeRF: Representing Scenes as Neural Radiance Fields](https://www.matthewtancik.com/nerf)

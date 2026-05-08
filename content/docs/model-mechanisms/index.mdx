@@ -1,28 +1,55 @@
 ---
 title: 模型与训练机制
-description: 把神经网络、Transformer、注意力、参数、损失和推理放进一条普通人能看懂的训练链路。
+description: 用普通读者能跟上的方式，把 token、embedding、Transformer、注意力、参数、损失、训练和推理连成一条工作链。
 ---
 
-很多人第一次接触这组词，会觉得它们像一堆互相不搭的黑话：神经网络、Transformer、注意力、参数、损失、梯度下降、推理……
+# 模型与训练机制：先看懂 AI 是怎样“算出答案”的
 
-其实它们最好按一条工作链来理解：**模型先把输入变成内部表示，再根据误差调整参数，最后把训练好的能力拿去处理新问题。**
+这一章不要求你先会微积分，也不会假装几段文字能替代机器学习教材。它要解决的是更现实的问题：当别人说“模型更大”“注意力更强”“微调一下”“推理成本太高”时，你能判断他们到底在说哪一层，而不是被术语牵着走。
 
-> [!info]
-> **这页真正要解决的问题只有一个：模型到底是怎么从“看输入”走到“给输出”的？**
+最短主线是：**输入先被切成 token 并变成 embedding；模型结构负责处理这些表示；注意力帮助模型抓关系；训练用损失和梯度调整参数；推理则是在不改参数的情况下使用模型。** 这条链路比背单个名词更重要。
+
+## 这一章回答什么
+
+| 读者问题 | 先读哪页 | 你会得到什么 |
+| --- | --- | --- |
+| 模型从输入到输出中间发生了什么？ | [先抓住整条链路](/model-mechanisms/whole-chain) | 把结构、损失、梯度、参数、推理串起来。 |
+| 神经网络、Transformer、参数是不是一回事？ | [模型结构](/model-mechanisms/model-structure) | 分清“结构”“权重”“能力描述”的层级。 |
+| 注意力为什么总被提到？ | [注意力机制](/model-mechanisms/attention) | 看懂它如何在上下文里分配信息权重。 |
+| 模型怎样从错误里学习？ | [从错误中学习](/model-mechanisms/learning-from-errors) | 理解损失、梯度下降和参数更新的角色。 |
+| 训练、微调、推理有什么边界？ | [训练和推理不是一回事](/model-mechanisms/training-vs-inference) | 避免把“调用模型”误认为“重新训练模型”。 |
+
+## 建议阅读路线
+
+1. 先读 [先抓住整条链路](/model-mechanisms/whole-chain)，不要一开始钻公式。
+2. 再读 [模型结构](/model-mechanisms/model-structure) 和 [注意力机制](/model-mechanisms/attention)，理解现代大模型为什么离不开表示和关系处理。
+3. 接着读 [从错误中学习](/model-mechanisms/learning-from-errors)，把“训练”从玄学拉回损失、梯度和参数更新。
+4. 最后读 [训练和推理不是一回事](/model-mechanisms/training-vs-inference) 与 [关键术语地图](/model-mechanisms/key-terms)，把术语放回产品成本、延迟和可靠性判断。
+
+## 常见误区先拆掉
+
+- **参数不是知识库。** 参数是大量数值，不是一份可以逐条翻阅的事实清单；事实错误、过期知识和幻觉仍然可能发生。
+- **注意力不是人类理解。** 它是可训练的加权计算机制，不等于模型真的拥有人的意图、经验或常识。
+- **训练不是推理。** 训练会改模型参数，推理主要是使用已有参数；两者的成本、风险和调试方法完全不同。
+- **模型机制不能替代评估。** 链路解释能帮你定位问题，但可靠性仍要靠任务测试、错误样本和上线监控判断。
 
 ## 本章目录
-
-本章下面每一节都有独立页面；先用 Overview 建立地图，再按需要进入单节内容。
 
 <Cards>
   <Card title="先抓住整条链路" href="/model-mechanisms/whole-chain" description="先抓住输入、输出、损失、梯度、参数更新的完整链路。" />
   <Card title="建议按这 4 步读" href="/model-mechanisms/reading-order" description="用 4 步路线理解模型结构、注意力、训练和推理。" />
-  <Card title="第一步：先把“模型结构”看明白" href="/model-mechanisms/model-structure" description="分清神经网络、Transformer 和模型结构的关系。" />
-  <Card title="第二步：再理解注意力为什么这么关键" href="/model-mechanisms/attention" description="理解注意力机制为什么是现代大模型的核心组件。" />
-  <Card title="第三步：模型是怎么从“答错”里学习的" href="/model-mechanisms/learning-from-errors" description="看懂模型如何通过损失、梯度下降和参数更新学习。" />
-  <Card title="第四步：训练和推理不是一回事" href="/model-mechanisms/training-vs-inference" description="区分训练模型和使用模型这两个不同阶段。" />
-  <Card title="普通人为什么值得懂这页" href="/model-mechanisms/why-it-matters" description="把训练机制术语落回普通人判断 AI 的场景。" />
-  <Card title="最容易混淆的 4 组关系" href="/model-mechanisms/common-confusions" description="拆开参数、数据、训练、推理中最容易混淆的关系。" />
-  <Card title="继续往下读" href="/model-mechanisms/reading-next" description="按训练链路继续补齐模型机制词条。" />
-  <Card title="这组词" href="/model-mechanisms/key-terms" description="查看模型与训练机制相关术语卡片。" />
+  <Card title="第一步：模型结构" href="/model-mechanisms/model-structure" description="分清神经网络、Transformer 和模型结构的关系。" />
+  <Card title="第二步：注意力机制" href="/model-mechanisms/attention" description="理解注意力为什么是现代大模型的核心组件。" />
+  <Card title="第三步：从错误中学习" href="/model-mechanisms/learning-from-errors" description="看懂模型如何通过损失、梯度下降和参数更新学习。" />
+  <Card title="第四步：训练 vs 推理" href="/model-mechanisms/training-vs-inference" description="区分训练模型和使用模型这两个阶段。" />
+  <Card title="为什么值得懂" href="/model-mechanisms/why-it-matters" description="把训练机制术语落回普通人判断 AI 的场景。" />
+  <Card title="常见混淆" href="/model-mechanisms/common-confusions" description="拆开参数、数据、训练、推理中最容易混淆的关系。" />
+  <Card title="继续往下读" href="/model-mechanisms/reading-next" description="按目标选择后续模型机制、机器学习和提示工程页面。" />
+  <Card title="关键术语地图" href="/model-mechanisms/key-terms" description="分清 token、embedding、Transformer、注意力、参数、推理、微调和对齐。" />
 </Cards>
+
+## 参考入口
+
+- [Vaswani et al., Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+- [Deep Learning Book](https://www.deeplearningbook.org/)
+- [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)

@@ -1,6 +1,69 @@
 ---
-title: 这组词
-description: 查看算力与基础设施相关术语卡片。
+title: 关键术语地图
+description: 用一张基础设施术语地图理解算力、推理、部署、向量数据库、可观测性、延迟成本和数据管道。
 ---
 
+# 关键术语地图：算力与基础设施
+
+AI 基础设施不是“机房里的事”，它会直接决定一个 AI 产品能不能快、稳、便宜、可控。普通读者不必先学 Kubernetes 或 CUDA，但需要知道：模型能力只是上半场，真正上线还要面对**算力预算、推理链路、数据流、监控和失败处理**。
+
+这页配合 [算力与基础设施](/infrastructure) 使用。先读 [三个层次](/infrastructure/three-layers) 建立计算资源、模型底座、部署效率的地图，再用这里的词去判断一个 AI 产品为什么贵、为什么慢、为什么限量，或者为什么不能随便接进业务系统。
+
+## 先把核心词摆正
+
+| 术语 | 先记住的意思 | 主要回答的问题 | 常见误区 |
+| --- | --- | --- | --- |
+| Compute（算力） | 训练和运行模型所需的计算资源，通常和 GPU/TPU、显存、吞吐、能耗一起出现。 | 这个能力要花多少机器、时间和电？ | 把“模型聪明”当成免费能力；越强的模型通常越需要成本管理。 |
+| GPU / TPU / AI Accelerator | 为大规模矩阵计算、并行计算或特定 AI 工作负载优化的硬件。 | 为什么 AI 服务常和芯片、集群、云厂商绑定？ | 以为换更强硬件就自动解决一切；瓶颈也可能在内存、网络、调度或数据。 |
+| [Foundation Model](/glossary/foundation-model) | 可被多种任务复用的大模型底座。 | 产品是在调用通用底座，还是训练了专门模型？ | 把基础模型当成完整产品；真实体验还取决于检索、工具、权限和界面。 |
+| [MoE](/glossary/moe) | 专家混合模型，每次只激活部分专家模块以改善规模和计算成本的关系。 | 大模型怎样在参数变多时避免每次全量计算？ | 看到“总参数大”就以为每次推理都更强、更贵或更便宜；关键是激活参数和工程效率。 |
+| [Inference](/glossary/inference) | 使用已训练模型处理输入并生成输出的运行阶段。 | 用户点一次发送，后台到底发生了什么？ | 把推理误解成“模型又学习了一次”；多数请求不会改模型参数。 |
+| Deployment（部署） | 把模型、提示词、检索、工具、权限、监控和回退机制接成可用服务。 | 实验室 demo 怎么变成真实产品？ | 只看模型分数；上线还要考虑并发、日志、安全、合规和灾备。 |
+| [Vector Database](/glossary/vector-database) | 存储和检索向量表示的系统，常用于 RAG 和相似内容搜索。 | 系统怎样从大量资料里找相关内容？ | 以为有向量库就等于有真相来源；入库资料质量和检索策略同样关键。 |
+| Observability（可观测性） | 用日志、指标、追踪、告警和人工审计看清系统运行状态。 | 出错、变慢、成本暴涨时能不能定位原因？ | 把 AI 当黑盒就不监控；越不可预测的系统越需要记录和回放。 |
+| Latency / Throughput（延迟 / 吞吐） | 延迟是单次响应等多久，吞吐是单位时间能处理多少请求。 | 用户为什么排队、卡住或被限流？ | 只优化平均速度；长尾延迟会毁掉真实体验。 |
+| Cost Control（成本控制） | 通过模型选择、缓存、批处理、量化、限额和路由降低服务成本。 | 为什么同一个功能有免费版、限量版和付费版？ | 只靠“换小模型”省钱；错误输出、人工复核和失败重试也会产生成本。 |
+| Data Pipeline（数据管道） | 收集、清洗、标注、更新、索引和治理数据的流程。 | 模型和检索系统吃进去的数据从哪里来、如何更新？ | 只关注训练数据量；脏数据、过期数据和权限错误会在上线后放大。 |
+
+## 用这组词看懂一个 AI 产品
+
+### 1. 它为什么会慢？
+
+慢不一定是“模型不行”。一次请求可能经过身份校验、上下文拼接、检索、工具调用、模型推理、内容审核和日志写入。任何一环排队或重试，用户看到的都是转圈。
+
+判断慢的原因时，先分清 [Inference](/glossary/inference) 本身、外部工具、网络和产品策略。比如一个回答如果要查资料、调用代码解释器、再做安全检查，它自然比单纯续写一句话更慢。
+
+### 2. 它为什么会贵？
+
+AI 成本不是只有“模型调用费”。硬件折旧、云资源、工程维护、数据授权、向量库、监控、人工复核、滥用防护都会进账单。越是高可靠、高隐私、高并发的场景，成本越不可能靠一句“以后会降价”抹掉。
+
+所以看到产品限额、排队、分层定价时，不要只理解成商业套路。它背后常常是算力、显存、吞吐和风险控制的综合结果。当然，乱收费也存在；区别在于它能不能解释限制来自哪里。
+
+### 3. 它为什么不能直接接进业务？
+
+把模型接进真实业务，风险会从“答错一句话”升级成“改错数据、发错消息、下错单、泄露信息”。部署阶段必须设置权限边界、审计日志、回滚策略和人工确认点。
+
+这也是 [智能体、产品与公司](/agents-products) 章节要和基础设施一起读的原因。Agent 能调用工具时，基础设施不只是承载请求，还要承载责任链：谁授权、谁监控、谁能中止、谁承担后果。
+
+### 4. 它的数据从哪里更新？
+
+很多 AI 产品不是只靠模型脑内知识，而是用 RAG、搜索、数据库或企业文档补充上下文。[Vector Database](/glossary/vector-database) 能帮助系统找到相似资料，但不能保证资料真实、最新或允许使用。
+
+对普通读者最实用的问题是：资料是否标来源？是否有更新时间？是否能删除错误数据？是否区分公开资料、内部资料和个人资料？如果这些答不清，系统越聪明，越可能把错误包装得更像真的。
+
+## 一张阅读路径
+
+- 第一次读基础设施：先读 [三个层次](/infrastructure/three-layers)，把算力、模型底座和部署效率分开。
+- 想理解价格和体验：读 [为什么它会影响普通人](/infrastructure/why-it-matters)，再回来看延迟、吞吐和成本控制。
+- 想补模型运行概念：读 [Inference](/glossary/inference)、[Foundation Model](/glossary/foundation-model) 和 [MoE](/glossary/moe)。
+- 想理解 RAG 和企业知识库：读 [Vector Database](/glossary/vector-database)，再接到 [LLM 提示与工作流](/llm-prompting)。
+- 想判断产品能不能托管任务：接着读 [智能体、产品与公司](/agents-products) 和 [关键术语地图](/agents-products/key-terms)。
+
 <GlossaryCategoryTerms category="infrastructure" />
+
+## 参考入口
+
+- [Hugging Face, Text Generation Inference documentation](https://huggingface.co/docs/text-generation-inference/en/index)
+- [NVIDIA Triton Inference Server documentation](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html)
+- [Google Cloud, MLOps: Continuous delivery and automation pipelines in machine learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+- [NIST AI Risk Management Framework 1.0](https://www.nist.gov/itl/ai-risk-management-framework)

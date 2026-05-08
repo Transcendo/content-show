@@ -1,15 +1,41 @@
 ---
 title: 知识图谱
-description: 用页面链接关系查看 AI知路 的 AI 知识结构。
+description: 用页面链接关系查看 AI知路 的 AI 知识结构，并发现下一步该读或该补的主题。
 full: true
 ---
 
-# 知识图谱
+# 知识图谱：看见整站概念之间的路
 
-这张图来自站内 MDX 页面之间的链接关系。它更接近 Obsidian 的页面图谱，用来发现哪些概念已经连上，哪些主题还缺少桥梁。
+这张图来自站内 MDX 页面之间的链接关系。它不是“AI 概念宇宙全图”，而是 **AI知路 当前已经写出来、并且互相链接起来的内容地图**。节点是页面，线是页面之间的内链；一簇节点越密，说明这些主题在站内解释得越互相支撑。
 
-<Callout title="如何看这张图" type="info">
-节点是页面，线是页面之间的链接。首页的概念图谱更适合入门，这里更适合检查整站内容结构。
+<Callout title="先别把图当权威答案" type="info">
+知识图谱适合发现阅读路径和内容缺口，不适合直接判断某个概念的重要性。一个页面在图里靠边，可能是因为主题独立，也可能只是内链还没补好。
 </Callout>
 
+## 怎么读这张图
+
+| 你看到的现象 | 可能代表什么 | 下一步怎么做 |
+| --- | --- | --- |
+| 某个节点连着很多线 | 它是常被引用的基础概念或章节入口。 | 从该页进入，例如 [AI 基础](/fundamentals)、[机器学习](/machine-learning) 或 [LLM 提示与工作流](/llm-prompting)。 |
+| 一组节点聚在一起 | 它们属于同一主题块，适合连续阅读。 | 顺着章节页的阅读路径走，不要只点孤立名词。 |
+| 两个主题之间几乎没有线 | 站内可能还缺桥梁页，或者这两个主题关系本来较弱。 | 回到 [学习路径](/learn) 找更稳的顺序。 |
+| 某个页面孤立 | 可能是新页、资源页，或内容还没有补齐内链。 | 看页面 description 和周边章节，再决定是否继续读。 |
+
+## 三种实用用法
+
+1. **找入门路线。** 如果你刚开始，不要从最花哨的节点点起。先读 [学习路径](/learn)，再按图谱看它连到哪些基础页。
+2. **检查概念混淆。** 例如把模型、产品、公司、框架混在一起时，可以跳到 [智能体、产品与公司](/agents-products)；如果是把训练、推理、泛化混在一起，先读 [机器学习](/machine-learning)。
+3. **发现内容债。** 这张图也给维护者用：孤立页面、弱连接章节、缺少回链的 glossary 页面，都是后续修复内链和补内容的线索。
+
+## 阅读建议
+
+- 想按普通读者路线走：从 [学习路径](/learn) 开始。
+- 想查词：去 [术语表](/glossary)，再从术语页跳回相关章节。
+- 想看主题结构：从 [AI 基础](/fundamentals)、[模型机制](/model-mechanisms)、[生成式与多模态](/generative-multimodal)、[基础设施](/infrastructure) 这些章节入口进入。
+
 <GraphView />
+
+## 参考入口
+
+- [Wikipedia: Knowledge graph](https://en.wikipedia.org/wiki/Knowledge_graph)
+- [Google Research: Introducing the Knowledge Graph](https://blog.google/products/search/introducing-knowledge-graph-things-not/)
