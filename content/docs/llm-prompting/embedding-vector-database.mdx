@@ -6,3 +6,5 @@ description: 理解向量和向量数据库如何支持语义检索。
 [Embedding](/glossary/embedding) 把文本、图片或其他对象变成向量，让系统能按语义相似度检索。[Vector Database](/glossary/vector-database) 用来存储、索引和查询这些向量。
 
 它们服务语义检索，不是万能知识库。向量库只知道“哪些片段相似”，不保证片段真实、最新、完整，也不保证模型会正确使用检索结果。
+
+一个更稳的阅读顺序是：先看 [Embedding](/glossary/embedding) 明白“语义怎么变成数字”，再看 [Vector Database](/glossary/vector-database) 明白“这些数字怎么被检索”，最后回到 [RAG](/glossary/rag) 判断“检索结果如何进入模型回答”。
