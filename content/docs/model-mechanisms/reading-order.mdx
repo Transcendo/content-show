@@ -1,11 +1,61 @@
 ---
 title: 建议按这 4 步读
-description: 用 4 步路线理解模型结构、注意力、训练和推理。
+description: 用一条路线读懂模型结构、注意力、训练、推理和产品成本。
 ---
 
-| 步骤 | 先看什么 | 你要搞清楚的问题 |
-| --- | --- | --- |
-| 1 | [神经网络（Neural Network）](/glossary/neural-network) | 模型为什么不是规则库，而是一套可训练的函数结构？ |
-| 2 | [Transformer](/glossary/transformer) + Attention | 为什么现代语言模型更擅长处理长上下文关系？ |
-| 3 | Parameters、Loss Function、Gradient Descent | 模型到底怎么把“答错了”变成“下次更接近正确”？ |
-| 4 | Inference | 为什么训练很贵，但日常使用看到的是另一套成本问题？ |
+这章不要按术语字母表读。按“一个模型怎么从训练到回答”的顺序读，会少绕很多路。
+
+## 第 1 步：先看整条链路
+
+读：[先抓住整条链路](/model-mechanisms/whole-chain)
+
+先建立一个粗模型：文本进入模型，经过 token、embedding、Transformer、参数计算，最后生成输出。你不用记住每个公式，但要知道这些词在同一条链路上，不是互相独立的名词。
+
+读完要能回答：
+
+- 输入文本进入模型后大概发生了什么？
+- 参数、结构、训练数据各自扮演什么角色？
+- 为什么“模型会说话”不等于“模型有事实库”？
+
+## 第 2 步：再看模型结构
+
+读：[模型结构](/model-mechanisms/model-structure)、[神经网络](/glossary/neural-network)、[Transformer](/glossary/transformer)
+
+这里要分清大类和具体路线：神经网络是大类，Transformer 是今天大模型常用的架构，LLM 是建立在这些技术上的成品模型。
+
+读完要能避免这类混乱：
+
+- 把 Transformer 当成所有 AI；
+- 把参数当成可编辑知识库；
+- 把模型架构当成完整产品系统。
+
+## 第 3 步：理解注意力机制
+
+读：[注意力为什么关键](/model-mechanisms/attention)
+
+注意力不是“模型像人一样专注”，而是计算当前位置应该参考哪些上下文位置。它解释了为什么 Transformer 擅长处理文本、代码和长上下文关系。
+
+读完要能回答：
+
+- Attention 解决的是什么计算问题？
+- 为什么它和 Transformer 经常一起出现？
+- 为什么有注意力机制不等于模型真的理解世界？
+
+## 第 4 步：区分训练和推理
+
+读：[训练和推理不是一回事](/model-mechanisms/training-vs-inference)、[模型怎么从答错里学习](/model-mechanisms/learning-from-errors)
+
+训练会改参数，推理通常不改参数。这个区别会影响你判断一个 AI 系统该怎么修。
+
+读完要能判断：
+
+- 什么时候该更新知识库，而不是重新训练；
+- 什么时候该改提示词，而不是换模型；
+- 为什么上线后的主要压力常常是延迟、并发和 token 成本。
+
+## 最后再读两页补边界
+
+- [为什么要懂模型和训练机制](/model-mechanisms/why-it-matters)：把术语落回产品判断。
+- [最容易混淆的 4 组关系](/model-mechanisms/common-confusions)：专门拆容易混在一起的概念。
+
+如果你只想快速建立判断力，读完这 6 页就够了。公式和论文可以以后再补。

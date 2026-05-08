@@ -1,18 +1,52 @@
 ---
-title: 继续往下读
-description: 按学习路径继续补齐机器学习相关词条。
+title: 继续阅读顺序
+description: 按机器学习、深度学习、学习方式、训练数据、泛化和过拟合的顺序补齐基础地图。
 ---
 
-如果你按这条路线往前走，推荐顺序是：
+机器学习这一章不要按术语热度读。先从“机器学习是什么”开始，再看深度学习为什么成为主线，最后再看泛化和过拟合这些判断模型质量的概念。
 
-1. [机器学习（Machine Learning）](/glossary/machine-learning)
-2. [深度学习（Deep Learning）](/glossary/deep-learning)
-3. [监督学习（Supervised Learning）](/glossary/supervised-learning)
-4. [无监督学习（Unsupervised Learning）](/glossary/unsupervised-learning)
-5. [强化学习（Reinforcement Learning）](/glossary/reinforcement-learning)
-6. [训练数据（Training Data）](/glossary/training-data)
-7. [验证集（Validation Data）](/glossary/validation-data)
-8. [泛化能力（Generalization ability）](/glossary/generalization-ability)
-9. [过拟合（Overfitting）](/glossary/overfitting)
-10. [欠拟合（Underfitting）](/glossary/underfitting)
-11. [正则化（Regularization）](/glossary/regularization)
+## 1. 先看总框
+
+读：[机器学习（Machine Learning）](/glossary/machine-learning)、[先分清机器学习这个总框](/machine-learning/machine-learning-frame)
+
+你要先分清：机器学习不是所有 AI，也不是某一个算法。它是一类从数据中学习规律的方法。
+
+读完要能回答：
+
+- 它和手写规则有什么区别？
+- 它为什么依赖数据？
+- 它为什么会受训练样本影响？
+
+## 2. 再看深度学习
+
+读：[深度学习（Deep Learning）](/glossary/deep-learning)、[为什么深度学习成为主线](/machine-learning/deep-learning-mainline)
+
+深度学习是机器学习里最强势的一条路线，尤其适合图像、语音、文本和多模态这类复杂数据。
+
+读完要能分清：
+
+- 机器学习是总类；
+- 深度学习是其中一条路线；
+- 大模型是深度学习规模化后的重要形态之一。
+
+## 3. 再看三种学习方式
+
+读：[监督学习](/glossary/supervised-learning)、[无监督学习](/glossary/unsupervised-learning)、[强化学习](/glossary/reinforcement-learning)、[三种学习方式怎么区分](/machine-learning/learning-paradigms)
+
+这里的重点不是背定义，而是看反馈来源：有标准答案、没有标准答案，还是根据奖励调整策略。
+
+## 4. 再看数据和泛化
+
+读：[训练数据](/glossary/training-data)、[验证集](/glossary/validation-data)、[泛化能力](/glossary/generalization-ability)、[别只看训练分数](/machine-learning/generalization)
+
+这一步决定你会不会被漂亮 demo 骗。模型在训练集上好看，不代表在真实场景里可靠。
+
+## 5. 最后看过拟合、欠拟合和正则化
+
+读：[过拟合](/glossary/overfitting)、[欠拟合](/glossary/underfitting)、[正则化](/glossary/regularization)
+
+这组词解释了为什么模型会“学太死”或“学不会”，以及工程上怎样让模型更稳。
+
+## 学完这一章你该得到什么
+
+你不需要记住所有算法名。你应该能判断：一个 AI 系统的问题，可能出在数据、标签、模型容量、训练方式、验证方式，还是上线后的真实分布变化。

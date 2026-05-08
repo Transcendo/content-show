@@ -1,12 +1,69 @@
 ---
 title: 继续阅读顺序
-description: 按应用链路继续补齐大模型与提示工程词条。
+description: 从提示词到 RAG、微调、偏好优化和 Agent 工作流的阅读路线。
 ---
 
-1. [Token](/glossary/token)：先理解模型处理文本的基本单位。
-2. [LLM](/glossary/llm)：理解大语言模型是什么。
-3. [Prompt Engineering](/glossary/prompt-engineering)：学习如何把任务说清楚。
-4. [Embedding](/glossary/embedding)：理解语义表示。
-5. [Vector Database](/glossary/vector-database)：理解大量向量如何被存储、索引和检索。
-6. [RAG](/glossary/rag)：理解检索增强生成。
-7. [Fine-Tuning](/glossary/fine-tuning)：理解什么时候需要行为适配。
+如果你只想把 LLM 应用的判断框架搭起来，按下面顺序读。不要从最热的词开始读，先从问题类型开始。
+
+## 1. 先判断问题类型
+
+读：[四类问题判断表](/llm-prompting/problem-map)
+
+这页先帮你分清：问题到底是任务没说清、资料没给够、模型能力不够，还是行为偏好不对。后面所有技术选择都应该从这里出发。
+
+如果这一层没分清，后面很容易乱：明明缺资料，却去微调；明明任务太复杂，却继续堆提示词；明明需要工具，却要求模型“认真算”。
+
+## 2. 再读提示词工程
+
+读：[Prompt Engineering 解决什么](/llm-prompting/prompt-engineering)
+
+提示词工程是最低成本的第一步。它适合定义任务、输入、输出格式、限制和示例。
+
+读完你应该能写出这样的提示词：
+
+- 明确任务目标；
+- 标出输入材料；
+- 给出输出 schema；
+- 写清不能编造；
+- 说明信息不足时怎么处理。
+
+## 3. 然后读 RAG 和向量库
+
+读：[RAG 解决什么](/llm-prompting/rag)、[Embedding 和 Vector Database 解决什么](/llm-prompting/embedding-vector-database)
+
+当答案依赖公司文档、最新政策、产品说明、合同原文时，就进入资料系统问题。RAG 不是“给模型多塞点文本”，而是文档治理、检索、引用和权限控制。
+
+读完你应该能判断：
+
+- 哪些知识应该放进外部资料库；
+- 为什么向量库不是事实库；
+- 为什么引用回原文很重要。
+
+## 4. 再读微调和偏好优化
+
+读：[Fine-Tuning 解决什么](/llm-prompting/fine-tuning)、[SFT / RLHF / DPO / PPO 先怎么理解](/llm-prompting/preference-optimization)
+
+微调和偏好优化适合处理稳定任务和长期行为，不适合承载频繁变化的业务知识。
+
+读完你应该能分清：
+
+- 微调更像训练习惯；
+- RAG 更像查资料；
+- 偏好优化更像调整行为边界；
+- 没有评估集就别急着训练。
+
+## 5. 最后看怎么选
+
+读：[提示词、RAG、微调怎么选](/llm-prompting/how-to-choose)、[常见误解](/llm-prompting/misconceptions)
+
+这两页用来收束：遇到具体问题时先定位层级，再选工具。
+
+## 读完后你应该形成的判断
+
+- 输出格式乱，先改提示词；
+- 缺资料，先做 RAG；
+- 需要计算或行动，接工具；
+- 任务太长，拆工作流；
+- 行为长期不稳定，再考虑微调或偏好优化。
+
+这比背术语有用得多。

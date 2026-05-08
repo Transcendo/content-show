@@ -1,12 +1,46 @@
 ---
 title: 建议按这 5 步读
-description: 用 5 步路线建立机器学习基础地图。
+description: 用五步路线建立机器学习基础地图：总框、深度学习、学习方式、泛化、过拟合。
 ---
 
-| 步骤 | 先看什么 | 你要搞清楚的问题 |
-| --- | --- | --- |
-| 1 | [机器学习（Machine Learning）](/glossary/machine-learning) | 它为什么不是手写规则，而是从数据里学规律？ |
-| 2 | [深度学习（Deep Learning）](/glossary/deep-learning) | 它为什么是机器学习里最重要的一条路线，但又不是全部？ |
-| 3 | [监督学习（Supervised Learning）](/glossary/supervised-learning)、[无监督学习（Unsupervised Learning）](/glossary/unsupervised-learning)、[强化学习（Reinforcement Learning）](/glossary/reinforcement-learning) | 模型到底是在看答案、自己找结构，还是靠奖励学策略？ |
-| 4 | [训练数据（Training Data）](/glossary/training-data)、[验证集（Validation Data）](/glossary/validation-data)、[泛化能力（Generalization ability）](/glossary/generalization-ability) | 模型学到的是规律，还是只记住了样本？ |
-| 5 | [过拟合（Overfitting）](/glossary/overfitting)、[欠拟合（Underfitting）](/glossary/underfitting)、[正则化（Regularization）](/glossary/regularization) | 为什么训练分数好看，真实效果却可能很差？ |
+机器学习基础最容易读散。算法名很多，文章也多，但普通读者先抓五个问题就够了。
+
+## 1. 机器学习为什么不是手写规则
+
+先读：[机器学习（Machine Learning）](/glossary/machine-learning)、[先分清机器学习这个总框](/machine-learning/machine-learning-frame)
+
+这一层要搞清：机器学习系统靠样本学习规律，而不是靠人把所有规则写死。它的强项是处理复杂模式，弱点是依赖数据质量和评估方式。
+
+## 2. 深度学习为什么成为主线
+
+再读：[深度学习（Deep Learning）](/glossary/deep-learning)、[为什么深度学习成为主线](/machine-learning/deep-learning-mainline)
+
+深度学习用多层神经网络从数据里学表示。图像、语音、文本、大模型和多模态模型，都和这条路线关系很深。
+
+## 3. 模型从哪里拿反馈
+
+再读：[监督学习](/glossary/supervised-learning)、[无监督学习](/glossary/unsupervised-learning)、[强化学习](/glossary/reinforcement-learning)、[三种学习方式怎么区分](/machine-learning/learning-paradigms)
+
+监督学习看标准答案，无监督学习找数据结构，强化学习根据奖励调整策略。不同反馈来源，会带来不同翻车方式。
+
+## 4. 模型学到的是规律还是样本
+
+再读：[训练数据](/glossary/training-data)、[验证集](/glossary/validation-data)、[泛化能力](/glossary/generalization-ability)、[别只看训练分数](/machine-learning/generalization)
+
+这一层决定模型有没有真实价值。训练集分数高不够，关键是离开训练样本以后还能不能稳定工作。
+
+## 5. 为什么模型会学歪
+
+最后读：[过拟合](/glossary/overfitting)、[欠拟合](/glossary/underfitting)、[正则化](/glossary/regularization)
+
+过拟合是模型把训练样本记得太死，欠拟合是模型连训练规律都没学好。正则化是一类让模型别学歪、别太复杂的方法。
+
+## 读完后的判断力
+
+读完这 5 步，你应该能看懂这些问题：
+
+- 为什么数据质量比算法名更重要；
+- 为什么验证集不能随便污染；
+- 为什么 demo 高分不等于真实可用；
+- 为什么模型越大也可能越会一本正经地错；
+- 为什么机器学习项目经常败在数据和评估，而不是败在“没用最新算法”。
